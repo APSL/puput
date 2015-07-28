@@ -1,0 +1,24 @@
+{% extends "puput/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags puput_tags %}
+
+
+{% block content %}
+    <article class="box page-content" data-blog-page-comments-url="{% url 'entry_page_update_comments' self.id %}">
+        {% include 'puput/entry_page_header.html' with entry=self %}
+        <section>
+            <span class="image featured">
+                {% image self.header_image width-600 %}
+            </span>
+        </section>
+        <section>
+            {{ self.body|richtext}}
+        </section>
+        {% comments %}
+    </article>
+{% endblock content %}
+
+{% block extra_content %}
+    {% if self.has_related %}
+        {% include 'puput/related_entries.html' with entry=self %}
+    {% endif %}
+{% endblock extra_content %}

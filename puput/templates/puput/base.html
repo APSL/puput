@@ -1,0 +1,96 @@
+{% load static i18n wagtailcore_tags wagtailroutablepage_tags endless compress puput_tags %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{{ blog_page.title }}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,100italic,100,400italic,500,500italic,700,900,700italic,900italic' rel='stylesheet' type='text/css'>
+    {% compress css %}
+        <link href="{% static 'puput/css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'puput/css/style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'puput/css/main.css' %}"/>
+    {% endcompress %}
+</head>
+<body>
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">
+                <a href="{% pageurl blog_page %}">{{ blog_page.title }}</a>
+            </h1>
+            <h2>{{ blog_page.description }}</h2>
+        </section>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}{% endblock content %}
+            {% block extra_content %}{% endblock extra_content %}
+        </div>
+
+        <div class="col-md-4">
+            <div class="blog_sidebar">
+                <div class="rss-sitemap">
+                    <a href="{% url 'blog_page_feed' blog_page.slug %}" target="_blank" title="Rss">
+                        <i class="fa fa-rss-square"></i> <span>Feed RSS</span>
+                    </a>
+                </div>
+                <form name="search_form" class="search_form" method="get" action="{% routablepageurl blog_page "entries_search" %}">
+                    <div class="input-group">
+                         <input type="search" name="q" placeholder="{% trans 'Search' %}">
+                         <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                         </span>
+                    </div>
+                </form>
+
+                <ul class="sidebar">
+                    <h4>{% trans 'Last Entries' %}</h4>
+                    {% recent_entries %}
+                </ul>
+                <ul class="sidebar">
+                    <h4>{% trans 'Popular Entries' %}</h4>
+                    {% popular_entries %}
+                </ul>
+                <ul class="sidebar">
+                    <h4>{% trans 'Categories' %}</h4>
+                    {% categories_list %}
+                </ul>
+                <ul class="sidebar">
+                    <h4>{% trans 'Tags' %}</h4>
+                    {% tags_list %}
+                </ul>
+                <ul class="sidebar">
+                    <h4>{% trans 'Archive' %}</h4>
+                    {% archives_list %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+
+    <div class="footer_bottom">
+        <div class="copy">
+            <p>
+                Powered by <a href="http://www.djangoproject.com" rel="nofollow">Django</a>,
+                <a href="http://www.wagtail.io" rel="nofollow">Wagtail</a> and
+                <a href="http://github.com/APSL/puput" rel="nofollow">Puput</a> |
+                Design by <a href="http://www.templategarden.com" rel="nofollow">TemplateGarden</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% compress js %}
+    <script src="{% static 'puput/js/jquery.min.js' %}"></script>
+    <script src="{% static 'puput/js/responsive-nav.js' %}"></script>
+    {% block extra_js %}{% endblock extra_js %}
+{% endcompress js %}
+</body>
+</html>

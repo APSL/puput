@@ -1,0 +1,296 @@
+body, h1, h2, h3, h4, h5, h6, p, span {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+h3 {
+    font-size: 20px;
+}
+p{
+    font-weight: 300;
+    color: #666;
+}
+
+a:hover{
+    color: #43b1b0;
+}
+
+.title-section {
+    background: #43b1b0;
+}
+.title-section h1 {
+    font-weight: 400;
+}
+
+.title-section h2{
+    color: #ededed;
+}
+
+.title-header a{
+    color: #FFF;
+}
+.title-header a:hover{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.title-header a:focus{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.blog_btn {
+    border-radius: 0;
+    font-weight: 300;
+}
+
+.pagination {
+    display: block;
+    text-align: center;
+    margin: 55px 0;
+}
+
+.pagination .endless_page_link {
+    border: 1px solid #EEE;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    padding: 10px;
+    margin-left: 0;
+}
+
+
+.pagination .endless_page_current {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #EEE;
+    background-color: #f6f6f6;
+    color: #999;
+}
+
+.pagination .endless_page_current ~ a{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    padding: 10px;
+}
+
+
+h2.post_title {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+h2.post_title a:hover{
+    color: #43b1b0;
+}
+
+ul.links {
+    margin: 0px 0 25px 0;
+    border-bottom: 0;
+    border-top: 1px dotted #43b1b0;
+}
+
+ul.links li{
+    font-size: 12px;
+    margin-right: 13px;
+    font-weight: 300;
+    color: #666;
+}
+
+ul.links li a{
+    color: #666;
+    font-weight: 300;
+}
+
+ul.links li ul {
+    display: inline;
+    padding: 0;
+}
+
+span img {
+    width: 100% !important;
+    margin-bottom: 15px;
+}
+
+ul.sidebar{
+    border-top: 2px solid #43b1b0;
+    background-color: #ededed;
+    padding: 20px;
+
+}
+
+ul.sidebar h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 20px;
+}
+ul.sidebar li{
+    margin: 0 1px 10px 0;
+}
+
+ul.sidebar li a{
+    font-size: 14px;
+    font-weight: 300;
+    color: #666;
+}
+
+ul.sidebar li.tag{
+    display: inline-block;
+    background-color: #43b1b0;
+    padding: 3px 10px;
+}
+
+ul.sidebar li.tag a{
+    color: #fff;
+    font-size: 12px;
+}
+
+.blog_sidebar ul > ul {
+    padding: 0;
+}
+
+.blog_sidebar form{
+    margin-bottom: 30px;
+}
+
+.blog_sidebar form input[type="search"]{
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    padding: 5px 10px;
+}
+
+.blog_sidebar .input-group-btn .btn.btn-default{
+    border-color: #43b1b0;
+    background-color: #43b1b0;
+}
+
+.blog_sidebar .input-group-btn .btn.btn-default i{
+    color: #fff;
+}
+
+.blog_sidebar .rss-sitemap{
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.blog_sidebar .rss-sitemap a{
+    text-decoration: none;
+}
+
+.blog_sidebar .rss-sitemap span{
+    font-size: 12px;
+    color: #999;
+}
+
+.post-summary ul {
+    padding: 0;
+}
+
+.post-summary ul li {
+    margin-bottom: 0;
+}
+
+.relatedPosts {
+    margin: 50px 0 100px 0;
+}
+
+/*Right side*/
+.lateralPosts {
+    margin-bottom: 20px;
+}
+
+.lateralPosts h4 {
+    font-weight: 300;
+    margin: 0;
+}
+
+.lateralPosts .boxCircle {
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.lateralPosts li {
+    font-size: 0.7em;
+    display: inline-block;
+    color: #43b1b0;
+}
+
+.searchTerm{
+    margin: 10px 0 30px 0;
+    padding: 20px;
+    background-color: #ededed;
+    color: #666;
+}
+
+.blog_grid{
+    position: relative;
+    border-bottom: 0;
+}
+
+.rich-text{
+    margin-bottom: 13%;
+    margin-top: 10px;
+}
+
+.rich-text h3{
+    margin-bottom: 10px;
+}
+
+.blog_btn.continue{
+    position: absolute;
+    bottom: 7%;
+    right: 0;
+    background-color: transparent;
+    color: #43b1b0;
+    padding: 10px 0;
+}
+
+.blog_btn.continue:hover{
+    text-decoration: none;
+}
+
+.blog_btn.continue:focus{
+    text-decoration: none;
+}
+
+/*related_posts*/
+.relatedPosts img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.itemPosts{
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px dotted #43b1b0;
+}
+
+.itemPosts h3{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.itemPosts p {
+    font-size: 15px;
+}
+
+
+.footer_bottom{
+    background-color: #358c8b;
+}
+
+@media (max-width: 992px){
+    .blog_sidebar{
+        padding: 0;
+    }
+}

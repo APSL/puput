@@ -1,0 +1,25 @@
+{% load i18n wagtailimages_tags %}
+
+<div class="row relatedPosts">
+    <section class="box features">
+        <h2 class="post_title">
+            <span>{% trans 'Related Posts' %}</span>
+        </h2>
+        <div class="itemPosts">
+            <div class="row">
+                {% for related_entry in entry.related|slice:':4' %}
+                    <div class="col-md-3">
+                        <section class="box feature">
+                            <h3>
+                                <a href="{{ related_entry.get_absolute_url }}">{{ related_entry.title }}</a>
+                            </h3>
+                            <p>
+                                {{ related_entry.body|striptags|truncatewords:20  }}
+                            </p>
+                        </section>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>

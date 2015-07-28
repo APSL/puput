@@ -1,0 +1,7 @@
+{% load static disqus_tags %}
+
+{% set_disqus_identifier post.id|stringformat:'d' %}
+{% disqus_show_comments %}
+{% block extra_js %}
+    <script src="{% static 'puput/js/disqus_num_comments.js' %}"></script>
+{% endblock extra_js %}

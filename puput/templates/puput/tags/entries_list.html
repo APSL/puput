@@ -1,0 +1,31 @@
+{% load i18n wagtailimages_tags %}
+
+<li class="divided">
+    {% for entry in entries %}
+        <div class="row lateralPosts">
+            <div class="col-md-12 col-xs-12">
+                <article class="box post-summary">
+                    <h5>
+                        <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
+                    </h5>
+                    <ul class="meta">
+                        <li>
+                            <i class="fa fa-user"></i>
+                            {{ entry.owner.username }}
+                        </li>
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            {{ entry.date|date:"SHORT_DATE_FORMAT" }}
+                        </li>
+                        <li>
+                            <i class="fa fa-comments"></i>
+                            {{ entry.num_comments }}
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    {% empty %}
+        {% trans 'No entries yet' %}
+    {% endfor %}
+</li>
