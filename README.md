@@ -67,3 +67,4 @@ Puput uses django-disqus by default to display a comment box in every blog entry
 * Tests
 * More documentation
 * Remove django-endless-pagination package which is no longer mantained
+* Caching
