@@ -27,10 +27,24 @@ class BlogPage(BlogRoutes, Page):
                                    help_text=_("The page description that will appear under the title."))
     header_image = models.ForeignKey('wagtailimages.Image', verbose_name=_('Header image'), null=True, blank=True,
                                      on_delete=models.SET_NULL, related_name='+')
+    display_comments = models.BooleanField(default=False, verbose_name=_('Display comments'))
+    display_categories = models.BooleanField(default=True, verbose_name=_('Display categories'))
+    display_tags = models.BooleanField(default=True, verbose_name=_('Display tags'))
+    display_popular_entries = models.BooleanField(default=True, verbose_name=_('Display popular entries'))
+    display_last_entries = models.BooleanField(default=True, verbose_name=_('Display last entries'))
+    display_archive = models.BooleanField(default=True, verbose_name=_('Display archive'))
 
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full"),
         ImageChooserPanel('header_image'),
+    ]
+    settings_panels = Page.settings_panels + [
+        FieldPanel('display_comments'),
+        FieldPanel('display_categories'),
+        FieldPanel('display_tags'),
+        FieldPanel('display_popular_entries'),
+        FieldPanel('display_last_entries'),
+        FieldPanel('display_archive'),
     ]
     subpage_types = ['puput.EntryPage']
 

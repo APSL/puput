@@ -26,9 +26,11 @@
                 {% tags_list 5 entry.tags %}
             </li>
         {% endif %}
-        <li>
-            <i class="fa fa-comments"></i>
-            {{ entry.num_comments }}
-        </li>
+        {% if blog_page.display_comments %}
+            <li>
+                <i class="fa fa-comments"></i>
+                {{ entry.num_comments }}
+            </li>
+        {% endif %}
     </ul>
 </header>

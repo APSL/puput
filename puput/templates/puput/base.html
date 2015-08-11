@@ -50,26 +50,36 @@
                     </div>
                 </form>
 
-                <ul class="sidebar">
-                    <h4>{% trans 'Last Entries' %}</h4>
-                    {% recent_entries %}
-                </ul>
-                <ul class="sidebar">
-                    <h4>{% trans 'Popular Entries' %}</h4>
-                    {% popular_entries %}
-                </ul>
-                <ul class="sidebar">
-                    <h4>{% trans 'Categories' %}</h4>
-                    {% categories_list %}
-                </ul>
-                <ul class="sidebar">
-                    <h4>{% trans 'Tags' %}</h4>
-                    {% tags_list %}
-                </ul>
-                <ul class="sidebar">
-                    <h4>{% trans 'Archive' %}</h4>
-                    {% archives_list %}
-                </ul>
+                {% if blog_page.display_last_entries %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Last Entries' %}</h4>
+                        {% recent_entries %}
+                    </ul>
+                {% endif %}
+                {% if blog_page.display_popular_entries %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Popular Entries' %}</h4>
+                        {% popular_entries %}
+                    </ul>
+                {% endif %}
+                {% if blog_page.display_categories %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Categories' %}</h4>
+                        {% categories_list %}
+                    </ul>
+                {% endif %}
+                {% if blog_page.display_tags %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Tags' %}</h4>
+                        {% tags_list %}
+                    </ul>
+                {% endif %}
+                {% if blog_page.display_archive %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Archive' %}</h4>
+                        {% archives_list %}
+                    </ul>
+                {% endif %}
             </div>
         </div>
     </div>

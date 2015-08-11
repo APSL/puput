@@ -17,10 +17,12 @@
                             <i class="fa fa-calendar"></i>
                             {{ entry.date|date:"SHORT_DATE_FORMAT" }}
                         </li>
-                        <li>
-                            <i class="fa fa-comments"></i>
-                            {{ entry.num_comments }}
-                        </li>
+                        {% if blog_page.display_comments %}
+                            <li>
+                                <i class="fa fa-comments"></i>
+                                {{ entry.num_comments }}
+                            </li>
+                        {% endif %}
                     </ul>
                 </article>
             </div>
