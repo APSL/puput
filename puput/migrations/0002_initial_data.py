@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
+from django.db import migrations
 from django import VERSION as DJANGO_VERSION
-from django.shortcuts import get_object_or_404
 
 
 def load_initial_data(apps, schema_editor):
