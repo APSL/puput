@@ -8,15 +8,16 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
 
 ### Features
 * Based on Wagtail CMS and Django
-* Fully customizable templates
-* Inspired on Wordpress and Zinnia
+* Comes with a default clean & responsive template
 * SEO friendly urls
 * Support for Disqus comments
 * Archives, tags & categories results pages
 * Search form
 * Last & popular entries
+* Configurable sidebar widgets
 * RSS feeds
 * Blog post related entries
+* Inspired on Wordpress and Zinnia
 
 ### Setup
 
@@ -66,3 +67,4 @@ Puput uses django-disqus by default to display a comment box in every blog entry
 * Tests
 * More documentation
 * Remove django-endless-pagination package which is no longer mantained
+* Caching
