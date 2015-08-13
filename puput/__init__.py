@@ -1,4 +1,5 @@
 PUPUT_APPS = (
+    # Wagtail apps
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
     'wagtail.wagtaildocs',
@@ -11,10 +12,12 @@ PUPUT_APPS = (
     'wagtail.wagtailforms',
     'wagtail.contrib.wagtailroutablepage',
 
+    # Third-party apps
     'compressor',
     'taggit',
     'modelcluster',
-    'endless_pagination',
 
+    # Puput apps
+    'endless_pagination',
     'puput',
 )
