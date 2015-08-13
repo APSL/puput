@@ -2,6 +2,11 @@
 
 {% load static i18n wagtailcore_tags wagtailimages_tags endless puput_tags %}
 
+{% block title %}{% if search_term %}{{ search_term }} | {{ blog_page.title }}{% else %}{{ block.super }}{% endif %}{% endblock title %}
+{% block meta_title %}{% if search_term %}{% trans 'Entries for ' %}{{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_title %}
+{% block meta_description %}{% if search_term %}{% trans 'Entries for ' %}{{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_description %}
+
+
 {% block content %}
     {% paginate 5 entries %}
     {% if search_term %}
