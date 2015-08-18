@@ -61,10 +61,3 @@ Please visit [Wagtail: an Editor’s guide](http://docs.wagtail.io/en/v1.0/edito
 ### Comments
 
 Puput uses django-disqus by default to display a comment box in every blog entry. Simply add `DISQUS_API_KEY` and `DISQUS_WEBSITE_SHORTNAME` to `settings.py`. See [django-disqus official documentation](http://django-disqus.readthedocs.org/en/latest/installation.html#configuring-your-django-installation) for more info.
-
-### TODO
-
-* Tests
-* More documentation
-* Remove django-endless-pagination package which is no longer mantained
-* Caching
