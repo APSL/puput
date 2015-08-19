@@ -36,6 +36,9 @@ class BlogPage(BlogRoutes, Page):
     display_last_entries = models.BooleanField(default=True, verbose_name=_('Display last entries'))
     display_archive = models.BooleanField(default=True, verbose_name=_('Display archive'))
 
+    disqus_api_secret = models.TextField(blank=True)
+    disqus_shortname = models.CharField(max_length=128, blank=True)
+
     num_entries_page = models.IntegerField(default=5, verbose_name=_('Entries per page'))
     num_last_entries = models.IntegerField(default=3, verbose_name=_('Last entries limit'))
     num_popular_entries = models.IntegerField(default=3, verbose_name=_('Popular entries limit'))
@@ -47,7 +50,6 @@ class BlogPage(BlogRoutes, Page):
     ]
     settings_panels = Page.settings_panels + [
         MultiFieldPanel([
-            FieldPanel('display_comments'),
             FieldPanel('display_categories'),
             FieldPanel('display_tags'),
             FieldPanel('display_popular_entries'),
@@ -60,6 +62,11 @@ class BlogPage(BlogRoutes, Page):
             FieldPanel('num_popular_entries'),
             FieldPanel('num_tags_entry_header'),
         ], heading="Parameters"),
+        MultiFieldPanel([
+            FieldPanel('display_comments'),
+            FieldPanel('disqus_api_secret'),
+            FieldPanel('disqus_shortname'),
+        ], heading="Comments"),
     ]
     subpage_types = ['puput.EntryPage']
 

@@ -76,4 +76,6 @@ Please visit [Wagtail: an Editor’s guide](http://docs.wagtail.io/en/v1.0/edito
 
 ### Comments
 
-Puput uses django-disqus by default to display a comment box in every blog entry. Simply add `DISQUS_API_KEY` and `DISQUS_WEBSITE_SHORTNAME` to `settings.py`. See [django-disqus official documentation](http://django-disqus.readthedocs.org/en/latest/installation.html#configuring-your-django-installation) for more info.
+Puput allows customize the comment system for your blog entries. Simply go to settings tab while editing blog properties and add the required parameters
+depending on which system you want to use. For now, only Disqus comments are supported. Set __Disqus api secret__ and
+__Disqus shortname__ with your project values and comments will be displayed in each blog entry.
