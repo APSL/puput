@@ -10,6 +10,7 @@ PUPUT_APPS = (
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+    'wagtail.contrib.wagtailsitemaps',
     'wagtail.contrib.wagtailroutablepage',
 
     # Third-party apps

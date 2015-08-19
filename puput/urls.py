@@ -28,6 +28,7 @@ if not getattr(settings, 'PUPUT_AS_PLUGIN', False):
     from wagtail.wagtailadmin import urls as wagtailadmin_urls
     from wagtail.wagtaildocs import urls as wagtaildocs_urls
     from wagtail.wagtailsearch import urls as wagtailsearch_urls
+    from wagtail.contrib.wagtailsitemaps.views import sitemap
 
     urlpatterns.extend([
         url(
@@ -45,5 +46,9 @@ if not getattr(settings, 'PUPUT_AS_PLUGIN', False):
         url(
             regex=r'^documents/',
             view=include(wagtaildocs_urls)
+        ),
+        url(
+            regex='^sitemap\.xml$',
+            view=sitemap
         )
     ])
