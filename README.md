@@ -50,7 +50,7 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
 
 ### Setup (as Wagtail plugin)
 
-1. Add `puput` and `endless_pagination` to your `INSTALLED_APPS` in `settings.py` file.
+1. Add `puput`to your `INSTALLED_APPS` in `settings.py` file.
 2. If you have previously defined Wagtail urls in `urls.py` set `PUPUT_AS_PLUGIN = True` in the `settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
 3. Include Puput urls in your `urls.py` file.
 
