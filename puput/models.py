@@ -28,6 +28,7 @@ class BlogPage(BlogRoutes, Page):
                                    help_text=_("The page description that will appear under the title."))
     header_image = models.ForeignKey('wagtailimages.Image', verbose_name=_('Header image'), null=True, blank=True,
                                      on_delete=models.SET_NULL, related_name='+')
+
     display_comments = models.BooleanField(default=False, verbose_name=_('Display comments'))
     display_categories = models.BooleanField(default=True, verbose_name=_('Display categories'))
     display_tags = models.BooleanField(default=True, verbose_name=_('Display tags'))
@@ -35,17 +36,30 @@ class BlogPage(BlogRoutes, Page):
     display_last_entries = models.BooleanField(default=True, verbose_name=_('Display last entries'))
     display_archive = models.BooleanField(default=True, verbose_name=_('Display archive'))
 
+    num_entries_page = models.IntegerField(default=5, verbose_name=_('Entries per page'))
+    num_last_entries = models.IntegerField(default=3, verbose_name=_('Last entries limit'))
+    num_popular_entries = models.IntegerField(default=3, verbose_name=_('Popular entries limit'))
+    num_tags_entry_header = models.IntegerField(default=5, verbose_name=_('Tags limit entry header'))
+
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full"),
         ImageChooserPanel('header_image'),
     ]
     settings_panels = Page.settings_panels + [
-        FieldPanel('display_comments'),
-        FieldPanel('display_categories'),
-        FieldPanel('display_tags'),
-        FieldPanel('display_popular_entries'),
-        FieldPanel('display_last_entries'),
-        FieldPanel('display_archive'),
+        MultiFieldPanel([
+            FieldPanel('display_comments'),
+            FieldPanel('display_categories'),
+            FieldPanel('display_tags'),
+            FieldPanel('display_popular_entries'),
+            FieldPanel('display_last_entries'),
+            FieldPanel('display_archive'),
+        ], heading="Widgets"),
+        MultiFieldPanel([
+            FieldPanel('num_entries_page'),
+            FieldPanel('num_last_entries'),
+            FieldPanel('num_popular_entries'),
+            FieldPanel('num_tags_entry_header'),
+        ], heading="Parameters"),
     ]
     subpage_types = ['puput.EntryPage']
 
@@ -161,7 +175,8 @@ class EntryPage(Page):
         FieldPanel('owner'),
     ]
     parent_page_types = ['puput.BlogPage']
-
+    subpage_types = []
+    
     @property
     def blog_page(self):
         return BlogPage.objects.ancestor_of(self).first()

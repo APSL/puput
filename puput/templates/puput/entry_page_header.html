@@ -23,7 +23,7 @@
         {% if entry.tags.count > 0 %}
             <li>
                 <i class="fa fa-tag"></i>
-                {% tags_list 5 entry.tags %}
+                {% tags_list blog_page.num_tags_entry_header entry.tags %}
             </li>
         {% endif %}
         {% if blog_page.display_comments %}
