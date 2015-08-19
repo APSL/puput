@@ -26,7 +26,7 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
     ```python
     from puput import PUPUT_APPS
     
-    INSTALLED_APPS +=  PUPUT_APPS
+    INSTALLED_APPS += PUPUT_APPS
     ```
 2. Add Wagtail required middleware classes
 
@@ -40,10 +40,10 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
 3. Place Puput urls at the __bottom__ of the urlpatterns. It also includes Wagtail urls.
 
     ```python
-        urlpatterns = [
-            ...
-            url(r'', include('puput.urls')),
-        ]
+    urlpatterns = [
+        ...
+        url(r'', include('puput.urls')),
+    ]
     ```
 4. Run `python manage.py migrate`
 5. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page. 
@@ -55,10 +55,11 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
 3. Include Puput urls in your `urls.py` file.
 
     ```python
-        urlpatterns = [
-            ...
-            url(r'', include('puput.urls')),
-        ]
+    urlpatterns = [
+        ...
+        url(r'', include('puput.urls')),
+        ...
+    ]
     ```
 4. Run `python manage.py migrate`
  
