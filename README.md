@@ -45,7 +45,7 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
         url(r'', include('puput.urls')),
     ]
     ```
-4. Run `python manage.py migrate`
+4. Run `python manage.py migrate` and `python manage.py puput_initial_data` to load initial data to start a blog site.
 5. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page. 
 
 ### Setup (as Wagtail plugin)
