@@ -1,6 +1,6 @@
 {% extends "puput/base.html" %}
 
-{% load static i18n wagtailcore_tags wagtailimages_tags endless puput_tags %}
+{% load static i18n wagtailcore_tags wagtailimages_tags puput_tags %}
 
 {% block title %}{% if search_term %}{{ search_term }} | {{ blog_page.title }}{% else %}{{ block.super }}{% endif %}{% endblock title %}
 {% block meta_title %}{% if search_term %}{% trans 'Entries for ' %}{{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_title %}
@@ -8,32 +8,35 @@
 
 
 {% block content %}
-    {% paginate 5 entries %}
-    {% if search_term %}
-        <div class="searchTerm">{% trans 'Entries for ' %}{{ search_type }} "{{ search_term }}"</div>
-    {% endif %}
-    {% for entry in entries %}
-        <article class="box page-content blog_grid">
-            {% include 'puput/entry_page_header.html' %}
-            <section>
-                <span class="img-responsive">
-                    {% image entry.header_image width-300 %}
-                </span>
-            </section>
-            <section class="article">
-                {% if entry.excerpt %}
-                    {{ entry.excerpt|richtext }}
-                {% else %}
-                    {{ entry.body|richtext|truncatewords_html:70 }}
-                {% endif %}
-                <a class="blog_btn continue" href="{{ entry.get_absolute_url }}">{% trans 'Continue reading' %} &raquo;</a>
-            </section>
-        </article>
-    {% empty %}
-        <span>{% trans 'No results founds.' %}</span>
-    {% endfor %}
-    <div class="pagination">
-        {% show_pages %}
-    </div>
+    {% with per_page=blog_page.num_entries_page %}
+        {# 'paginate' tag cannot render dotted variables, so we need to create a context var #}
+        {% paginate per_page entries %}
+        {% if search_term %}
+            <div class="searchTerm">{% trans 'Entries for ' %}{{ search_type }} "{{ search_term }}"</div>
+        {% endif %}
+        {% for entry in entries %}
+            <article class="box page-content blog_grid">
+                {% include 'puput/entry_page_header.html' %}
+                <section>
+                    <span class="img-responsive">
+                        {% image entry.header_image width-300 %}
+                    </span>
+                </section>
+                <section class="article">
+                    {% if entry.excerpt %}
+                        {{ entry.excerpt|richtext }}
+                    {% else %}
+                        {{ entry.body|richtext|truncatewords_html:70 }}
+                    {% endif %}
+                    <a class="blog_btn continue" href="{{ entry.get_absolute_url }}">{% trans 'Continue reading' %} &raquo;</a>
+                </section>
+            </article>
+        {% empty %}
+            <span>{% trans 'No results founds.' %}</span>
+        {% endfor %}
+        <div class="pagination">
+            {% show_paginator %}
+        </div>
+    {% endwith %}
 {% endblock content %}
 

@@ -19,6 +19,5 @@ PUPUT_APPS = (
     'modelcluster',
 
     # Puput apps
-    'endless_pagination',
     'puput',
 )
