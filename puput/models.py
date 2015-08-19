@@ -173,7 +173,8 @@ class EntryPage(Page):
         FieldPanel('owner'),
     ]
     parent_page_types = ['puput.BlogPage']
-
+    subpage_types = []
+    
     @property
     def blog_page(self):
         return BlogPage.objects.ancestor_of(self).first()
