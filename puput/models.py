@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import python_2_unicode_compatible
 
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
@@ -64,6 +65,7 @@ class BlogPage(BlogRoutes, Page):
 
 
 @register_snippet
+@python_2_unicode_compatible
 class Category(models.Model):
     name = models.CharField(max_length=80, unique=True, verbose_name=_('Category Name'))
     slug = models.SlugField(unique=True, max_length=80)
