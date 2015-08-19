@@ -23,14 +23,14 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
 
 1. Add to `PUPUT_APPS` to your `INSTALLED_APPS` in `settings.py` file. It also includes Wagtail apps and other dependencies.
 
-    ```
+    ```python
     from puput import PUPUT_APPS
     
     INSTALLED_APPS +=  PUPUT_APPS
     ```
 2. Add Wagtail required middleware classes
 
-    ```
+    ```python
     MIDDLEWARE_CLASSES = (
         ...
         'wagtail.wagtailcore.middleware.SiteMiddleware',
@@ -39,7 +39,7 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
     ```
 3. Place Puput urls at the __bottom__ of the urlpatterns. It also includes Wagtail urls.
 
-    ```
+    ```python
         urlpatterns = [
             ...
             url(r'', include('puput.urls')),
@@ -54,7 +54,7 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
 2. If you have previously defined Wagtail urls in `urls.py` set `PUPUT_AS_PLUGIN = True` in the `settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
 3. Include Puput urls in your `urls.py` file.
 
-    ```
+    ```python
         urlpatterns = [
             ...
             url(r'', include('puput.urls')),
