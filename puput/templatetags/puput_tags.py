@@ -12,14 +12,14 @@ register = Library()
 def recent_entries(context, limit=3):
     blog_page = context['blog_page']
     entries = blog_page.get_entries().order_by('-date')[:limit]
-    return {'request': context['request'], 'entries': entries}
+    return {'blog_page': blog_page, 'request': context['request'], 'entries': entries}
 
 
 @register.inclusion_tag('puput/tags/entries_list.html', takes_context=True)
 def popular_entries(context, limit=3):
     blog_page = context['blog_page']
     entries = blog_page.get_entries().order_by('-num_comments', '-date')[:limit]
-    return {'request': context['request'], 'entries': entries}
+    return {'blog_page': blog_page, 'request': context['request'], 'entries': entries}
 
 
 @register.inclusion_tag('puput/tags/tags_list.html', takes_context=True)
@@ -49,15 +49,12 @@ def archives_list(context):
     return {'blog_page': blog_page, 'request': context['request'], 'archives': archives}
 
 
-@register.simple_tag()
-def comments():
-    """
-    Display comments depending which system have been configured in settings.py
-    """
-    template_name = ""
-    if hasattr(settings, 'DISQUS_API_KEY') and hasattr(settings, 'DISQUS_WEBSITE_SHORTNAME'):
-        template_name = 'puput/comments/disqus.html'
-    if template_name:
-        template = loader.get_template(template_name)
-        return template.render()
+@register.simple_tag(takes_context=True)
+def show_comments(context):
+    blog_page = context['blog_page']
+    entry = context['self']
+    if blog_page.display_comments:
+        if blog_page.disqus_shortname:
+            template = loader.get_template('puput/comments/disqus.html')
+            return template.render({'disqus_shortname': blog_page.disqus_shortname, 'disqus_identifier': entry.id})
     return ""
