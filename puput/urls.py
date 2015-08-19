@@ -1,19 +1,11 @@
+from django.conf import settings
 from django.conf.urls import url, include
-
-from wagtail.wagtailcore import urls as wagtail_urls
-from wagtail.wagtailadmin import urls as wagtailadmin_urls
-from wagtail.wagtaildocs import urls as wagtaildocs_urls
-from wagtail.wagtailsearch import urls as wagtailsearch_urls
 
 from .feeds import BlogPageFeed
 from .views import EntryPageServe, EntryPageUpdateCommentsView
 
 
 urlpatterns = [
-    url(
-        regex=r'^blog_admin/',
-        view=include(wagtailadmin_urls)
-    ),
     url(
         regex=r'^entry_page/(?P<entry_page_id>\d+)/update_comments/$',
         view=EntryPageUpdateCommentsView.as_view(),
@@ -28,17 +20,30 @@ urlpatterns = [
         regex=r'^(?P<blog_slug>[-\w]+)/feed/$',
         view=BlogPageFeed(),
         name='blog_page_feed'
-    ),
-    url(
-        regex=r'',
-        view=include(wagtail_urls)
-    ),
-    url(
-        regex=r'^search/',
-        view=include(wagtailsearch_urls)
-    ),
-    url(
-        regex=r'^documents/',
-        view=include(wagtaildocs_urls)
-    ),
+    )
 ]
+
+if not getattr(settings, 'PUPUT_AS_PLUGIN', False):
+    from wagtail.wagtailcore import urls as wagtail_urls
+    from wagtail.wagtailadmin import urls as wagtailadmin_urls
+    from wagtail.wagtaildocs import urls as wagtaildocs_urls
+    from wagtail.wagtailsearch import urls as wagtailsearch_urls
+
+    urlpatterns.extend([
+        url(
+            regex=r'^blog_admin/',
+            view=include(wagtailadmin_urls)
+        ),
+        url(
+            regex=r'',
+            view=include(wagtail_urls)
+        ),
+        url(
+            regex=r'^search/',
+            view=include(wagtailsearch_urls)
+        ),
+        url(
+            regex=r'^documents/',
+            view=include(wagtaildocs_urls)
+        )
+    ])
