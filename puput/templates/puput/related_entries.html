@@ -1,4 +1,4 @@
-{% load i18n wagtailimages_tags %}
+{% load i18n wagtailimages_tags puput_tags %}
 
 <div class="row relatedPosts">
     <section class="box features">
@@ -11,7 +11,7 @@
                     <div class="col-md-3">
                         <section class="box feature">
                             <h3>
-                                <a href="{{ related_entry.get_absolute_url }}">{{ related_entry.title }}</a>
+                                <a href="{% entry_url related_entry blog_page %}">{{ related_entry.title }}</a>
                             </h3>
                             <p>
                                 {{ related_entry.body|striptags|truncatewords:20  }}

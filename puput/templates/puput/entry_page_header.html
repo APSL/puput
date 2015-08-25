@@ -1,7 +1,7 @@
 {% load wagtailroutablepage_tags puput_tags %}
 <header>
     <h2 class="post_title">
-        <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
+        <a href="{% entry_url entry blog_page %}">{{ entry.title }}</a>
     </h2>
     <ul class="links">
         <li>
