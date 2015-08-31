@@ -23,14 +23,14 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
 
 1. Add to `PUPUT_APPS` to your `INSTALLED_APPS` in `settings.py` file. It also includes Wagtail apps and other dependencies.
 
-    ```
+    ```python
     from puput import PUPUT_APPS
     
-    INSTALLED_APPS +=  PUPUT_APPS
+    INSTALLED_APPS += PUPUT_APPS
     ```
 2. Add Wagtail required middleware classes
 
-    ```
+    ```python
     MIDDLEWARE_CLASSES = (
         ...
         'wagtail.wagtailcore.middleware.SiteMiddleware',
@@ -39,14 +39,30 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
     ```
 3. Place Puput urls at the __bottom__ of the urlpatterns. It also includes Wagtail urls.
 
+    ```python
+    urlpatterns = [
+        ...
+        url(r'', include('puput.urls')),
+    ]
     ```
-        urlpatterns = [
-            ...
-            url(r'', include('puput.urls')),
-        ]
+4. Run `python manage.py migrate` and `python manage.py puput_initial_data` to load initial data to start a blog site.
+5. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page. 
+
+### Setup (as Wagtail plugin)
+
+1. Add `puput`to your `INSTALLED_APPS` in `settings.py` file.
+2. If you have previously defined Wagtail urls in `urls.py` set `PUPUT_AS_PLUGIN = True` in the `settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
+3. Include Puput urls in your `urls.py` file.
+
+    ```python
+    urlpatterns = [
+        ...
+        url(r'', include('puput.urls')),
+        ...
+    ]
     ```
 4. Run `python manage.py migrate`
-5. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page. 
+ 
 
 ### Manage your content
 
@@ -60,11 +76,6 @@ Please visit [Wagtail: an Editor’s guide](http://docs.wagtail.io/en/v1.0/edito
 
 ### Comments
 
-Puput uses django-disqus by default to display a comment box in every blog entry. Simply add `DISQUS_API_KEY` and `DISQUS_WEBSITE_SHORTNAME` to `settings.py`. See [django-disqus official documentation](http://django-disqus.readthedocs.org/en/latest/installation.html#configuring-your-django-installation) for more info.
-
-### TODO
-
-* Tests
-* More documentation
-* Remove django-endless-pagination package which is no longer mantained
-* Caching
+Puput allows customize the comment system for your blog entries. Simply go to settings tab while editing blog properties and add the required parameters
+depending on which system you want to use. For now, only Disqus comments are supported. Set __Disqus api secret__ and
+__Disqus shortname__ with your project values and comments will be displayed in each blog entry.
