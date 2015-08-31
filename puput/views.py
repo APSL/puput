@@ -1,8 +1,7 @@
 import operator
+from tapioca.exceptions import ClientError
+from tapioca_disqus import Disqus
 
-from disqusapi import DisqusAPI, APIError
-
-from django.conf import settings
 from django.http import Http404, HttpResponse
 from django.views.generic import View
 
@@ -32,14 +31,14 @@ class EntryPageUpdateCommentsView(View):
         try:
             entry_page = EntryPage.objects.get(pk=entry_page_id)
             blog_page = entry_page.blog_page
-            disqus_client = DisqusAPI(secret_key=blog_page.disqus_api_secret)
+            disqus_client = Disqus(api_secret=blog_page.disqus_api_secret)
             try:
-                thread = disqus_client.threads.details(forum=blog_page.disqus_shortname,
-                                                       thread='ident:{}'.format(entry_page_id))
-                entry_page.num_comments = thread['posts']
+                params = {'forum': blog_page.disqus_shortname, 'thread': 'ident:{}'.format(entry_page_id)}
+                thread = disqus_client.threads_details().get(params=params)
+                entry_page.num_comments = thread.response.posts().data()
                 entry_page.save()
                 return HttpResponse()
-            except APIError:
+            except ClientError:
                 raise Http404
         except EntryPage.DoesNotExist:
             raise Http404
