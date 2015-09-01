@@ -28,7 +28,7 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
     
     INSTALLED_APPS += PUPUT_APPS
     ```
-2. Add Wagtail required middleware classes
+2. Add Wagtail required middleware classes in `settings.py` file
 
     ```python
     MIDDLEWARE_CLASSES = (
@@ -37,7 +37,16 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
         'wagtail.wagtailredirects.middleware.RedirectMiddleware',
     )
     ```
-3. Place Puput urls at the __bottom__ of the urlpatterns. It also includes Wagtail urls.
+3. Add `request` context processor to `TEMPLATE_CONTEXT_PROCESSORS` structure in `settings.py` file
+
+    ```python
+    TEMPLATE_CONTEXT_PROCESSORS = (
+        ...
+        'django.core.context_processors.request',
+    )
+    ```
+4. Set `WAGTAIL_SITE_NAME` variable in `settings.py` file with your site name
+5. Place Puput urls at the __bottom__ of the urlpatterns. It also includes Wagtail urls.
 
     ```python
     urlpatterns = [
@@ -45,8 +54,8 @@ Puput is the catalan name for [Hoopoe](https://en.wikipedia.org/wiki/Hoopoe) whi
         url(r'', include('puput.urls')),
     ]
     ```
-4. Run `python manage.py migrate` and `python manage.py puput_initial_data` to load initial data to start a blog site.
-5. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page. 
+6. Run `python manage.py migrate` and `python manage.py puput_initial_data` to load initial data to start a blog site.
+7. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page.
 
 ### Setup (as Wagtail plugin)
 

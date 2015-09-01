@@ -13,8 +13,7 @@ import modelcluster.contrib.taggit
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('taggit', '0001_initial'),
-        ('wagtailcore', '0002_auto_20150812_1431'),
+        ('wagtailcore', '0001_squashed_0016_change_page_url_path_to_text_field'),
         ('wagtailimages', '0006_add_verbose_names'),
     ]
 
@@ -30,6 +29,8 @@ class Migration(migrations.Migration):
                 ('display_popular_entries', models.BooleanField(default=True, verbose_name='Display popular entries')),
                 ('display_last_entries', models.BooleanField(default=True, verbose_name='Display last entries')),
                 ('display_archive', models.BooleanField(default=True, verbose_name='Display archive')),
+                ('disqus_api_secret', models.TextField(blank=True)),
+                ('disqus_shortname', models.CharField(max_length=128, blank=True)),
                 ('num_entries_page', models.IntegerField(default=5, verbose_name='Entries per page')),
                 ('num_last_entries', models.IntegerField(default=3, verbose_name='Last entries limit')),
                 ('num_popular_entries', models.IntegerField(default=3, verbose_name='Popular entries limit')),
@@ -55,6 +56,7 @@ class Migration(migrations.Migration):
                 'verbose_name': 'Category',
                 'verbose_name_plural': 'Categories',
             },
+            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='CategoryEntryPage',
@@ -62,6 +64,9 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('category', models.ForeignKey(related_name='+', verbose_name='Category', to='puput.Category')),
             ],
+            options={
+            },
+            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='EntryPage',
@@ -87,16 +92,33 @@ class Migration(migrations.Migration):
                 ('entrypage_from', modelcluster.fields.ParentalKey(related_name='related_entrypage_from', verbose_name='Entry', to='puput.EntryPage')),
                 ('entrypage_to', modelcluster.fields.ParentalKey(related_name='related_entrypage_to', verbose_name='Entry', to='puput.EntryPage')),
             ],
+            options={
+            },
+            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='TagEntryPage',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('content_object', modelcluster.fields.ParentalKey(related_name='entry_tags', to='puput.EntryPage')),
+                ('tag', models.ForeignKey(related_name='puput_tagentrypage_items', to='taggit.Tag')),
             ],
             options={
                 'abstract': False,
             },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='entrypage',
+            name='tags',
+            field=modelcluster.contrib.taggit.ClusterTaggableManager(to='taggit.Tag', through='puput.TagEntryPage', blank=True, help_text='A comma-separated list of tags.', verbose_name='Tags'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='categoryentrypage',
+            name='page',
+            field=modelcluster.fields.ParentalKey(related_name='entry_categories', to='puput.EntryPage'),
+            preserve_default=True,
         ),
         migrations.CreateModel(
             name='Tag',
@@ -106,20 +128,5 @@ class Migration(migrations.Migration):
                 'proxy': True,
             },
             bases=('taggit.tag',),
-        ),
-        migrations.AddField(
-            model_name='tagentrypage',
-            name='tag',
-            field=models.ForeignKey(related_name='puput_tagentrypage_items', to='taggit.Tag'),
-        ),
-        migrations.AddField(
-            model_name='entrypage',
-            name='tags',
-            field=modelcluster.contrib.taggit.ClusterTaggableManager(to='taggit.Tag', through='puput.TagEntryPage', blank=True, help_text='A comma-separated list of tags.', verbose_name='Tags'),
-        ),
-        migrations.AddField(
-            model_name='categoryentrypage',
-            name='page',
-            field=modelcluster.fields.ParentalKey(related_name='entry_categories', to='puput.EntryPage'),
         ),
     ]
