@@ -1,4 +1,4 @@
-{% load i18n wagtailimages_tags %}
+{% load i18n wagtailimages_tags puput_tags %}
 
 <li class="divided">
     {% for entry in entries %}
@@ -6,7 +6,7 @@
             <div class="col-md-12 col-xs-12">
                 <article class="box post-summary">
                     <h5>
-                        <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
+                        <a href="{% entry_url entry blog_page %}">{{ entry.title }}</a>
                     </h5>
                     <ul class="meta">
                         <li>

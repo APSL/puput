@@ -28,7 +28,7 @@
                     {% else %}
                         {{ entry.body|richtext|truncatewords_html:70 }}
                     {% endif %}
-                    <a class="blog_btn continue" href="{{ entry.get_absolute_url }}">{% trans 'Continue reading' %} &raquo;</a>
+                    <a class="blog_btn continue" href="{% entry_url entry blog_page %}">{% trans 'Continue reading' %} &raquo;</a>
                 </section>
             </article>
         {% empty %}

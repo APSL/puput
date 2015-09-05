@@ -3,7 +3,6 @@
 import datetime
 
 from django.core.exceptions import ValidationError
-from django.core.urlresolvers import reverse
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
@@ -71,7 +70,7 @@ class BlogPage(BlogRoutes, Page):
     subpage_types = ['puput.EntryPage']
 
     def get_entries(self):
-        return EntryPage.objects.descendant_of(self).live().order_by('-date')
+        return EntryPage.objects.descendant_of(self).live().order_by('-date').select_related('owner__username')
 
     def get_context(self, request, *args, **kwargs):
         context = super(BlogPage, self).get_context(request, *args, **kwargs)
@@ -126,7 +125,9 @@ class Category(models.Model):
 class CategoryEntryPage(models.Model):
     category = models.ForeignKey(Category, related_name="+", verbose_name=_('Category'))
     page = ParentalKey('EntryPage', related_name='entry_categories')
-    panels = [FieldPanel('category')]
+    panels = [
+        FieldPanel('category')
+    ]
 
 
 class TagEntryPage(TaggedItemBase):
@@ -200,15 +201,6 @@ class EntryPage(Page):
         context = super(EntryPage, self).get_context(request, *args, **kwargs)
         context['blog_page'] = self.blog_page
         return context
-
-    def get_absolute_url(self):
-        return reverse('entry_page_serve', kwargs={
-            'blog_slug': self.blog_page.slug,
-            'year': self.date.strftime('%Y'),
-            'month': self.date.strftime('%m'),
-            'day': self.date.strftime('%d'),
-            'slug': self.slug
-        })
 
     class Meta:
         verbose_name = _('Entry')
