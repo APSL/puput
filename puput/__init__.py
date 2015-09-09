@@ -1,3 +1,7 @@
+__author__ = 'Marc Tudurí'
+__email__ = 'marctc@gmail.com'
+__version__ = '0.1'
+
 PUPUT_APPS = (
     # Wagtail apps
     'wagtail.wagtailcore',
