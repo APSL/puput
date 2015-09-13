@@ -37,7 +37,7 @@ setup(
     include_package_data=True,
     keywords="django wagtail puput blog cms app",
     description='A Django blog app implemented in Wagtail.',
-    long_description=open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
+    long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     install_requires=[
         'Django>=1.7.1,<1.9',
         'wagtail>=1.0',
