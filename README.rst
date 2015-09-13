@@ -30,9 +30,8 @@ Setup
 -----
 
 If you have a running Django project and you want to add blog site to your project,
-please follow :ref:`standalone_app` steps. Otherwise follow the :ref:`wagtail_app` steps if you are currently using Wagtail on your project.
+please follow **Standalone blog app** steps. Otherwise follow the **Wagtail blog app** steps if you are currently using Wagtail on your project.
 
-.. _standalone_app:
 
 Standalone blog app
 ~~~~~~~~~~~~~~~~~~~
@@ -103,8 +102,6 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
 7. Run :code:`python manage.py migrate` and :code:`python manage.py puput_initial_data` to load initial data to start a blog site.
 8. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page.
 
-
-.. _wagtail_app:
 
 Wagtail blog app
 ~~~~~~~~~~~~~~~~
