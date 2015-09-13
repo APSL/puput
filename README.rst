@@ -27,14 +27,14 @@ Features
 * Inspired in Wordpress and Zinnia
 
 Setup
------
+~~~~~
 
 If you have a running Django project and you want to add blog site to your project,
 please follow **Standalone blog app** steps. Otherwise follow the **Wagtail blog app** steps if you are currently using Wagtail on your project.
 
 
 Standalone blog app
-~~~~~~~~~~~~~~~~~~~
+-------------------
 1. Install Puput and its dependencies :code:`pip install puput`
 
 2. Add to :code:`PUPUT_APPS` to your :code:`INSTALLED_APPS` in :code:`settings.py` file.
@@ -104,7 +104,7 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
 
 
 Wagtail blog app
-~~~~~~~~~~~~~~~~
+----------------
 1. Install Puput and its dependencies :code:`pip install puput`
 2. Add :code:`puput` to your :code:`INSTALLED_APPS` in :code:`settings.py` file.
 3. If you have previously defined Wagtail urls in :code:`urls.py` set :code:`PUPUT_AS_PLUGIN = True` in the :code:`settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
@@ -121,5 +121,5 @@ Wagtail blog app
 5. Run :code:`python manage.py migrate`
 
 Documentation
--------------
+~~~~~~~~~~~~~
 Visit `Puput documentation <http://puput.readthedocs.org>`_ for the detailed documentation.
