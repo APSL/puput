@@ -3,8 +3,8 @@
 {% load static i18n wagtailcore_tags wagtailimages_tags puput_tags %}
 
 {% block title %}{% if search_term %}{{ search_term }} | {{ blog_page.title }}{% else %}{{ block.super }}{% endif %}{% endblock title %}
-{% block meta_title %}{% if search_term %}{% trans 'Entries for ' %}{{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_title %}
-{% block meta_description %}{% if search_term %}{% trans 'Entries for ' %}{{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_description %}
+{% block meta_title %}{% if search_term %}{% trans 'Entries for' %} {{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_title %}
+{% block meta_description %}{% if search_term %}{% trans 'Entries for' %} {{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_description %}
 
 
 {% block content %}
@@ -12,7 +12,7 @@
         {# 'paginate' tag cannot render dotted variables, so we need to create a context var #}
         {% paginate per_page entries %}
         {% if search_term %}
-            <div class="searchTerm">{% trans 'Entries for ' %}{{ search_type }} "{{ search_term }}"</div>
+            <div class="searchTerm">{% trans 'Entries for' %} {{ search_type }} "{{ search_term }}"</div>
         {% endif %}
         {% for entry in entries %}
             <article class="box page-content blog_grid">
