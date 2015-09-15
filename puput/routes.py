@@ -57,7 +57,7 @@ class BlogRoutes(RoutablePageMixin):
         if search_query:
             self.entries = self.entries.search(search_query)
             self.search_term = search_query
-            self.search_type = 'search'
+            self.search_type = _('search')
             Query.get(search_query).add_hit()
         return Page.serve(self, request, *args, **kwargs)
 
