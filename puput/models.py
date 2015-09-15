@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+from django.conf import settings
 
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -17,6 +18,7 @@ from wagtail.wagtailsearch import index
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
+from puput.utils import import_model
 
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager
@@ -148,7 +150,7 @@ class EntryPageRelated(models.Model):
     entrypage_to = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_to')
 
 
-class EntryPage(Page):
+class EntryAbstract(models.Model):
     body = RichTextField(verbose_name=_('body'))
     tags = ClusterTaggableManager(through=TagEntryPage, blank=True)
     date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
@@ -160,11 +162,20 @@ class EntryPage(Page):
                                         "If this field is not filled, a truncate version of body text will be used."))
     num_comments = models.IntegerField(default=0, editable=False)
 
+    class Meta:
+        abstract = True
+Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
+
+
+class EntryPage(Page, Entry):
+    # Search
     search_fields = Page.search_fields + (
         index.SearchField('body'),
         index.SearchField('excerpt'),
         index.FilterField('page_ptr_id')
     )
+
+    # Panels
     content_panels = [
         MultiFieldPanel([
             FieldPanel('title', classname="title"),
@@ -177,15 +188,19 @@ class EntryPage(Page):
             InlinePanel('entry_categories', label=_("Categories")),
             InlinePanel('related_entrypage_from', label=_("Related Entries")),
         ], heading=_("Metadata")),
-    ]
+    ] + getattr(Entry, 'content_panels', [])
+
+    promote_panels = Page.promote_panels + getattr(Entry, 'promote_panels', [])
 
     settings_panels = Page.settings_panels + [
         FieldPanel('date'),
         FieldPanel('owner'),
-    ]
+    ] + getattr(Entry, 'settings_panels', [])
+
+    # Parent and child settings
     parent_page_types = ['puput.BlogPage']
     subpage_types = []
-    
+
     @property
     def blog_page(self):
         return BlogPage.objects.ancestor_of(self).first()
