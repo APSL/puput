@@ -40,7 +40,7 @@ setup(
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     install_requires=[
         'Django>=1.7.1,<1.9',
-        'wagtail>=1.0',
+        'wagtail>=1.0,<2.0',
         'django-endless-pagination==2.0',
         'tapioca-disqus==0.1.1',
     ],
