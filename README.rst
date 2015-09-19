@@ -14,18 +14,17 @@ Puput is the catalan name for `Hoopoe <https://en.wikipedia.org/wiki/Hoopoe>`_ w
 Features
 ~~~~~~~~
 
-* Based on Wagtail CMS and Django
-* Comes with a default clean & responsive template
+* Built with Wagtail CMS and Django
+* Inspired in Wordpress and Zinnia
+* Simple & responsive HTML template by default
 * SEO friendly urls
 * Support for Disqus comments
-* Archives, tags & categories results pages
-* Search form
+* Entries by author, tags, categories, archives and search term
 * Last & popular entries
 * Configurable sidebar widgets
 * RSS feeds
-* Blog post related entries
+* Related entries
 * Extensible entry model
-* Inspired in Wordpress and Zinnia
 
 Setup
 ~~~~~
@@ -46,7 +45,7 @@ Standalone blog app
 
     INSTALLED_APPS += PUPUT_APPS
 
-This includes :code:`puput` app, `Wagtail apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#wagtail-apps>`_ and `Third party apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#third-party-apps>`_.
+This includes Puput, `Wagtail apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#wagtail-apps>`_ and `Third party apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#third-party-apps>`_.
 If you have on of these apps previously defined in your :code:`INSTALLED_APPS` please include manually this apps in order to avoid apps collisions:
 
 .. code-block:: python
