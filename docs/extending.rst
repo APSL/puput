@@ -72,9 +72,7 @@ If you only want to have :class:`VideoEntryPage` on your blog and create a simpl
 
 Registering entry extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You have to register the model extension in
- :file:`settings.py` adding :code:`PUPUT_ENTRY_MODEL` with the path of
-the abstract model.
+You have to register the model extension in :file:`settings.py` adding :code:`PUPUT_ENTRY_MODEL` with the path of the abstract model.
 
 Following the previous example you have to add :code:`PUPUT_ENTRY_MODEL` in your :file:`settings.py` file:
 
@@ -88,8 +86,7 @@ If you extend :class:`EntryPage` model you must migrate the database in order to
 that you made on the model. However if you perform a ``makemigrations`` operation it will create a migration in
 :class:`puput.migrations` of your local Puput module folder.
 
-So you need to define a new path to store the changes made on :class:`EntryPage` model extension. You have to use
- :code:`MIGRATION_MODULES` for this purpose:
+So you need to define a new path to store the changes made on :class:`EntryPage` model extension. You have to use  :code:`MIGRATION_MODULES` for this purpose:
 
 .. code-block:: python
 
