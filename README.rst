@@ -24,6 +24,7 @@ Features
 * Configurable sidebar widgets
 * RSS feeds
 * Blog post related entries
+* Extensible entry model
 * Inspired in Wordpress and Zinnia
 
 Setup

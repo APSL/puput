@@ -34,6 +34,7 @@ Contents:
    setup
    editors
    comments
+   extending
 
 
 Indices and tables
