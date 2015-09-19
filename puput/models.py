@@ -97,11 +97,6 @@ class Category(models.Model):
 
     objects = CategoryManager()
 
-    class Meta:
-        ordering = ['name']
-        verbose_name = _("Category")
-        verbose_name_plural = _("Categories")
-
     panels = [
         FieldPanel('name'),
         FieldPanel('parent'),
@@ -123,6 +118,11 @@ class Category(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         return super(Category, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
 
 
 class CategoryEntryPage(models.Model):
