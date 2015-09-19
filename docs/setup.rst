@@ -10,7 +10,7 @@ Standalone blog app
 -------------------
 1. Install Puput and its dependencies :code:`pip install puput`
 
-2. Add to :setting:`PUPUT_APPS` to your :setting:`INSTALLED_APPS` in :file:`settings.py` file.
+2. Add to :code:`PUPUT_APPS` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
 
 .. code-block:: python
 
@@ -19,7 +19,7 @@ Standalone blog app
     INSTALLED_APPS += PUPUT_APPS
 
 This includes Puput app, `Wagtail apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#wagtail-apps>`_ and `Third party apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#third-party-apps>`_.
-If you have on of these apps previously defined in your :setting:`INSTALLED_APPS` please include manually this apps in order to avoid apps collisions:
+If you have on of these apps previously defined in your :code:`INSTALLED_APPS` please include manually this apps in order to avoid apps collisions:
 
 .. code-block:: python
 
@@ -54,7 +54,7 @@ If you have on of these apps previously defined in your :setting:`INSTALLED_APPS
         'wagtail.wagtailredirects.middleware.RedirectMiddleware',
     )
 
-4. Add :code:`request` context processor to :setting:`TEMPLATE_CONTEXT_PROCESSORS` structure in :file:`settings.py` file
+4. Add :code:`request` context processor to :code:`TEMPLATE_CONTEXT_PROCESSORS` structure in :file:`settings.py` file
 
 .. code-block:: python
 
@@ -63,7 +63,7 @@ If you have on of these apps previously defined in your :setting:`INSTALLED_APPS
         'django.core.context_processors.request',
     )
 
-5. Set :setting:`WAGTAIL_SITE_NAME` variable in :file:`settings.py` file with your site name
+5. Set :code:`WAGTAIL_SITE_NAME` variable in :file:`settings.py` file with your site name
 6. Place Puput urls at the **bottom** of the urlpatterns. It also includes Wagtail urls.
 
 .. code-block:: python
@@ -81,8 +81,8 @@ If you have on of these apps previously defined in your :setting:`INSTALLED_APPS
 Wagtail blog app
 ----------------
 1. Install Puput and its dependencies :code:`pip install puput`
-2. Add :code:`puput` to your :setting:`INSTALLED_APPS` in :file:`settings.py` file.
-3. If you have previously defined Wagtail urls in :file:`urls.py` set :setting:`PUPUT_AS_PLUGIN = True` in the :file:`settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
+2. Add :code:`puput` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
+3. If you have previously defined Wagtail urls in :file:`urls.py` set :code:`PUPUT_AS_PLUGIN = True` in the :file:`settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
 4. Include Puput urls in your :file:`urls.py` file.
 
 .. code-block:: python
