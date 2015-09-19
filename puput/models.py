@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import datetime
 from django.conf import settings
 
 from django.core.exceptions import ValidationError
@@ -9,19 +8,20 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
 
-from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsearch import index
 from taggit.models import TaggedItemBase, Tag as TaggitTag
-from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
-from puput.utils import import_model
 
+from .abstracts import EntryAbstract
+from .utils import import_model
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager
+
+Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
 
 
 class BlogPage(BlogRoutes, Page):
@@ -148,23 +148,6 @@ class Tag(TaggitTag):
 class EntryPageRelated(models.Model):
     entrypage_from = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_from')
     entrypage_to = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_to')
-
-
-class EntryAbstract(models.Model):
-    body = RichTextField(verbose_name=_('body'))
-    tags = ClusterTaggableManager(through=TagEntryPage, blank=True)
-    date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
-    header_image = models.ForeignKey('wagtailimages.Image', verbose_name=_('Header image'), null=True, blank=True,
-                                     on_delete=models.SET_NULL, related_name='+', )
-    categories = models.ManyToManyField(Category, through=CategoryEntryPage, blank=True)
-    excerpt = RichTextField(verbose_name=_('excerpt'), blank=True,
-                            help_text=_("Entry excerpt to be displayed on entries list. "
-                                        "If this field is not filled, a truncate version of body text will be used."))
-    num_comments = models.IntegerField(default=0, editable=False)
-
-    class Meta:
-        abstract = True
-Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
 
 
 class EntryPage(Page, Entry):
