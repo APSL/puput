@@ -15,19 +15,20 @@ Puput is the catalan name for `Hoopoe <https://en.wikipedia.org/wiki/Hoopoe>`_ w
 Features
 ~~~~~~~~
 
-* Based on Wagtail CMS and Django
-* Comes with a default clean & responsive template
+* Built with Wagtail CMS and Django
+* Inspired in Wordpress and Zinnia
+* Simple & responsive HTML template by default
 * SEO friendly urls
 * Support for Disqus comments
-* Archives, tags & categories results pages
-* Search form
+* Entries by author, tags, categories, archives and search term
 * Last & popular entries
 * Configurable sidebar widgets
 * RSS feeds
-* Blog post related entries
-* Inspired in Wordpress and Zinnia
+* Related entries
+* Extensible entry model
 
 Contents:
+~~~~~~~~~
 
 .. toctree::
 
@@ -35,5 +36,6 @@ Contents:
    editors
    comments
    extending
+   changelog
 
 
