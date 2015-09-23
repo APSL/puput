@@ -64,7 +64,12 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
         'django.core.context_processors.request',
     )
 
-5. Set :code:`WAGTAIL_SITE_NAME` variable in :file:`settings.py` file with your site name
+5. Set :code:`WAGTAIL_SITE_NAME` variable in :file:`settings.py` file with your site name:
+
+.. code-block:: python
+
+    WAGTAIL_SITE_NAME = 'Puput blog'
+
 6. Place Puput urls at the **bottom** of the urlpatterns. It also includes Wagtail urls.
 
 .. code-block:: python
@@ -74,7 +79,8 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
         url(r'', include('puput.urls')),
     ]
 7. Run :code:`python manage.py migrate` and :code:`python manage.py puput_initial_data` to load initial data to start a blog site.
-8. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page.
+8. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page. Go to http://127.0.0.1:8000/blog_admin/ to view
+the admin site and edit your content.
 
 
 .. _wagtail_app:
