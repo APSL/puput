@@ -33,6 +33,7 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
         'wagtail.wagtailimages',
         'wagtail.wagtailembeds',
         'wagtail.wagtailsearch',
+        'wagtail.wagtailsites',
         'wagtail.wagtailredirects',
         'wagtail.wagtailforms',
         'wagtail.contrib.wagtailsitemaps',
