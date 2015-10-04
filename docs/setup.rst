@@ -119,14 +119,14 @@ Wagtail blog app
 1. Install Puput and its dependencies :code:`pip install puput`
 2. Add :code:`puput`, :code:`wagtail.contrib.wagtailsitemaps` and :code:`wagtail.contrib.wagtailroutablepage` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
 3. If you have previously defined Wagtail urls in :file:`urls.py` set :code:`PUPUT_AS_PLUGIN = True` in the :file:`settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
-4. Include Puput urls in your :file:`urls.py` file.
+4. Include Puput urls in :file:`urls.py` **after** Wagtail urls.
 
 .. code-block:: python
 
     urlpatterns = [
         ...
         url(r'', include('puput.urls')),
-        ...
+        url(r'', include(wagtail_urls)),
     ]
 
 5. Run :code:`python manage.py migrate`
