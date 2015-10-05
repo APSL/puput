@@ -38,5 +38,7 @@ Contents:
    extending
    importers
    changelog
+   authors
+
 
 
