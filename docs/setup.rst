@@ -10,7 +10,7 @@ Standalone blog app
 -------------------
 1. Install Puput and its dependencies :code:`pip install puput`
 
-2. Add to :code:`PUPUT_APPS` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
+2. Add :code:`PUPUT_APPS` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
 
 .. code-block:: python
 
