@@ -36,6 +36,7 @@ Contents:
    editors
    comments
    extending
+   importers
    changelog
 
 
