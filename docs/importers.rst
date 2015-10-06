@@ -15,14 +15,6 @@ You can optionally pass the slug and the title of the blog to the importer::
 
     python manage.py zinnia2import --slug=blog --title="Puput blog"
 
-Wordpress (in progress)
------------------------
-1. Install wordpress-to-puput package and its dependencies :code:`pip install wordpress-to-puput`
-2. Add `wp2puput` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
-3. Run the management command::
-
-    python manage.py wp2import
-
-You can optionally pass the slug and the title of the blog to the importer::
-
-    python manage.py wp2import --slug=blog --title="Puput blog"
+Wordpress
+---------
+TODO
