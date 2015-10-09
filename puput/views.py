@@ -1,27 +1,24 @@
 import operator
 from tapioca.exceptions import ClientError
 from tapioca_disqus import Disqus
-
 from django.http import Http404, HttpResponse
 from django.views.generic import View
-
 from wagtail.wagtailcore import hooks
-
 from .models import EntryPage
 
-
 class EntryPageServe(View):
-
     def get(self, request, *args, **kwargs):
         if not request.site:
-            raise Http404
-        path_components = list(operator.itemgetter(0, -1)(request.path.strip('/').split('/')))
-        page, args, kwargs = request.site.root_page.specific.route(request, path_components)
-
-        for fn in hooks.get_hooks('before_serve_page'):
-            result = fn(page, request, args, kwargs)
-            if isinstance(result, HttpResponse):
-                return result
+            raise Http404;
+        path_components = list(operator.itemgetter(0, -1)(request.path.strip('/').split('/')));
+        page, args, kwargs = request.site.root_page.specific.route(request, path_components);
+        try:
+            for fn in hooks.get_hooks('before_serve_page'):
+                result = fn(page, request, args, kwargs);
+                if isinstance(result, HttpResponse):
+                    return result;
+        except:
+            pass;
         return page.serve(request, *args, **kwargs)
 
 
