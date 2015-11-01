@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
 
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsearch import index
@@ -160,19 +160,7 @@ class EntryPage(Page, Entry):
     )
 
     # Panels
-    content_panels = [
-        MultiFieldPanel([
-            FieldPanel('title', classname="title"),
-            ImageChooserPanel('header_image'),
-            FieldPanel('body', classname="full"),
-            FieldPanel('excerpt', classname="full"),
-        ], heading=_("Content")),
-        MultiFieldPanel([
-            FieldPanel('tags'),
-            InlinePanel('entry_categories', label=_("Categories")),
-            InlinePanel('related_entrypage_from', label=_("Related Entries")),
-        ], heading=_("Metadata")),
-    ] + getattr(Entry, 'content_panels', [])
+    content_panels = getattr(Entry, 'content_panels', [])
 
     promote_panels = Page.promote_panels + getattr(Entry, 'promote_panels', [])
 
