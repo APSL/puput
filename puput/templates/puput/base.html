@@ -15,8 +15,7 @@
     {% compress css %}
         <link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/>
         <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
-        <link rel="stylesheet" href="{% static 'puput/css/style.css' %}"/>
-        <link rel="stylesheet" href="{% static 'puput/css/main.css' %}"/>
+        <link rel="stylesheet" href="{% static 'puput/css/puput.css' %}"/>
     {% endcompress %}
 </head>
 <body>
@@ -32,16 +31,16 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-sm-8 col-md-8">
             {% block content %}{% endblock content %}
             {% block extra_content %}{% endblock extra_content %}
         </div>
 
-        <div class="col-md-4">
+        <div class="col-sm-4 col-md-4">
             <div class="blog_sidebar">
                 <div class="rss-sitemap">
                     <a href="{% url 'blog_page_feed' blog_page.slug %}" target="_blank" title="Rss">
-                        <i class="fa fa-rss-square"></i> <span>Feed RSS</span>
+                         <i class="fa fa-rss-square"></i> <span>Feed RSS</span>
                     </a>
                 </div>
                 <form name="search_form" class="search_form" method="get" action="{% routablepageurl blog_page "entries_search" %}">
