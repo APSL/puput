@@ -1,11 +1,18 @@
 Changelog
+
 =========
+0.3 (2015-11-15)
+~~~~~~~~~~~~~~~~
+* Customizable username field on settings.
+* Improvements on the documentation.
+* CSS cleanup. Added LESS file.
+* Minor bug fixes.
+* Added catalan translations.
 
 0.2 (2015-09-22)
 ~~~~~~~~~~~~~~~~
-* Extensible entry model
-
+* Extensible entry model.
 
 0.1 (2015-09-12)
 ~~~~~~~~~~~~~~~~
-* Initial release
+* Initial release.
