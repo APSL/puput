@@ -5,11 +5,12 @@
 Puput
 =====
 
-Puput is a powerful and simple Django app to manage a blog. It uses the awesome Wagtail CMS as content management system.
+Puput is a powerful and simple Django app to manage a blog. It uses the awesome `Wagtail CMS <https://github.com/torchbox/wagtail>`_ as content management system.
 
 Puput is the catalan name for `Hoopoe <https://en.wikipedia.org/wiki/Hoopoe>`_ which is indeed a beautiful bird.
 
-.. image:: http://i.imgur.com/ndZLeWb.png
+.. image:: http://i.imgur.com/8RNaxeE.png
+
 
 Features
 ~~~~~~~~
@@ -25,6 +26,8 @@ Features
 * RSS feeds
 * Related entries
 * Extensible entry model
+
+.. image:: http://i.imgur.com/ndZLeWb.png
 
 Setup
 ~~~~~
