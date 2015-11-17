@@ -9,6 +9,7 @@ Puput is a powerful and simple Django app to manage a blog. It uses the awesome 
 
 Puput is the catalan name for `Hoopoe <https://en.wikipedia.org/wiki/Hoopoe>`_ which is indeed a beautiful bird.
 
+.. image:: http://i.imgur.com/3ByGQb6.png
 
 Features
 ~~~~~~~~
