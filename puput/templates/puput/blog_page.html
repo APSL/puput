@@ -19,7 +19,8 @@
                 {% include 'puput/entry_page_header.html' %}
                 <section>
                     <span class="img-responsive">
-                        {% image entry.header_image width-300 %}
+                        {% image entry.header_image fill-800x240 as header_image %}
+                        <img alt="{{ entry.header_image.title }}" src="{{ header_image.url }}">
                     </span>
                 </section>
                 <section class="article">
@@ -39,4 +40,3 @@
         </div>
     {% endwith %}
 {% endblock content %}
-
