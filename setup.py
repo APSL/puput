@@ -43,7 +43,7 @@ setup(
         'Django>=1.7.1,<1.9',
         'wagtail>=1.0,<2.0',
         'django-endless-pagination==2.0',
-        'tapioca-disqus==0.1.1',
+        'tapioca-disqus==0.1.2',
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),

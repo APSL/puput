@@ -1,10 +1,18 @@
 Changelog
 
 =========
+
+0.4 (2016-12-09)
+~~~~~~~~~~~~~~~~
+* Added a fancy logo.
+* Improved visualization of entries header images.
+* Minor bug fixes.
+
+
 0.3 (2015-11-15)
 ~~~~~~~~~~~~~~~~
-* Customizable username field on settings.
-* Improvements on the documentation.
+* Customizable username field in settings file.
+* Improvements in the documentation.
 * CSS cleanup. Added LESS file.
 * Minor bug fixes.
 * Added catalan translations.
