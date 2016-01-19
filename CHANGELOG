@@ -2,7 +2,11 @@ Changelog
 
 =========
 
-0.4 (2016-12-09)
+0.4.1 (2016-01-19)
+~~~~~~~~~~~~~~~~
+* Minor css bug fixes.
+
+0.4 (2015-12-09)
 ~~~~~~~~~~~~~~~~
 * Added a fancy logo.
 * Improved visualization of entries header images.
