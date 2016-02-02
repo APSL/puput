@@ -118,8 +118,7 @@ a:hover {
   outline: inherit;
 }
 span img {
-  width: auto;
-  max-width:100%;
+  width:100%;
   margin-bottom: 15px;
 }
 h2.post_title {
@@ -282,7 +281,12 @@ p {
   margin: 30px 0;
   text-align: center;
 }
-.pagination .endless_page_current,
+.pagination .endless_separator{
+  background: transparent;
+  color: #358c8b;
+  font-size: 18px;
+}
+.pagination span.endless_page_current,
 .pagination .endless_page_link {
   padding: 7px 11px;
   color: #43b1b0;
