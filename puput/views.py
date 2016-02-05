@@ -11,11 +11,24 @@ from .models import EntryPage
 
 
 class EntryPageServe(View):
+    """
+    This class is responsible to serve entries with a proper blog url format:
+    http://wwww.example.com/2015/10/01/my-first-post
+
+    If you set your blog as Wagtail Root page, the url is like the above example.
+    Otherwise if you have a multiple blog instances, you need to pass the slug of the blog
+    page instance that you want to use:
+    http://wwww.example.com/weblog/2015/10/01/my-first-post
+    http://wwww.example.com/videblog/2015/10/01/my-first-video
+    """
 
     def get(self, request, *args, **kwargs):
         if not request.site:
             raise Http404
-        path_components = list(operator.itemgetter(0, -1)(request.path.strip('/').split('/')))
+        if request.resolver_match.url_name == 'entry_page_serve_slug':
+            path_components = list(operator.itemgetter(0, -1)(request.path.strip('/').split('/')))
+        else:
+            path_components = [request.path.strip('/').split('/')[-1]]
         page, args, kwargs = request.site.root_page.specific.route(request, path_components)
 
         for fn in hooks.get_hooks('before_serve_page'):

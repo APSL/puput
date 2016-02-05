@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls import url, include
+from django.core.urlresolvers import reverse
 
 from .feeds import BlogPageFeed
 from .views import EntryPageServe, EntryPageUpdateCommentsView
@@ -13,6 +14,11 @@ urlpatterns = [
     ),
     url(
         regex=r'^(?P<blog_slug>[-\w]+)/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+        view=EntryPageServe.as_view(),
+        name='entry_page_serve_slug'
+    ),
+    url(
+        regex=r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         view=EntryPageServe.as_view(),
         name='entry_page_serve'
     ),
@@ -52,3 +58,25 @@ if not getattr(settings, 'PUPUT_AS_PLUGIN', False):
             view=sitemap
         )
     ])
+
+
+def get_entry_url(entry, blog_page, root_page):
+    """
+    Get the entry url given and entry page a blog page instances.
+    It will use an url or another depending if blog_page is the root page.
+    """
+    if root_page == blog_page:
+        return reverse('entry_page_serve', kwargs={
+            'year': entry.date.strftime('%Y'),
+            'month': entry.date.strftime('%m'),
+            'day': entry.date.strftime('%d'),
+            'slug': entry.slug
+        })
+    else:
+        return reverse('entry_page_serve_slug', kwargs={
+            'blog_slug': blog_page.slug,
+            'year': entry.date.strftime('%Y'),
+            'month': entry.date.strftime('%m'),
+            'day': entry.date.strftime('%d'),
+            'slug': entry.slug
+        })
