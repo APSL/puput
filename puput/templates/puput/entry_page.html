@@ -6,7 +6,8 @@
 {% block meta_description %}{% if self.search_description %}{{ self.search_description }}{% else %}{{ self.body|striptags|truncatewords:20 }}{% endif %}{% endblock meta_description %}
 
 {% block content %}
-    <article class="box page-content" data-entry-page-update-comments-url="{% url 'entry_page_update_comments' self.id %}">
+    <article class="box page-content"
+             {%if self.id %}data-entry-page-update-comments-url="{% url 'entry_page_update_comments' self.id %}{% endif %}">
         {% include 'puput/entry_page_header.html' with entry=self %}
         <section>
             <span class="image featured">
