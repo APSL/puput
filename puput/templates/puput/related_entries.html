@@ -14,7 +14,7 @@
                                 <a href="{% entry_url related_entry blog_page %}">{{ related_entry.title }}</a>
                             </h3>
                             <p>
-                                {{ related_entry.body|striptags|truncatewords:20  }}
+                                {{ related_entry.body|richtext|truncatewords:20 }}
                             </p>
                         </section>
                     </div>
