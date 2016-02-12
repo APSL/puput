@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.5 (2016-02-12)
+------------------
+* Altered URL structure in order to have blog as Wagtail root page.
+* Added Docker integration.
+* Archive list is now collapsible.
+
 0.4.1 (2016-01-19)
 ------------------
 * Minor css bug fixes.
