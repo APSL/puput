@@ -77,7 +77,7 @@
                     </ul>
                 {% endif %}
                 {% if blog_page.display_archive %}
-                    <ul class="sidebar">
+                    <ul class="sidebar widget menu">
                         <h4>{% trans 'Archive' %}</h4>
                         {% archives_list %}
                     </ul>
@@ -100,7 +100,10 @@
     </div>
 </div>
 {% compress js %}
-    {% block extra_js %}{% endblock extra_js %}
+    {% block extra_js %}
+      <script src="{% static 'puput/js/jquery.min.js' %}"></script>
+      <script src="{% static 'puput/js/puput.js' %}"></script>
+    {% endblock extra_js %}
 {% endcompress js %}
 </body>
 </html>
