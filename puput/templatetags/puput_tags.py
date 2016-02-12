@@ -3,7 +3,7 @@ from django.template import Library, loader
 
 from endless_pagination.templatetags.endless import show_pages, paginate
 
-from ..urls import get_entry_url
+from ..urls import get_entry_url, get_feeds_url
 from ..models import Category, Tag
 
 register = Library()
@@ -59,6 +59,11 @@ def archives_list(context):
 @register.simple_tag(takes_context=True)
 def entry_url(context, entry, blog_page):
     return get_entry_url(entry, blog_page.page_ptr, context['request'].site.root_page)
+
+
+@register.simple_tag(takes_context=True)
+def feeds_url(context, blog_page):
+    return get_feeds_url(blog_page.page_ptr, context['request'].site.root_page)
 
 
 @register.simple_tag(takes_context=True)

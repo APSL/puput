@@ -25,6 +25,11 @@ urlpatterns = [
     url(
         regex=r'^(?P<blog_slug>[-\w]+)/feed/$',
         view=BlogPageFeed(),
+        name='blog_page_feed_slug'
+    ),
+    url(
+        regex=r'^feed/$',
+        view=BlogPageFeed(),
         name='blog_page_feed'
     )
 ]
@@ -80,3 +85,16 @@ def get_entry_url(entry, blog_page, root_page):
             'day': entry.date.strftime('%d'),
             'slug': entry.slug
         })
+
+
+def get_feeds_url(blog_page, root_page):
+    """
+    Get the feeds urls a blog page instance.
+    It will use an url or another depending if blog_page is the root page.
+    """
+    if root_page == blog_page:
+        return reverse('blog_page_feed')
+    else:
+        return reverse('blog_page_feed_slug', kwargs={'blog_slug': blog_page.slug})
+
+

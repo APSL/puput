@@ -10,7 +10,10 @@ from .models import BlogPage
 class BlogPageFeed(Feed):
 
     def __call__(self, request, *args, **kwargs):
-        self.blog_page = BlogPage.objects.get(slug=kwargs['blog_slug'])
+        if request.resolver_match.url_name == 'blog_page_feed_slug':
+            self.blog_page = BlogPage.objects.get(slug=kwargs['blog_slug'])
+        else:
+            self.blog_page = BlogPage.objects.first()
         self.request = request
         return super(BlogPageFeed, self).__call__(request, *args, **kwargs)
 
