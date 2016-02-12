@@ -158,6 +158,11 @@ Wagtail blog app
 
 5. Run :code:`python manage.py migrate`
 
+Docker
+------
+If you want to run Puput in a Docker container please visit `docker-puput  <https://github.com/APSL/docker-puput/>`_
+for detailed instructions.
+
 Documentation
 ~~~~~~~~~~~~~
 Visit `Puput documentation <http://puput.readthedocs.org>`_ for the detailed documentation.
