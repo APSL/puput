@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from django.core.urlresolvers import reverse
 from django.template import Library, loader
 
 from endless_pagination.templatetags.endless import show_pages, paginate
 
+from ..urls import get_entry_url
 from ..models import Category, Tag
 
 register = Library()
@@ -56,15 +56,9 @@ def archives_list(context):
     return {'blog_page': blog_page, 'request': context['request'], 'archives': archives}
 
 
-@register.simple_tag()
-def entry_url(entry, blog_page):
-    return reverse('entry_page_serve', kwargs={
-        'blog_slug': blog_page.slug,
-        'year': entry.date.strftime('%Y'),
-        'month': entry.date.strftime('%m'),
-        'day': entry.date.strftime('%d'),
-        'slug': entry.slug
-    })
+@register.simple_tag(takes_context=True)
+def entry_url(context, entry, blog_page):
+    return get_entry_url(entry, blog_page.page_ptr, context['request'].site.root_page)
 
 
 @register.simple_tag(takes_context=True)
