@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.5.1 (2016-02-16)
+------------------
+* Fix bug due a missing template tag.
+
 0.5 (2016-02-12)
 ------------------
 * Altered URL structure in order to have blog as Wagtail root page.
