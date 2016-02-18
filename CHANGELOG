@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.5.2 (2016-02-18)
+------------------
+* Removed django-endless-pagination which is no longer maintained and is not compatible with Django 1.9. Replaced by django-el-pagination.
+* Category slug is now editable on snippets section.
+
 0.5.1 (2016-02-16)
 ------------------
 * Fix bug due a missing template tag.
