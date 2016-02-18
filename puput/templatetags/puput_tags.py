@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.template import Library, loader
 
-from endless_pagination.templatetags.endless import show_pages, paginate
+from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
 
 from ..urls import get_entry_url, get_feeds_url
 from ..models import Category, Tag
