@@ -1,8 +1,0 @@
-{% load i18n %}
-{% if querystring %}
-    <div class="endless_container">
-        <a class="endless_more" href="{{ path }}{{ querystring }}"
-            rel="{{ querystring_key }}">{% if label %}{{ label }}{% else %}{% trans "more" %}{% endif %}</a>
-        <div class="endless_loading" style="display: none;">{{ loading|safe }}</div>
-    </div>
-{% endif %}
