@@ -98,12 +98,6 @@ class Category(models.Model):
 
     objects = CategoryManager()
 
-    panels = [
-        FieldPanel('name'),
-        FieldPanel('parent'),
-        FieldPanel('description'),
-    ]
-
     def __str__(self):
         return self.name
 
