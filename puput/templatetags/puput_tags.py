@@ -33,7 +33,7 @@ def tags_list(context, limit=None, tags_qs=None):
     if tags_qs:
         tags = tags_qs.all()
     else:
-        tags = Tag.objects.with_uses(blog_page)
+        tags = Tag.objects.most_common(blog_page)
     if limit:
         tags = tags[:limit]
     return {'blog_page': blog_page, 'request': context['request'], 'tags': tags}
