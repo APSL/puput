@@ -1,10 +1,12 @@
-.. image:: https://readthedocs.org/projects/puput/badge/?version=latest
-    :target: https://readthedocs.org/projects/puput/?badge=latest
-    :alt: Documentation Status
-
 Puput
 =====
 
+.. image:: https://readthedocs.org/projects/puput/badge/?version=latest
+    :target: https://readthedocs.org/projects/puput/?badge=latest
+    
+.. image:: https://api.codacy.com/project/badge/grade/f96e31ee1b8c4aa2b1402f12308afe96    
+   :target: https://www.codacy.com/app/marctc/puput
+   
 Puput is a powerful and simple Django app to manage a blog. It uses the awesome `Wagtail CMS <https://github.com/torchbox/wagtail>`_ as content management system.
 
 Puput is the catalan name for `Hoopoe <https://en.wikipedia.org/wiki/Hoopoe>`_ which is indeed a beautiful bird.
