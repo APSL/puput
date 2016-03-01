@@ -27,6 +27,8 @@ class EntryPageServe(View):
             raise Http404
         if request.resolver_match.url_name == 'entry_page_serve_slug':
             path_components = list(operator.itemgetter(0, -1)(request.path.strip('/').split('/')))
+        elif request.resolver_match.url_name == 'entry_page_serve_slug_only':
+            path_components = list(operator.itemgetter(0, -1)(request.path.strip('/').split('/')))
         else:
             path_components = [request.path.strip('/').split('/')[-1]]
         page, args, kwargs = request.site.root_page.specific.route(request, path_components)
