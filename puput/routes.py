@@ -62,6 +62,6 @@ class BlogRoutes(RoutablePageMixin):
         return Page.serve(self, request, *args, **kwargs)
 
     @route(r'^$')
-    def entries(self, request, *args, **kwargs):
+    def entries_list(self, request, *args, **kwargs):
         self.entries = self.get_entries()
         return Page.serve(self, request, *args, **kwargs)
