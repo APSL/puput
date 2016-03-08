@@ -31,7 +31,12 @@ urlpatterns = [
         regex=r'^feed/$',
         view=BlogPageFeed(),
         name='blog_page_feed'
-    )
+    ),
+    url(
+        regex=r'^(?P<blog_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
+        view=EntryPageServe.as_view(),
+        name='entry_page_serve_slug_only'
+    ),
 ]
 
 if not getattr(settings, 'PUPUT_AS_PLUGIN', False):
