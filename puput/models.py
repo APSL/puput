@@ -188,3 +188,16 @@ class EntryPage(Page, Entry):
         verbose_name = _('Entry')
         verbose_name_plural = _('Entries')
 EntryPage._meta.get_field('owner').editable = True
+
+@register_snippet
+@python_2_unicode_compatible
+class CustomCode(models.Model):
+    name = models.CharField(max_length=80, unique=True, verbose_name=_('Custom code name'))
+    content = models.TextField(max_length=2000, blank=True, verbose_name=_("code"))
+    active = models.BooleanField(default=False, verbose_name=_('Activate'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Custom JS code")
