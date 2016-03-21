@@ -101,5 +101,3 @@ def get_feeds_url(blog_page, root_page):
         return reverse('blog_page_feed')
     else:
         return reverse('blog_page_feed_slug', kwargs={'blog_path': blog_page.specific.last_url_part.strip("/")})
-
-
