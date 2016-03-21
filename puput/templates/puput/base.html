@@ -12,6 +12,7 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,100italic,100,400italic,500,500italic,700,900,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='//google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'>
     {% compress css %}
         <link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/>
         <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
@@ -99,6 +100,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 {% compress js %}
     {% block extra_js %}
       <script src="{% static 'puput/js/jquery.min.js' %}"></script>

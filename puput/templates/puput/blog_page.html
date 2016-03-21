@@ -26,8 +26,10 @@
                 <section class="article">
                     {% if entry.excerpt %}
                         {{ entry.excerpt|richtext }}
-                    {% else %}
+                    {% elif entry.body %}
                         {{ entry.body|richtext|truncatewords_html:70 }}
+                    {% else %}
+                        {{ entry.extra_body|truncatewords_html:70 }}
                     {% endif %}
                     <a class="blog_btn continue" href="{% entry_url entry blog_page %}">{% trans 'Continue reading' %} &raquo;</a>
                 </section>

@@ -17,6 +17,9 @@
         </section>
         <section>
             {{ self.body|richtext}}
+            {% for block in self.extra_body %}
+                {{ block }}
+            {% endfor %}
         </section>
         {% show_comments %}
     </article>
