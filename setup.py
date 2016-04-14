@@ -41,6 +41,7 @@ setup(
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
         'Django>=1.7.1',
+        'django-compressor>=1.6',
         'wagtail>=1.0,<2.0',
         'django-el-pagination==2.1.1',
         'tapioca-disqus==0.1.2',

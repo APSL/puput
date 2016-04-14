@@ -21,13 +21,6 @@ h6,
 p,
 span {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
-}
-
-ul,
-ol {
-    margin: 0;
-    padding-left: 0;
 }
 
 ul.links {
@@ -100,6 +93,10 @@ ul.sidebar ul li i {
     color: #43b1b0;
 }
 
+ul.sidebar li > ul{
+  padding-left: 0;
+}
+
 ul.sidebar ul li > ul li {
     padding-left: 20px;
 }
@@ -166,6 +163,9 @@ h3 {
 p {
     font-weight: 300;
     color: #666;
+}
+.responsive-object{
+  padding-bottom: 10px !important;
 }
 
 .about {
@@ -386,6 +386,10 @@ p {
 /* Menu */
 .menu li {
     margin: 0 0 3px;
+}
+
+.menu ul {
+    padding-left: 0;
 }
 
 .menu li a {
