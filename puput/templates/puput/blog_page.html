@@ -17,12 +17,14 @@
         {% for entry in entries %}
             <article class="box page-content blog_grid">
                 {% include 'puput/entry_page_header.html' %}
-                <section>
-                    <span class="img-responsive">
-                        {% image entry.header_image fill-800x240 as header_image %}
-                        <img alt="{{ entry.header_image.title }}" src="{{ header_image.url }}">
-                    </span>
-                </section>
+                {% if entry.header_image %}
+                    <section>
+                        <span class="img-responsive">
+                            {% image entry.header_image fill-800x240 as header_image %}
+                            <img alt="{{ entry.header_image.title }}" src="{{ header_image.url }}">
+                        </span>
+                    </section>
+                {% endif %}
                 <section class="article">
                     {% if entry.excerpt %}
                         {{ entry.excerpt|richtext }}

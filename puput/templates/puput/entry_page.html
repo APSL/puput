@@ -9,12 +9,14 @@
     <article class="box page-content"
              {%if self.id %}data-entry-page-update-comments-url="{% url 'entry_page_update_comments' self.id %}{% endif %}">
         {% include 'puput/entry_page_header.html' with entry=self %}
-        <section>
-            <span class="image featured">
-                {% image self.header_image fill-800x450 as header_image %}
-                <img alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
-            </span>
-        </section>
+        {% if self.header_image %}
+            <section>
+                <span class="image featured">
+                    {% image self.header_image fill-800x450 as header_image %}
+                    <img alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
+                </span>
+            </section>
+        {% endif %}
         <section>
             {{ self.body|richtext}}
         </section>
