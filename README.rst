@@ -13,6 +13,8 @@ Puput is the catalan name for `Hoopoe <https://en.wikipedia.org/wiki/Hoopoe>`_ w
 
 .. image:: http://i.imgur.com/3ByGQb6.png
 
+`Try Puput demo site! <http://puput.apsl.net/>`_
+
 Features
 ~~~~~~~~
 
