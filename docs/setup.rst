@@ -1,16 +1,15 @@
 Setup
 =====
 
-If you have a running Django project and you want to add blog site to your project,
-please follow :ref:`standalone_app` steps. Otherwise follow the :ref:`wagtail_app` steps if you are currently using Wagtail on your project.
+If you're starting from a Django project without Wagtail integration and you want to add a blog site to your project,
+please follow the steps outlined under `Standalone install <setup.rst#standalone-install>`_. If you are already using Wagtail, refer to `Installation on top of Wagtail <setup.rst#installation-on-top-of-wagtail>`_.
 
-.. _standalone_app:
 
-Standalone blog app
+Standalone install
 -------------------
-1. Install Puput and its dependencies :code:`pip install puput`
+1. Install Puput and its dependencies via :code:`pip install puput`.
 
-2. Add :code:`PUPUT_APPS` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
+2. Append :code:`PUPUT_APPS` to :code:`INSTALLED_APPS` in your settings.
 
 .. code-block:: python
 
@@ -18,8 +17,8 @@ Standalone blog app
 
     INSTALLED_APPS += PUPUT_APPS
 
-This includes Puput app, `Wagtail apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#wagtail-apps>`_ and `Third party apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#third-party-apps>`_.
-If you have on of these apps previously defined in your :code:`INSTALLED_APPS` please include manually this apps in order to avoid apps collisions:
+This includes Puput, `Wagtail's apps <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#wagtail-apps>`_ and certain `third-party dependencies <http://docs.wagtail.io/en/v1.0/advanced_topics/settings.html#third-party-apps>`_.
+If you are already referencing one of these apps in your :code:`INSTALLED_APPS` list, please include the following apps manually in order to avoid app collisions:
 
 .. code-block:: python
 
@@ -45,7 +44,7 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
     )
 
 
-3. Add Wagtail required middleware classes in :file:`settings.py` file
+3. Add Wagtail's required middleware classes to :code:`MIDDLEWARE_CLASSES` in your Django settings.
 
 .. code-block:: python
 
@@ -55,7 +54,7 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
         'wagtail.wagtailredirects.middleware.RedirectMiddleware',
     )
 
-4. Add :code:`request` context processor to :code:`TEMPLATE_CONTEXT_PROCESSORS` structure in :file:`settings.py` file
+4. Add the :code:`request` context processor to the :code:`TEMPLATE_CONTEXT_PROCESSORS` structure in your Django settings.
 
 .. code-block:: python
 
@@ -64,13 +63,13 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
         'django.core.context_processors.request',
     )
 
-5. Set :code:`WAGTAIL_SITE_NAME` variable in :file:`settings.py` file with your site name:
+5. Set the :code:`WAGTAIL_SITE_NAME` variable to the name of your site in your Django settings.
 
 .. code-block:: python
 
     WAGTAIL_SITE_NAME = 'Puput blog'
 
-6. Set :code:`MEDIA_ROOT` and :code:`MEDIA_URL` variable in :code:`settings.py` as described in the `Wagtail Docs <http://docs.wagtail.io/en/v1.1/advanced_topics/settings.html#ready-to-use-example-configuration-files>`_:
+6. Configure the :code:`MEDIA_ROOT` and :code:`MEDIA_URL` settings as described in the `Wagtail Docs <http://docs.wagtail.io/en/v1.1/advanced_topics/settings.html#ready-to-use-example-configuration-files>`_.
 
 .. code-block:: python
 
@@ -78,7 +77,7 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
     MEDIA_URL = '/media/'
 
 
-7. Place Puput urls at the **bottom** of the urlpatterns. It also includes Wagtail urls:
+7. Place Puput's URLs at the **bottom** of the urlpatterns. It also includes Wagtail's URLs.
 
 .. code-block:: python
 
@@ -87,7 +86,7 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
         url(r'', include('puput.urls')),
     ]
 
-8. To make your Django project serve your media files (ex: uploaded contents) during development, don't forget to add this to your urlpatterns:
+8. To make your Django project serve your media files (e.g. things you upload via the admin) during development, don't forget to add this to your urlpatterns:
 
 .. code-block:: python
 
@@ -109,17 +108,15 @@ If you have on of these apps previously defined in your :code:`INSTALLED_APPS` p
 
 
 9. Run :code:`python manage.py migrate` and :code:`python manage.py puput_initial_data` to load initial data to start a blog site.
-10. Open your broswer at http://127.0.0.1:8000/blog/ to view your blog home page. Go to http://127.0.0.1:8000/blog_admin/ to view the admin site and edit your content.
+10. Open your browser at http://127.0.0.1:8000/blog/ to view your blog home page. Go to http://127.0.0.1:8000/blog_admin/ to view the admin site and edit your content.
 
 
-.. _wagtail_app:
-
-Wagtail blog app
-----------------
-1. Install Puput and its dependencies :code:`pip install puput`
-2. Add :code:`puput`, :code:`wagtail.contrib.wagtailsitemaps` and :code:`wagtail.contrib.wagtailroutablepage` to your :code:`INSTALLED_APPS` in :file:`settings.py` file.
-3. If you have previously defined Wagtail urls in :file:`urls.py` set :code:`PUPUT_AS_PLUGIN = True` in the :file:`settings.py`. This will avoid to include Wagtail urls again when you include necessary Puput urls.
-4. Include Puput urls in :file:`urls.py` **before** Wagtail urls.
+Installation on top of Wagtail
+------------------------------
+1. Install Puput and its dependencies via :code:`pip install puput`.
+2. Add :code:`puput`, :code:`wagtail.contrib.wagtailsitemaps` and :code:`wagtail.contrib.wagtailroutablepage` to :code:`INSTALLED_APPS` in your Django settings.
+3. If you have previously defined Wagtail URLs in your patterns, set the :code:`PUPUT_AS_PLUGIN` setting to :code:`True`. This will avoid duplicate inclusion of Wagtail's URLs when you include Puput's URLs.
+4. Include Puput's URLs in your patterns **before** Wagtail's URLs.
 
 .. code-block:: python
 
@@ -129,7 +126,7 @@ Wagtail blog app
         url(r'', include(wagtail_urls)),
     ]
 
-5. Run :code:`python manage.py migrate`
+5. Run :code:`python manage.py migrate`.
 
 
 Docker
