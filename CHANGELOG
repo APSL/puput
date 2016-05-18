@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.6 (2016-05-18)
+------------------
+* Fix issue when displaying entries without images.
+* Fix css issues.
+* Add django-compressor as project dependency.
+* Improve tags visualization.
+
 0.5.2 (2016-02-18)
 ------------------
 * Removed django-endless-pagination which is no longer maintained and is not compatible with Django 1.9. Replaced by django-el-pagination.
