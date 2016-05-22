@@ -6,3 +6,5 @@ python:
 install:
 # Install puput in current directory, install dependencies normally
 - python setup.py develop
+script:
+- python setup.py test
