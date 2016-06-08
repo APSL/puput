@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.template import Library, loader
+from django.core.urlresolvers import resolve
 
 from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
 
@@ -59,6 +60,13 @@ def archives_list(context):
 @register.simple_tag(takes_context=True)
 def entry_url(context, entry, blog_page):
     return get_entry_url(entry, blog_page.page_ptr, context['request'].site.root_page)
+
+
+@register.simple_tag(takes_context=True)
+def canonical_url(context, entry=None):
+    if entry and resolve(context.request.path_info).url_name == 'wagtail_serve':
+        return context.request.build_absolute_uri(entry_url(context, entry, entry.blog_page))
+    return context.request.build_absolute_uri()
 
 
 @register.simple_tag(takes_context=True)
