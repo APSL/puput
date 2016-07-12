@@ -5,10 +5,13 @@ from datetime import date
 from django.utils.dateformat import DateFormat
 from django.utils.formats import date_format
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailsearch.models import Query
+
+USERNAME_REGEX = getattr(settings, 'PUPUT_USERNAME_REGEX', '\w+')
 
 
 class BlogRoutes(RoutablePageMixin):
@@ -43,11 +46,12 @@ class BlogRoutes(RoutablePageMixin):
         self.entries = self.get_entries().filter(entry_categories__category__slug=category)
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^author/(?P<author>\w+)/$')
+    @route(r'^author/(?P<author>%s)/$' % USERNAME_REGEX)
     def entries_by_author(self, request, author, *args, **kwargs):
         self.search_type = _('author')
         self.search_term = author
-        self.entries = self.get_entries().filter(owner__username=author)
+        field_name = 'owner__%s' % getattr(settings, 'PUPUT_USERNAME_FIELD', 'username')
+        self.entries = self.get_entries().filter(**{field_name: author})
         return Page.serve(self, request, *args, **kwargs)
 
     @route(r'^search/$')

@@ -27,3 +27,10 @@ PUPUT_USERNAME_FIELD
 
 String setting to define the default author username field. Useful for people that are using a custom User model and/or
 other authentication method where an username is not mandatory.
+
+PUPUT_USERNAME_REGEX
+--------------------
+**Default value:** ``'\w+'`` (Empty string)
+
+String setting to define the default author username regex used in routes. Useful for people that are using a custom
+User model.
