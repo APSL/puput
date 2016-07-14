@@ -3,7 +3,6 @@ from six.moves import urllib_parse
 
 from django.contrib.syndication.views import Feed
 from wagtail.wagtailcore.models import Site
-
 from .models import BlogPage
 
 
@@ -11,7 +10,7 @@ class BlogPageFeed(Feed):
 
     def __call__(self, request, *args, **kwargs):
         if request.resolver_match.url_name == 'blog_page_feed_slug':
-            self.blog_page = BlogPage.objects.get(slug=kwargs['blog_slug'])
+            self.blog_page = BlogPage.extra.get_by_path(kwargs['blog_path'])
         else:
             self.blog_page = BlogPage.objects.first()
         self.request = request
@@ -24,7 +23,7 @@ class BlogPageFeed(Feed):
         return self.blog_page.description
 
     def link(self):
-        return self.blog_page.slug
+        return self.blog_page.get_url_parts()[-1]
 
     def items(self):
         return self.blog_page.get_entries()[:20]

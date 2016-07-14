@@ -26,7 +26,17 @@ class EntryPageServe(View):
         if not request.site:
             raise Http404
         if request.resolver_match.url_name == 'entry_page_serve_slug':
-            path_components = list(operator.itemgetter(0, -1)(request.path.strip('/').split('/')))
+            # Splitting the request path and obtaining the path_components
+            # this way allows you to place the blog at the level you want on
+            # your sitemap.
+            # Example:
+            # splited_path =  ['es', 'blog', '2016', '06', '23', 'blog-entry']
+            # slicing this way you obtain:
+            # path_components =  ['es', 'blog', 'blog-entry']
+            # with the oldest solution you'll get ['es', 'blog-entry']
+            # and a 404 will be raised
+            splited_path = request.path.strip("/").split("/")
+            path_components = splited_path[:-4] + splited_path[-1:]
         else:
             path_components = [request.path.strip('/').split('/')[-1]]
         page, args, kwargs = request.site.root_page.specific.route(request, path_components)
