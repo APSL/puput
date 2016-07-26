@@ -19,7 +19,7 @@ from modelcluster.fields import ParentalKey
 from .abstracts import EntryAbstract
 from .utils import import_model
 from .routes import BlogRoutes
-from .managers import TagManager, CategoryManager
+from .managers import TagManager, CategoryManager, BlogManager
 
 Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
 
@@ -44,6 +44,8 @@ class BlogPage(BlogRoutes, Page):
     num_last_entries = models.IntegerField(default=3, verbose_name=_('Last entries limit'))
     num_popular_entries = models.IntegerField(default=3, verbose_name=_('Popular entries limit'))
     num_tags_entry_header = models.IntegerField(default=5, verbose_name=_('Tags limit entry header'))
+
+    extra = BlogManager()
 
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full"),
@@ -181,7 +183,7 @@ class EntryPage(Page, Entry):
 
     def get_context(self, request, *args, **kwargs):
         context = super(EntryPage, self).get_context(request, *args, **kwargs)
-        context['blog_page'] = self.blog_page
+        context['blog_page'] = self.get_parent().specific
         return context
 
     class Meta:

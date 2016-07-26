@@ -13,7 +13,7 @@ urlpatterns = [
         name='entry_page_update_comments'
     ),
     url(
-        regex=r'^(?P<blog_slug>[-\w]+)/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+        regex=r'^(?P<blog_path>[-\w\/]+)/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         view=EntryPageServe.as_view(),
         name='entry_page_serve_slug'
     ),
@@ -23,7 +23,7 @@ urlpatterns = [
         name='entry_page_serve'
     ),
     url(
-        regex=r'^(?P<blog_slug>[-\w]+)/feed/$',
+        regex=r'^(?P<blog_path>[-\w\/]+)/feed/$',
         view=BlogPageFeed(),
         name='blog_page_feed_slug'
     ),
@@ -78,8 +78,13 @@ def get_entry_url(entry, blog_page, root_page):
             'slug': entry.slug
         })
     else:
+        # The method get_url_parts provides a tuple with a custom URL routing
+        # scheme. In the last position it finds the subdomain of the blog, which
+        # it is used to construct the entry url.
+        # Using the stripped subdomain it allows Puput to generate the urls for
+        # every sitemap level
         return reverse('entry_page_serve_slug', kwargs={
-            'blog_slug': blog_page.slug,
+            'blog_path': blog_page.get_url_parts()[-1].strip("/"),
             'year': entry.date.strftime('%Y'),
             'month': entry.date.strftime('%m'),
             'day': entry.date.strftime('%d'),
@@ -95,6 +100,6 @@ def get_feeds_url(blog_page, root_page):
     if root_page == blog_page:
         return reverse('blog_page_feed')
     else:
-        return reverse('blog_page_feed_slug', kwargs={'blog_slug': blog_page.slug})
+        return reverse('blog_page_feed_slug', kwargs={'blog_path': blog_page.get_url_parts()[-1].strip("/")})
 
 
