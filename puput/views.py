@@ -1,12 +1,11 @@
 import operator
-from tapioca.exceptions import ClientError
-from tapioca_disqus import Disqus
 
 from django.http import Http404, HttpResponse
 from django.views.generic import View
 
 from wagtail.wagtailcore import hooks
 
+from .comments import get_num_comments_with_disqus
 from .models import EntryPage
 
 
@@ -44,14 +43,11 @@ class EntryPageUpdateCommentsView(View):
         try:
             entry_page = EntryPage.objects.get(pk=entry_page_id)
             blog_page = entry_page.blog_page
-            disqus_client = Disqus(api_secret=blog_page.disqus_api_secret)
-            try:
-                params = {'forum': blog_page.disqus_shortname, 'thread': 'ident:{}'.format(entry_page_id)}
-                thread = disqus_client.threads_details().get(params=params)
-                entry_page.num_comments = thread.response.posts().data()
-                entry_page.save()
-                return HttpResponse()
-            except ClientError:
-                raise Http404
+            num_comments = 0
+            if blog_page.disqus_api_secret:
+                num_comments = get_num_comments_with_disqus(blog_page, entry_page)
+            entry_page.num_comments = num_comments
+            entry_page.save()
+            return HttpResponse()
         except EntryPage.DoesNotExist:
             raise Http404
