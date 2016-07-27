@@ -1,4 +1,3 @@
-import operator
 from tapioca.exceptions import ClientError
 from tapioca_disqus import Disqus
 
