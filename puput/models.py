@@ -171,7 +171,7 @@ class EntryPage(Page, Entry):
 
     @property
     def blog_page(self):
-        return BlogPage.objects.ancestor_of(self).first()
+        return self.get_parent().specific
 
     @property
     def related(self):
@@ -183,7 +183,7 @@ class EntryPage(Page, Entry):
 
     def get_context(self, request, *args, **kwargs):
         context = super(EntryPage, self).get_context(request, *args, **kwargs)
-        context['blog_page'] = self.get_parent().specific
+        context['blog_page'] = self.blog_page
         return context
 
     class Meta:
