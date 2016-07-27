@@ -3,6 +3,8 @@ from tapioca_disqus import Disqus
 
 from django.http import Http404, HttpResponse
 from django.views.generic import View
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.utils.decorators import method_decorator
 
 from wagtail.wagtailcore import hooks
 
@@ -21,6 +23,7 @@ class EntryPageServe(View):
     http://wwww.example.com/videblog/2015/10/01/my-first-video
     """
 
+    @method_decorator(ensure_csrf_cookie)
     def get(self, request, *args, **kwargs):
         if not request.site:
             raise Http404
