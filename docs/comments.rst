@@ -9,3 +9,9 @@ Disqus
 Set *Disqus api secret* and *Disqus shortname* with your project values and comments will be displayed in each blog entry.
 *Disqus api secret* is needed to retrieve the number of comments of each entry. If you don't need such data
 in your blog just fill *Disqus shortname* field.
+
+.. note::
+
+    If you set *Disqus api secret* you need to install `tapioca-disqus` to access to the Disqus API ::
+
+        pip install tapioca-disqus

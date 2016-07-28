@@ -46,7 +46,6 @@ setup(
         'django-compressor>=1.6',
         'wagtail>=1.0,<2.0',
         'django-el-pagination==2.1.1',
-        'tapioca-disqus==0.1.2',
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),
