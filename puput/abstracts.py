@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -32,7 +32,8 @@ class EntryAbstract(models.Model):
         MultiFieldPanel([
             FieldPanel('tags'),
             InlinePanel('entry_categories', label=_("Categories")),
-            InlinePanel('related_entrypage_from', label=_("Related Entries")),
+            InlinePanel('related_entrypage_from', label=_("Related Entries"),
+                        panels=[PageChooserPanel('entrypage_to')]),
         ], heading=_("Metadata")),
     ]
 
