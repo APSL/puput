@@ -85,6 +85,13 @@ class BlogPage(BlogRoutes, Page):
         context['search_term'] = getattr(self, 'search_term', "")
         return context
 
+    @property
+    def last_url_part(self):
+        """
+        Get the BlogPage url without the domain
+        """
+        return self.get_url_parts()[-1]
+
     class Meta:
         verbose_name = _('Blog')
 
