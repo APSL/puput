@@ -1,6 +1,16 @@
 Changelog
 =========
 
+0.7 (2016-08-18)
+------------------
+* Add initial travis support.
+* Add canonical url and social share tags in templates for SEO purposes.
+* Allow to place Puput's blog at any sitemap level.
+* Fix issue in entry comments update method.
+* Add PageChooserPanel for related entries chooser.
+* Improve flexibility on adding other comment systems.
+* Minor bug fixes.
+
 0.6 (2016-05-18)
 ------------------
 * Fix issue when displaying entries without images.
