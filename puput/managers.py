@@ -26,7 +26,7 @@ class BlogManager(PageManager):
         from .models import BlogPage
         blogs = BlogPage.objects.filter(slug=blog_path.split("/")[-1])
         for blog in blogs:
-            if blog.url.strip("/") == blog_path:
+            if blog.specific.last_url_part.strip("/") == blog_path:
                 return blog.specific
         return
 

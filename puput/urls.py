@@ -84,7 +84,7 @@ def get_entry_url(entry, blog_page, root_page):
         # Using the stripped subdomain it allows Puput to generate the urls for
         # every sitemap level
         return reverse('entry_page_serve_slug', kwargs={
-            'blog_path': blog_page.get_url_parts()[-1].strip("/"),
+            'blog_path': blog_page.specific.last_url_part.strip("/"),
             'year': entry.date.strftime('%Y'),
             'month': entry.date.strftime('%m'),
             'day': entry.date.strftime('%d'),
@@ -100,6 +100,6 @@ def get_feeds_url(blog_page, root_page):
     if root_page == blog_page:
         return reverse('blog_page_feed')
     else:
-        return reverse('blog_page_feed_slug', kwargs={'blog_path': blog_page.get_url_parts()[-1].strip("/")})
+        return reverse('blog_page_feed_slug', kwargs={'blog_path': blog_page.specific.last_url_part.strip("/")})
 
 
