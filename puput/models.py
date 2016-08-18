@@ -17,7 +17,7 @@ from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
 from .abstracts import EntryAbstract
-from .utils import import_model
+from .utils import import_model, get_image_model_path
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager, BlogManager
 
@@ -27,7 +27,7 @@ Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
 class BlogPage(BlogRoutes, Page):
     description = models.CharField(verbose_name=_('Description'), max_length=255, blank=True,
                                    help_text=_("The blog description that will appear under the title."))
-    header_image = models.ForeignKey('wagtailimages.Image', verbose_name=_('Header image'), null=True, blank=True,
+    header_image = models.ForeignKey(get_image_model_path(), verbose_name=_('Header image'), null=True, blank=True,
                                      on_delete=models.SET_NULL, related_name='+')
 
     display_comments = models.BooleanField(default=False, verbose_name=_('Display comments'))

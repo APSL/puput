@@ -9,12 +9,14 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtail.wagtailcore.fields import RichTextField
 
+from .utils import get_image_model_path
+
 
 class EntryAbstract(models.Model):
     body = RichTextField(verbose_name=_('body'))
     tags = ClusterTaggableManager(through='puput.TagEntryPage', blank=True)
     date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
-    header_image = models.ForeignKey('wagtailimages.Image', verbose_name=_('Header image'), null=True, blank=True,
+    header_image = models.ForeignKey(get_image_model_path(), verbose_name=_('Header image'), null=True, blank=True,
                                      on_delete=models.SET_NULL, related_name='+', )
     categories = models.ManyToManyField('puput.Category', through='puput.CategoryEntryPage', blank=True)
     excerpt = RichTextField(verbose_name=_('excerpt'), blank=True,

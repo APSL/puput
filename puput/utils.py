@@ -11,3 +11,8 @@ def import_model(path_or_callable):
         assert isinstance(path_or_callable, string_types)
         package, attr = path_or_callable.rsplit('.', 1)
         return getattr(import_module(package), attr)
+
+
+def get_image_model_path():
+    from django.conf import settings
+    return getattr(settings, 'WAGTAILIMAGES_IMAGE_MODEL', 'wagtailimages.Image')
