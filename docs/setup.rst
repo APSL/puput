@@ -2,7 +2,7 @@ Setup
 =====
 
 If you're starting from a Django project without Wagtail integration and you want to add a blog site to your project,
-please follow the steps outlined under `Standalone install <setup.rst#standalone-install>`_. If you are already using Wagtail, refer to `Installation on top of Wagtail <setup.rst#installation-on-top-of-wagtail>`_.
+please follow the steps outlined under :ref:`standalone_app`. If you are already using Wagtail, refer to :ref:`wagtail_app`.
 
 
 Standalone install
