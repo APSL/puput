@@ -4,8 +4,9 @@ Setup
 If you're starting from a Django project without Wagtail integration and you want to add a blog site to your project,
 please follow the steps outlined under :ref:`standalone_app`. If you are already using Wagtail, refer to :ref:`wagtail_app`.
 
+.. _standalone_app:
 
-Standalone install
+Standalone blog app
 -------------------
 1. Install Puput and its dependencies via :code:`pip install puput`.
 
@@ -110,6 +111,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 9. Run :code:`python manage.py migrate` and :code:`python manage.py puput_initial_data` to load initial data to start a blog site.
 10. Open your browser at http://127.0.0.1:8000/blog/ to view your blog home page. Go to http://127.0.0.1:8000/blog_admin/ to view the admin site and edit your content.
 
+.. _wagtail_app:
 
 Installation on top of Wagtail
 ------------------------------
