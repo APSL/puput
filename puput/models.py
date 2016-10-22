@@ -156,11 +156,11 @@ class EntryPageRelated(models.Model):
 
 class EntryPage(Page, Entry):
     # Search
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
         index.SearchField('excerpt'),
         index.FilterField('page_ptr_id')
-    )
+    ]
 
     # Panels
     content_panels = getattr(Entry, 'content_panels', [])
