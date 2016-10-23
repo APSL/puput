@@ -75,8 +75,7 @@ class BlogPage(BlogRoutes, Page):
     subpage_types = ['puput.EntryPage']
 
     def get_entries(self):
-        field_name = 'owner__%s' % getattr(settings, 'PUPUT_USERNAME_FIELD', 'username')
-        return EntryPage.objects.descendant_of(self).live().order_by('-date').select_related(field_name)
+        return EntryPage.objects.descendant_of(self).live().order_by('-date').select_related('owner')
 
     def get_context(self, request, *args, **kwargs):
         context = super(BlogPage, self).get_context(request, *args, **kwargs)
