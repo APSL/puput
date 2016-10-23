@@ -38,7 +38,7 @@ Features
 Setup
 ~~~~~
 
-The setup process is explained `here <docs/setup.rst>`_.
+The setup process is explained `here <http://puput.readthedocs.io/en/latest/setup.html>`_.
 
 Documentation
 ~~~~~~~~~~~~~
