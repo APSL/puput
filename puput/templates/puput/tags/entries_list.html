@@ -17,7 +17,7 @@
                             <i class="fa fa-calendar"></i>
                             {{ entry.date|date:"SHORT_DATE_FORMAT" }}
                         </li>
-                        {% if blog_page.display_comments %}
+                        {% if blog_page.disqus_api_secret %}
                             <li>
                                 <i class="fa fa-comments"></i>
                                 {{ entry.num_comments }}

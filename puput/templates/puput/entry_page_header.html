@@ -26,7 +26,7 @@
                 {% tags_list blog_page.num_tags_entry_header entry.tags %}
             </li>
         {% endif %}
-        {% if blog_page.display_comments %}
+        {% if blog_page.disqus_api_secret %}
             <li>
                 <i class="fa fa-comments"></i>
                 {{ entry.num_comments }}
