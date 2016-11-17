@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.8 (2016-11-17)
+----------------
+* Add Travis CI integration and functional tests.
+* Add Django 1.10 support.
+* Minor template tweaks.
+
 0.7 (2016-08-18)
 ------------------
 * Add initial travis support.
