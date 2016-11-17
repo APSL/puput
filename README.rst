@@ -1,6 +1,9 @@
 Puput
 =====
 
+.. image:: https://img.shields.io/pypi/v/puput.svg
+    :target: https://pypi.python.org/pypi/puput/
+
 .. image:: https://travis-ci.org/APSL/puput.svg?branch=master
     :target: https://travis-ci.org/APSL/puput
     
