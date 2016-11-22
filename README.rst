@@ -38,6 +38,16 @@ Features
 
 .. image:: http://i.imgur.com/ndZLeWb.png
 
+Examples of blog sites made with Puput
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* `Ncora Blog <https://www.ncora.com/blog/>`_
+* `Ncora TV <https://www.ncora.com/tv/>`_
+* `APSL <https://www.apsl.net/blog/>`_
+* `Nautic Advisor <https://www.nauticadvisor.com/blog/>`_
+* `Trespams <http://trespams.com/blog/>`_
+
+
 Setup
 ~~~~~
 
