@@ -46,6 +46,7 @@ Examples of blog sites made with Puput
 * `APSL <https://www.apsl.net/blog/>`_
 * `Nautic Advisor <https://www.nauticadvisor.com/blog/>`_
 * `Trespams <http://trespams.com/blog/>`_
+* `Houm Hotels <http://www.houmhotels.com/blog/>`_
 
 
 Setup
