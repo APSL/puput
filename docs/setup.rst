@@ -96,16 +96,15 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     if settings.DEBUG:
         import os
-        from django.conf.urls import patterns
         from django.conf.urls.static import static
         from django.views.generic.base import RedirectView
         from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
         urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
         urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
-        urlpatterns += patterns('',
-            (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico'))
-        )
+        urlpatterns += [
+            (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
+        ]
 
 
 9. Run :code:`python manage.py migrate` and :code:`python manage.py puput_initial_data` to load initial data to start a blog site.
