@@ -47,7 +47,7 @@ Examples of blog sites made with Puput
 * `Nautic Advisor <https://www.nauticadvisor.com/blog/>`_
 * `Trespams <http://trespams.com/blog/>`_
 * `Houm Hotels <http://www.houmhotels.com/blog/>`_
-
+* `Body Therapy <http://bodytherapy.ru/blog/>`_
 
 Setup
 ~~~~~
