@@ -6,7 +6,7 @@ If you need to migrate a blog system to Puput we provide you a various tools to 
 Prerequisites
 -------------
 
-All importers need lxml Python package, which has the prerequisites libxml2 and libxslt.
+All importers need the lxml Python package, which has the prerequisites libxml2 and libxslt.
 
 To install on Ubuntu::
 
