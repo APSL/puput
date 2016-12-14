@@ -3,7 +3,8 @@ from django.conf.urls import url, include
 from django.core.urlresolvers import reverse
 
 from .feeds import BlogPageFeed
-from .views import EntryPageServe, EntryPageUpdateCommentsView, strip_prefix_and_ending_slash
+from .views import EntryPageServe, EntryPageUpdateCommentsView
+from .utils import strip_prefix_and_ending_slash
 
 
 urlpatterns = [

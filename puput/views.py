@@ -7,22 +7,7 @@ from wagtail.wagtailcore import hooks
 
 from .comments import get_num_comments_with_disqus
 from .models import EntryPage
-from django.core.urlresolvers import reverse
-
-
-def strip_prefix_and_ending_slash(path):
-    """
-    If puput and wagtail are registered with a prefix, it needs to be removed
-    so the 'entry_page_serve_slug' or 'blog_page_feed_slug' resolutions can work.
-    Ex, here with a dynamic (i18n_patterns()) + a static prefix :
-    urlpatterns += i18n_patterns(
-        url(r'^blah/', include('puput.urls')),
-        url(r'^blah/', include(wagtail_urls)),
-    )
-    The prefix is simply the root where Wagtail page are served.
-    https://github.com/torchbox/wagtail/blob/stable/1.8.x/wagtail/wagtailcore/urls.py#L36
-    """
-    return path.lstrip(reverse('wagtail_serve', args=[""])).rstrip("/")
+from .utils import strip_prefix_and_ending_slash
 
 
 class EntryPageServe(View):

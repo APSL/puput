@@ -3,6 +3,7 @@
 from django.db import models
 from django.db.models import Count
 from wagtail.wagtailcore.models import PageManager
+from .utils import strip_prefix_and_ending_slash
 
 
 class TagManager(models.Manager):
@@ -26,6 +27,6 @@ class BlogManager(PageManager):
         from .models import BlogPage
         blogs = BlogPage.objects.filter(slug=blog_path.split("/")[-1])
         for blog in blogs:
-            if blog.specific.last_url_part.strip("/") == blog_path:
+            if strip_prefix_and_ending_slash(blog.specific.last_url_part) == blog_path:
                 return blog.specific
         return
