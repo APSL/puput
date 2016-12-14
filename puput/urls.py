@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 
 from .feeds import BlogPageFeed
 from .views import EntryPageServe, EntryPageUpdateCommentsView
+from .utils import strip_prefix_and_ending_slash
 
 
 urlpatterns = [
@@ -83,8 +84,9 @@ def get_entry_url(entry, blog_page, root_page):
         # it is used to construct the entry url.
         # Using the stripped subdomain it allows Puput to generate the urls for
         # every sitemap level
+        blog_path = strip_prefix_and_ending_slash(blog_page.specific.last_url_part)
         return reverse('entry_page_serve_slug', kwargs={
-            'blog_path': blog_page.specific.last_url_part.strip("/"),
+            'blog_path': blog_path,
             'year': entry.date.strftime('%Y'),
             'month': entry.date.strftime('%m'),
             'day': entry.date.strftime('%d'),
@@ -100,4 +102,5 @@ def get_feeds_url(blog_page, root_page):
     if root_page == blog_page:
         return reverse('blog_page_feed')
     else:
-        return reverse('blog_page_feed_slug', kwargs={'blog_path': blog_page.specific.last_url_part.strip("/")})
+        blog_path = strip_prefix_and_ending_slash(blog_page.specific.last_url_part)
+        return reverse('blog_page_feed_slug', kwargs={'blog_path': blog_path})

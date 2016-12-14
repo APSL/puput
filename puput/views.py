@@ -7,6 +7,7 @@ from wagtail.wagtailcore import hooks
 
 from .comments import get_num_comments_with_disqus
 from .models import EntryPage
+from .utils import strip_prefix_and_ending_slash
 
 
 class EntryPageServe(View):
@@ -35,10 +36,10 @@ class EntryPageServe(View):
             # path_components =  ['es', 'blog', 'blog-entry']
             # with the oldest solution you'll get ['es', 'blog-entry']
             # and a 404 will be raised
-            splited_path = request.path.strip("/").split("/")
+            splited_path = strip_prefix_and_ending_slash(request.path).split("/")
             path_components = splited_path[:-4] + splited_path[-1:]
         else:
-            path_components = [request.path.strip('/').split('/')[-1]]
+            path_components = [strip_prefix_and_ending_slash(request.path).split('/')[-1]]
         page, args, kwargs = request.site.root_page.specific.route(request, path_components)
 
         for fn in hooks.get_hooks('before_serve_page'):
