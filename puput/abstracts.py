@@ -34,7 +34,7 @@ class EntryAbstract(models.Model):
         ('table', TableBlock()),
         ('embed', EmbedBlock()),
         ('code', CodeBlock(label='Code Snippet')),
-    ])
+    ], null=True, blank=True)
     tags = ClusterTaggableManager(through='puput.TagEntryPage', blank=True)
     date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
     header_image = models.ForeignKey(get_image_model_path(), verbose_name=_('Header image'), null=True, blank=True,
