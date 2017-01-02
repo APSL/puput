@@ -79,15 +79,3 @@ class CaptionedImageBlock(StructBlock):
         icon = 'fa-image'
         template = 'blocks/captioned_image.html'
         help_text = 'Select an image and add a caption (optional).'
-
-
-class EntryStreamBlock(StreamBlock):
-    paragraph = RichTextBlock(icon='fa-paragraph')
-    heading = TextBlock(icon='fa-header', template='blocks/heading.html')
-    image = CaptionedImageBlock()
-    table = TableBlock(icon='fa-table')
-    embed = EmbedBlock(icon='fa-youtube-play')
-    code = CodeBlock(label='Code snippet')
-
-    class Meta:
-        template = 'blocks/streamfield.html'
