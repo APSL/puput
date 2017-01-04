@@ -35,6 +35,7 @@
         {% endif %}
         <section>
             {{ self.body|richtext}}
+            {% include_block self.stream_body %}
         </section>
         {% show_comments %}
     </article>
