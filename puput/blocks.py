@@ -5,7 +5,6 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailcore.blocks import (
     StructBlock,
     TextBlock,
-    RichTextBlock,
     ChoiceBlock,
 )
 
