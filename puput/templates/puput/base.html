@@ -18,6 +18,7 @@
         <link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/>
         <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'puput/css/puput.css' %}"/>
+        {% block pygments_css %}{% endblock pygments_css %}
     {% endcompress %}
 </head>
 <body>
