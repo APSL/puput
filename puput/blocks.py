@@ -5,12 +5,9 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailcore.blocks import (
     StructBlock,
     TextBlock,
-    StreamBlock,
     RichTextBlock,
     ChoiceBlock,
 )
-from wagtail.wagtailembeds.blocks import EmbedBlock
-from wagtail.contrib.table_block.blocks import TableBlock
 
 from pygments import highlight
 from pygments.formatters import get_formatter_by_name
@@ -77,5 +74,5 @@ class CaptionedImageBlock(StructBlock):
 
     class Meta:
         icon = 'fa-image'
-        template = 'blocks/captioned_image.html'
+        template = 'puput/blocks/captioned_image.html'
         help_text = 'Select an image and add a caption (optional).'

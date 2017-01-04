@@ -31,7 +31,7 @@ class EntryAbstract(models.Model):
         ('paragraph', RichTextBlock()),
         ('heading', TextBlock()),
         ('image', CaptionedImageBlock()),
-        ('table', TableBlock()),
+        ('table', TableBlock(classname='table')),
         ('embed', EmbedBlock()),
         ('code', CodeBlock(label='Code Snippet')),
     ], null=True, blank=True)
