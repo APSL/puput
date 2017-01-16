@@ -3,220 +3,222 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-12 21:35+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-01-16 15:25+0100\n"
+"Last-Translator: Giacomo Ghizzani <giacomo.ghz@gmail.com>\n"
+"Language-Team: Elemediaweb <giacomo.ghz@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: IT\n"
 
 #: models.py:26 models.py:94
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #: models.py:27
 msgid "The blog description that will appear under the title."
-msgstr ""
+msgstr "La descrizione del blog sarà visualizzata sotto il titolo."
 
 #: models.py:28 models.py:155
 msgid "Header image"
-msgstr ""
+msgstr "Immagine in evidenza"
 
 #: models.py:31
 msgid "Display comments"
-msgstr ""
+msgstr "Visualizza commenti"
 
 #: models.py:32
 msgid "Display categories"
-msgstr ""
+msgstr "Visualizza categorie"
 
 #: models.py:33
 msgid "Display tags"
-msgstr ""
+msgstr "Visualizza tag"
 
 #: models.py:34
 msgid "Display popular entries"
-msgstr ""
+msgstr "Visualizza post di tendenza"
 
 #: models.py:35
 msgid "Display last entries"
-msgstr ""
+msgstr "Visualizza ultimi post"
 
 #: models.py:36
 msgid "Display archive"
-msgstr ""
+msgstr "Visualizza archivio"
 
 #: models.py:41
 msgid "Entries per page"
-msgstr ""
+msgstr "Post per pagina"
 
 #: models.py:42
 msgid "Last entries limit"
-msgstr ""
+msgstr "Limite ultimi post"
 
 #: models.py:43
 msgid "Popular entries limit"
-msgstr ""
+msgstr "Limite dei post di tendenza"
 
 #: models.py:44
 msgid "Tags limit entry header"
-msgstr ""
+msgstr "Limite dei tag visualizzati nella testata di un post"
 
 #: models.py:57
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: models.py:63
 msgid "Parameters"
-msgstr ""
+msgstr "Parametri"
 
 #: models.py:68
 msgid "Comments"
-msgstr ""
+msgstr "Commenti"
 
 #: models.py:84
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: models.py:90
 msgid "Category name"
-msgstr ""
+msgstr "Nome categoria"
 
 #: models.py:93
 msgid "Parent category"
-msgstr ""
+msgstr "Categoria padre"
 
 #: models.py:100 models.py:127
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: models.py:101 models.py:177 templates/puput/base.html:70
 msgid "Categories"
-msgstr ""
+msgstr "Categorie"
 
 #: models.py:116
 msgid "Parent category cannot be self."
-msgstr ""
+msgstr "La categoria genitore non può essere la stessa."
 
 #: models.py:118
 msgid "Cannot have circular Parents."
-msgstr ""
+msgstr "Impossibile avere riferimenti circolari per la categoria padre."
 
 #: models.py:147 models.py:148 models.py:207
 msgid "Entry"
-msgstr ""
+msgstr "Post"
 
 #: models.py:152
 msgid "body"
-msgstr ""
+msgstr "corpo"
 
 #: models.py:154
 msgid "Post date"
-msgstr ""
+msgstr "Data del post"
 
 #: models.py:158
 msgid "excerpt"
-msgstr ""
+msgstr "riassunto"
 
 #: models.py:159
 msgid ""
 "Entry excerpt to be displayed on entries list. If this field is not filled, "
 "a truncate version of body text will be used."
 msgstr ""
+"Il riassunto del post è visualizzato sulla pagina contenente la lista dei "
+"post. Se lasciato vuoto verrà utilizzato una parte del testo del post."
 
 #: models.py:174
 msgid "Content"
-msgstr ""
+msgstr "Contenuto"
 
 #: models.py:178 templates/puput/related_entries.html:6
 msgid "Related Entries"
-msgstr ""
+msgstr "Post simili"
 
 #: models.py:179
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #: models.py:208
 msgid "Entries"
-msgstr ""
+msgstr "Post"
 
 #: routes.py:21
 msgid "date"
-msgstr ""
+msgstr "data"
 
 #: routes.py:34
 msgid "tag"
-msgstr ""
+msgstr "tag"
 
 #: routes.py:41
 msgid "category"
-msgstr ""
+msgstr "categoria"
 
 #: routes.py:48
 msgid "author"
-msgstr ""
+msgstr "autore"
 
 #: routes.py:60
 msgid "search"
-msgstr ""
+msgstr "cerca"
 
 #: templates/endless/show_more.html:5
 msgid "more"
-msgstr ""
+msgstr "altro"
 
 #: templates/puput/base.html:49
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: templates/puput/base.html:58
 msgid "Last Entries"
-msgstr ""
+msgstr "Ultimi Post"
 
 #: templates/puput/base.html:64
 msgid "Popular Entries"
-msgstr ""
+msgstr "Post di Tendenza"
 
 #: templates/puput/base.html:76
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: templates/puput/base.html:82
 msgid "Archive"
-msgstr ""
+msgstr "Archivio"
 
 #: templates/puput/blog_page.html:6 templates/puput/blog_page.html.py:7
 #: templates/puput/blog_page.html:15
 msgid "Entries for"
-msgstr ""
+msgstr "Post per"
 
 #: templates/puput/blog_page.html:31
 msgid "Continue reading"
-msgstr ""
+msgstr "Continua a leggere"
 
 #: templates/puput/blog_page.html:35
 msgid "No results founds."
-msgstr ""
+msgstr "Nessun risultato trovato."
 
 #: templates/puput/tags/archives_list.html:22
 msgid "No entry archives yet"
-msgstr ""
+msgstr "Niente in archivio"
 
 #: templates/puput/tags/categories_list.html:9
 msgid "No categories yet"
-msgstr ""
+msgstr "Nessuna categoria"
 
 #: templates/puput/tags/entries_list.html:31
 msgid "No entries yet"
-msgstr ""
+msgstr "Nessun post"
 
 #: templates/puput/tags/tags_list.html:9
 msgid "No tags yet"
-msgstr ""
+msgstr "Nessun tag"
