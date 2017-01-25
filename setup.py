@@ -34,7 +34,7 @@ def get_email(package):
 setup(
     name='puput',
     version=get_version('puput'),
-    packages=find_packages(),
+    packages=find_packages(exclude=('*.tests*')),
     include_package_data=True,
     keywords="django wagtail puput blog cms app",
     description='A Django blog app implemented in Wagtail.',
