@@ -57,3 +57,12 @@ The setup process is explained `here <http://puput.readthedocs.io/en/latest/setu
 Documentation
 ~~~~~~~~~~~~~
 Visit the `documentation <http://puput.readthedocs.org>`_ for an in-depth look at Puput.
+
+
+Related repositories
+~~~~~~~~~~~~~~~~~~~~
+* `wordpress-to-puput <https://github.com/APSL/wordpress-to-puput/>`_: Import your Wordpress blog data into Puput.
+* `blogger-to-puput <https://github.com/APSL/blogger-to-puput/>`_: Import your Blogger blog data into Puput.
+* `zinnia-to-puput <https://github.com/APSL/zinnia-to-puput/>`_:  Import your Zinnia blog data into Puput.   
+* `docker-puput <https://github.com/APSL/docker-puput/>`_:  Docker image for Puput blog.
+* `puput-demo <https://github.com/APSL/puput-demo/>`_: An example of blog Django app using Puput.
