@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from mimetypes import guess_type
+
 from six.moves import urllib_parse
 
 from django import http
@@ -50,3 +52,14 @@ class BlogPageFeed(Feed):
             site = Site.find_for_request(self.request)
             return urllib_parse.urljoin(site.root_url, item.header_image.file.url)
         return None
+
+    def item_enclosure_mime_type(self, item):
+        if item.header_image:
+            mime, enc = guess_type(self.item_enclosure_url(item))
+            return mime
+        return None
+
+    def item_enclosure_length(self, item):
+        if item.header_image:
+            return item.header_image.file.size
+        return 0
