@@ -1,223 +1,221 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is distributed under the same license as the puput package.
+# Basil Shubin <basil.shubin@gmail.com>, 2017.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: puput\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-12 21:36+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2017-01-24 14:50+0700\n"
+"PO-Revision-Date: 2017-01-24 15:08+0700\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Last-Translator: Basil Shubin <basil.shubin@gmail.com>\n"
+"Language-Team: \n"
 
-#: models.py:26 models.py:94
-msgid "Description"
-msgstr ""
-
-#: models.py:27
-msgid "The blog description that will appear under the title."
-msgstr ""
-
-#: models.py:28 models.py:155
-msgid "Header image"
-msgstr ""
-
-#: models.py:31
-msgid "Display comments"
-msgstr ""
-
-#: models.py:32
-msgid "Display categories"
-msgstr ""
-
-#: models.py:33
-msgid "Display tags"
-msgstr ""
-
-#: models.py:34
-msgid "Display popular entries"
-msgstr ""
-
-#: models.py:35
-msgid "Display last entries"
-msgstr ""
-
-#: models.py:36
-msgid "Display archive"
-msgstr ""
-
-#: models.py:41
-msgid "Entries per page"
-msgstr ""
-
-#: models.py:42
-msgid "Last entries limit"
-msgstr ""
-
-#: models.py:43
-msgid "Popular entries limit"
-msgstr ""
-
-#: models.py:44
-msgid "Tags limit entry header"
-msgstr ""
-
-#: models.py:57
-msgid "Widgets"
-msgstr ""
-
-#: models.py:63
-msgid "Parameters"
-msgstr ""
-
-#: models.py:68
-msgid "Comments"
-msgstr ""
-
-#: models.py:84
-msgid "Blog"
-msgstr ""
-
-#: models.py:90
-msgid "Category name"
-msgstr ""
-
-#: models.py:93
-msgid "Parent category"
-msgstr ""
-
-#: models.py:100 models.py:127
-msgid "Category"
-msgstr ""
-
-#: models.py:101 models.py:177 templates/puput/base.html:70
-msgid "Categories"
-msgstr ""
-
-#: models.py:116
-msgid "Parent category cannot be self."
-msgstr ""
-
-#: models.py:118
-msgid "Cannot have circular Parents."
-msgstr ""
-
-#: models.py:147 models.py:148 models.py:207
-msgid "Entry"
-msgstr ""
-
-#: models.py:152
+#: abstracts.py:16
 msgid "body"
-msgstr ""
+msgstr "тело"
 
-#: models.py:154
+#: abstracts.py:18
 msgid "Post date"
-msgstr ""
+msgstr "Дата публикации"
 
-#: models.py:158
+#: abstracts.py:19 models.py:31
+msgid "Header image"
+msgstr "Изображение заголовка"
+
+#: abstracts.py:22
 msgid "excerpt"
-msgstr ""
+msgstr "выдержка"
 
-#: models.py:159
+#: abstracts.py:23
 msgid ""
 "Entry excerpt to be displayed on entries list. If this field is not filled, "
 "a truncate version of body text will be used."
 msgstr ""
 
-#: models.py:174
+#: abstracts.py:33
 msgid "Content"
-msgstr ""
+msgstr "Содержимое"
 
-#: models.py:178 templates/puput/related_entries.html:6
+#: abstracts.py:36 models.py:129 templates/puput/base.html:71
+msgid "Categories"
+msgstr "Рубрики"
+
+#: abstracts.py:37 templates/puput/related_entries.html:6
 msgid "Related Entries"
-msgstr ""
+msgstr "Связанные записи"
 
-#: models.py:179
+#: abstracts.py:39
 msgid "Metadata"
+msgstr "Мета данные"
+
+#: models.py:29 models.py:106
+msgid "Description"
+msgstr "Описание"
+
+#: models.py:30
+msgid "The blog description that will appear under the title."
 msgstr ""
 
-#: models.py:208
+#: models.py:34
+msgid "Display comments"
+msgstr "Комментарии"
+
+#: models.py:35
+msgid "Display categories"
+msgstr "Рубрики"
+
+#: models.py:36
+msgid "Display tags"
+msgstr "Метки"
+
+#: models.py:37
+msgid "Display popular entries"
+msgstr "Популярные записи"
+
+#: models.py:38
+msgid "Display last entries"
+msgstr "Последнии записи"
+
+#: models.py:39
+msgid "Display archive"
+msgstr "Архив"
+
+#: models.py:44
+msgid "Entries per page"
+msgstr "Количество записей на странице"
+
+#: models.py:45
+msgid "Last entries limit"
+msgstr ""
+
+#: models.py:46
+msgid "Popular entries limit"
+msgstr ""
+
+#: models.py:47
+msgid "Tags limit entry header"
+msgstr ""
+
+#: models.py:62
+msgid "Widgets"
+msgstr "Виджеты"
+
+#: models.py:68
+msgid "Parameters"
+msgstr "Параметры"
+
+#: models.py:73
+msgid "Comments"
+msgstr "Комментарии"
+
+#: models.py:96
+msgid "Blog"
+msgstr "Блог"
+
+#: models.py:102
+msgid "Category name"
+msgstr "Название рубрики"
+
+#: models.py:105
+msgid "Parent category"
+msgstr "Родительская рубрика"
+
+#: models.py:117
+msgid "Parent category cannot be self."
+msgstr "Рубрика не может быть унаследована от самой себя."
+
+#: models.py:119
+msgid "Cannot have circular Parents."
+msgstr ""
+
+#: models.py:128 models.py:133
+msgid "Category"
+msgstr "Рубрика"
+
+#: models.py:153 models.py:154 models.py:197
+msgid "Entry"
+msgstr "Запись"
+
+#: models.py:198
 msgid "Entries"
-msgstr ""
+msgstr "Записи"
 
-#: routes.py:21
+#: routes.py:24
 msgid "date"
-msgstr ""
+msgstr "дата"
 
-#: routes.py:34
+#: routes.py:37
 msgid "tag"
-msgstr ""
+msgstr "метка"
 
-#: routes.py:41
+#: routes.py:44
 msgid "category"
-msgstr ""
+msgstr "рубрика"
 
-#: routes.py:48
+#: routes.py:51
 msgid "author"
-msgstr ""
+msgstr "автор"
 
-#: routes.py:60
+#: routes.py:64
 msgid "search"
-msgstr ""
+msgstr "поиск"
 
-#: templates/endless/show_more.html:5
+#: templates/el_pagination/show_more.html:5
 msgid "more"
-msgstr ""
+msgstr "далее"
 
-#: templates/puput/base.html:49
+#: templates/puput/base.html:50
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
-#: templates/puput/base.html:58
+#: templates/puput/base.html:59
 msgid "Last Entries"
-msgstr ""
+msgstr "Последние записи"
 
-#: templates/puput/base.html:64
+#: templates/puput/base.html:65
 msgid "Popular Entries"
-msgstr ""
+msgstr "Популярные записи"
 
-#: templates/puput/base.html:76
+#: templates/puput/base.html:77
 msgid "Tags"
-msgstr ""
+msgstr "Метки"
 
-#: templates/puput/base.html:82
+#: templates/puput/base.html:83
 msgid "Archive"
-msgstr ""
+msgstr "Архив"
 
-#: templates/puput/blog_page.html:6 templates/puput/blog_page.html.py:7
-#: templates/puput/blog_page.html:15
+#: templates/puput/blog_page.html:6 templates/puput/blog_page.html:7
+#: templates/puput/blog_page.html:29
 msgid "Entries for"
-msgstr ""
+msgstr "Записи:"
 
-#: templates/puput/blog_page.html:31
+#: templates/puput/blog_page.html:48
 msgid "Continue reading"
-msgstr ""
+msgstr "Читать далее"
 
-#: templates/puput/blog_page.html:35
+#: templates/puput/blog_page.html:52
 msgid "No results founds."
-msgstr ""
+msgstr "Ничего не найдено."
 
-#: templates/puput/tags/archives_list.html:22
+#: templates/puput/tags/archives_list.html:23
 msgid "No entry archives yet"
-msgstr ""
+msgstr "Нет записей в архиве"
 
 #: templates/puput/tags/categories_list.html:9
 msgid "No categories yet"
-msgstr ""
+msgstr "Рубрики отсутствуют"
 
 #: templates/puput/tags/entries_list.html:31
 msgid "No entries yet"
-msgstr ""
+msgstr "Записей еще нет"
 
 #: templates/puput/tags/tags_list.html:9
 msgid "No tags yet"
-msgstr ""
+msgstr "Меток нет"
