@@ -90,3 +90,4 @@ class BlogPageFeed(Feed):
             'image_link': self._channel_image_link()
         }
 
+
