@@ -12,6 +12,8 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailsearch.models import Query
 
 USERNAME_REGEX = getattr(settings, 'PUPUT_USERNAME_REGEX', '\w+')
+TAG_REGEX = getattr(settings, 'PUPUT_TAG_REGEX', '[-\w]+')
+CATEGORY_REGEX = getattr(settings, 'PUPUT_CATEGORY_REGEX', '[-\w]+')
 
 
 class BlogRoutes(RoutablePageMixin):
@@ -32,14 +34,14 @@ class BlogRoutes(RoutablePageMixin):
             self.search_term = date_format(date(int(year), int(month), int(day)))
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^tag/(?P<tag>[-\w]+)/$')
+    @route(r'^tag/(?P<tag>%s)/$' % TAG_REGEX)
     def entries_by_tag(self, request, tag, *args, **kwargs):
         self.search_type = _('tag')
         self.search_term = tag
         self.entries = self.get_entries().filter(tags__slug=tag)
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^category/(?P<category>[-\w]+)/$')
+    @route(r'^category/(?P<category>%s)/$' % CATEGORY_REGEX)
     def entries_by_category(self, request, category, *args, **kwargs):
         self.search_type = _('category')
         self.search_term = category
