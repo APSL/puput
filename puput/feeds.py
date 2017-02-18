@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from mimetypes import guess_type
 
+from django.template.defaultfilters import truncatewords_html
 from six.moves import urllib_parse
 
 from django import http
@@ -36,7 +37,15 @@ class BlogPageFeed(Feed):
     def item_title(self, item):
         return item.title
 
+    def _item_short_description(self, item):
+        if item.excerpt and item.excerpt.strip() != '':
+            return item.excerpt
+        else:
+            return truncatewords_html(item.body, 70)
+
     def item_description(self, item):
+        if self.blog_page.short_feed_description:
+            return self._item_short_description(item)
         return item.body
 
     def item_pubdate(self, item):
