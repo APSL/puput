@@ -17,3 +17,7 @@ class TestBlogPage(object):
         assert browser.url == site_url + '/blog/search/?q=test'
         assert browser.status_code == 200
         assert browser.is_text_present('Entries for search')
+
+    def test_blog_feed_rss(self, browser, site_url):
+        browser.visit(site_url + '/blog/feed/')
+        assert browser.status_code == 200
