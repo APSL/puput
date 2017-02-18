@@ -34,3 +34,17 @@ PUPUT_USERNAME_REGEX
 
 String setting to define the default author username regex used in routes. Useful for people that are using a custom
 User model.
+
+PUPUT_TAG_REGEX
+---------------
+**Default value:** ``'[-\w]+'`` (Empty string)
+
+String setting to define the default tag regex used in routes. Useful for people that are using non-latin letters,
+digits and other symbols in tags.
+
+PUPUT_CATEGORY_REGEX
+--------------------
+**Default value:** ``'[-\w]+'`` (Empty string)
+
+String setting to define the default tag regex used in routes. Useful for people that are using non-latin letters,
+digits and other symbols in categories.
