@@ -36,6 +36,7 @@ Contents:
    setup
    editors
    comments
+   feeds
    extending
    importers
    sites

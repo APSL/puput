@@ -46,6 +46,8 @@ class BlogPage(BlogRoutes, Page):
     num_popular_entries = models.IntegerField(default=3, verbose_name=_('Popular entries limit'))
     num_tags_entry_header = models.IntegerField(default=5, verbose_name=_('Tags limit entry header'))
 
+    short_feed_description = models.BooleanField(default=True, verbose_name=_('Use short description in feeds'))
+
     extra = BlogManager()
 
     content_panels = Page.content_panels + [
@@ -71,6 +73,9 @@ class BlogPage(BlogRoutes, Page):
             FieldPanel('disqus_api_secret'),
             FieldPanel('disqus_shortname'),
         ], heading=_("Comments")),
+        MultiFieldPanel([
+            FieldPanel('short_feed_description'),
+        ], heading=_("Feeds")),
     ]
     subpage_types = ['puput.EntryPage']
 
