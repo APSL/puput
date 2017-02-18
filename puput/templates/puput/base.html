@@ -42,7 +42,7 @@
             <div class="blog_sidebar">
                 <div class="rss-sitemap">
                     <a href="{% feeds_url blog_page %}" target="_blank" title="RSS">
-                         <i class="fa fa-rss-square"></i> <span>Feed RSS</span>
+                         <i class="fa fa-rss-square"></i> <span>{% trans 'Feed RSS' %}</span>
                     </a>
                 </div>
                 <form name="search_form" class="search_form" method="get" action="{% routablepageurl blog_page "entries_search" %}">
