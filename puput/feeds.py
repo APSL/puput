@@ -1,16 +1,33 @@
 # -*- coding: utf-8 -*-
 from mimetypes import guess_type
 
-from django.template.defaultfilters import truncatewords_html
 from six.moves import urllib_parse
 
 from django import http
 from django.contrib.syndication.views import Feed
+from django.utils.feedgenerator import Rss201rev2Feed
+from django.template.defaultfilters import truncatewords_html
+
 from wagtail.wagtailcore.models import Site
 from .models import BlogPage
 
 
+class BlogPageFeedGenerator(Rss201rev2Feed):
+
+    def add_root_elements(self, handler):
+        super(BlogPageFeedGenerator, self).add_root_elements(handler)
+        if self.feed['image_link']:
+            handler.addQuickElement(u"image", '',
+                                    {
+                                        'url': self.feed['image_link'],
+                                        'title': self.feed['title'],
+                                        'link': self.feed['link'],
+                                    })
+
+
 class BlogPageFeed(Feed):
+
+    feed_type = BlogPageFeedGenerator
 
     def __call__(self, request, *args, **kwargs):
         if request.resolver_match.url_name == 'blog_page_feed_slug':
@@ -72,3 +89,13 @@ class BlogPageFeed(Feed):
         if item.header_image:
             return item.header_image.file.size
         return 0
+
+    def _channel_image_link(self):
+        if self.blog_page.header_image:
+            site = Site.find_for_request(self.request)
+            return urllib_parse.urljoin(site.root_url, self.blog_page.header_image.file.url)
+
+    def feed_extra_kwargs(self, obj):
+        return {
+            'image_link': self._channel_image_link()
+        }
