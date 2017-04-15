@@ -46,6 +46,9 @@ setup(
         'django-compressor>=1.6',
         'wagtail>=1.0,<2.0',
         'django-el-pagination>=2.1.1',
+        'Pygments>=2.1,<2.2',
+        'Markdown==2.6.8',
+        'bleach==2.0.0'
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),
