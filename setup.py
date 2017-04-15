@@ -31,6 +31,7 @@ def get_email(package):
     init_py = codecs.open(os.path.join(package, '__init__.py'), encoding='utf-8').read()
     return re.search("^__email__ = ['\"]([^'\"]+)['\"]", init_py, re.MULTILINE).group(1)
 
+
 setup(
     name='puput',
     version=get_version('puput'),

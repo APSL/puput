@@ -201,4 +201,6 @@ class EntryPage(six.with_metaclass(PageBase, Entry, Page)):
     class Meta:
         verbose_name = _('Entry')
         verbose_name_plural = _('Entries')
+
+
 EntryPage._meta.get_field('owner').editable = True
