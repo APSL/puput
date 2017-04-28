@@ -12,4 +12,4 @@ def get_use_stream_body():
     """
     Returns the value from the Django Project's settings, or the default.
     """
-    return getattr(settings, "PUPUT_USE_BODY", True)
+    return getattr(settings, "PUPUT_USE_STREAM_BODY", True)
