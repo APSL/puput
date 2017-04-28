@@ -10,6 +10,6 @@ class CaptionedImageBlock(StructBlock):
     caption = TextBlock(required=False)
 
     class Meta:
-        icon = 'fa-image'
+        icon = 'image'
         template = 'puput/blocks/captioned_image.html'
         help_text = 'Select an image and add a caption (optional).'

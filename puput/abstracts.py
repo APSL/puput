@@ -20,8 +20,8 @@ from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.contrib.table_block.blocks import TableBlock
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
-from wagtailcodeblock import CodeBlock
-from wagtailmarkdownblock import MarkdownBlock
+from wagtailcodeblock.blocks import CodeBlock
+from wagtailmarkdownblock.blocks import MarkdownBlock
 
 from .blocks import CaptionedImageBlock
 from .utils import get_image_model_path
@@ -35,7 +35,7 @@ class EntryAbstract(models.Model):
         ('image', CaptionedImageBlock()),
         ('table', TableBlock(classname='table')),
         ('embed', EmbedBlock()),
-        ('code', CodeBlock(label='Code Snippet')),
+        ('code', CodeBlock(label='Code')),
         ('markdown', MarkdownBlock(label='Markdown')),
     ], null=True, blank=True)
     tags = ClusterTaggableManager(through='puput.TagEntryPage', blank=True)

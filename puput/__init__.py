@@ -19,11 +19,14 @@ PUPUT_APPS = (
     'wagtail.wagtailforms',
     'wagtail.contrib.wagtailsitemaps',
     'wagtail.contrib.wagtailroutablepage',
+    'wagtail.contrib.table_block',
 
     # Third-party apps
-    'compressor',
+    # 'compressor',
     'taggit',
     'modelcluster',
+    'wagtailcodeblock',
+    'wagtailmarkdownblock',
 
     # Puput apps
     'puput',
