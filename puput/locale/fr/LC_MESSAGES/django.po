@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-12 21:36+0200\n"
+"POT-Creation-Date: 2017-02-18 17:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,194 +18,206 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:26 models.py:94
-msgid "Description"
-msgstr ""
-
-#: models.py:27
-msgid "The blog description that will appear under the title."
-msgstr ""
-
-#: models.py:28 models.py:155
-msgid "Header image"
-msgstr ""
-
-#: models.py:31
-msgid "Display comments"
-msgstr ""
-
-#: models.py:32
-msgid "Display categories"
-msgstr ""
-
-#: models.py:33
-msgid "Display tags"
-msgstr ""
-
-#: models.py:34
-msgid "Display popular entries"
-msgstr ""
-
-#: models.py:35
-msgid "Display last entries"
-msgstr ""
-
-#: models.py:36
-msgid "Display archive"
-msgstr ""
-
-#: models.py:41
-msgid "Entries per page"
-msgstr ""
-
-#: models.py:42
-msgid "Last entries limit"
-msgstr ""
-
-#: models.py:43
-msgid "Popular entries limit"
-msgstr ""
-
-#: models.py:44
-msgid "Tags limit entry header"
-msgstr ""
-
-#: models.py:57
-msgid "Widgets"
-msgstr ""
-
-#: models.py:63
-msgid "Parameters"
-msgstr ""
-
-#: models.py:68
-msgid "Comments"
-msgstr ""
-
-#: models.py:84
-msgid "Blog"
-msgstr ""
-
-#: models.py:90
-msgid "Category name"
-msgstr ""
-
-#: models.py:93
-msgid "Parent category"
-msgstr ""
-
-#: models.py:100 models.py:127
-msgid "Category"
-msgstr ""
-
-#: models.py:101 models.py:177 templates/puput/base.html:70
-msgid "Categories"
-msgstr ""
-
-#: models.py:116
-msgid "Parent category cannot be self."
-msgstr ""
-
-#: models.py:118
-msgid "Cannot have circular Parents."
-msgstr ""
-
-#: models.py:147 models.py:148 models.py:207
-msgid "Entry"
-msgstr ""
-
-#: models.py:152
+#: abstracts.py:16
 msgid "body"
 msgstr ""
 
-#: models.py:154
+#: abstracts.py:18
 msgid "Post date"
 msgstr ""
 
-#: models.py:158
+#: abstracts.py:19 models.py:31
+msgid "Header image"
+msgstr ""
+
+#: abstracts.py:22
 msgid "excerpt"
 msgstr ""
 
-#: models.py:159
+#: abstracts.py:23
 msgid ""
 "Entry excerpt to be displayed on entries list. If this field is not filled, "
 "a truncate version of body text will be used."
 msgstr ""
 
-#: models.py:174
+#: abstracts.py:33
 msgid "Content"
 msgstr ""
 
-#: models.py:178 templates/puput/related_entries.html:6
+#: abstracts.py:36 models.py:134 templates/puput/base.html:71
+msgid "Categories"
+msgstr ""
+
+#: abstracts.py:37 templates/puput/related_entries.html:6
 msgid "Related Entries"
 msgstr ""
 
-#: models.py:179
+#: abstracts.py:39
 msgid "Metadata"
 msgstr ""
 
-#: models.py:208
+#: models.py:29 models.py:111
+msgid "Description"
+msgstr ""
+
+#: models.py:30
+msgid "The blog description that will appear under the title."
+msgstr ""
+
+#: models.py:34
+msgid "Display comments"
+msgstr ""
+
+#: models.py:35
+msgid "Display categories"
+msgstr ""
+
+#: models.py:36
+msgid "Display tags"
+msgstr ""
+
+#: models.py:37
+msgid "Display popular entries"
+msgstr ""
+
+#: models.py:38
+msgid "Display last entries"
+msgstr ""
+
+#: models.py:39
+msgid "Display archive"
+msgstr ""
+
+#: models.py:44
+msgid "Entries per page"
+msgstr ""
+
+#: models.py:45
+msgid "Last entries limit"
+msgstr ""
+
+#: models.py:46
+msgid "Popular entries limit"
+msgstr ""
+
+#: models.py:47
+msgid "Tags limit entry header"
+msgstr ""
+
+#: models.py:49
+msgid "Use short description in feeds"
+msgstr ""
+
+#: models.py:64
+msgid "Widgets"
+msgstr ""
+
+#: models.py:70
+msgid "Parameters"
+msgstr ""
+
+#: models.py:75
+msgid "Comments"
+msgstr ""
+
+#: models.py:78
+msgid "Feeds"
+msgstr ""
+
+#: models.py:101
+msgid "Blog"
+msgstr ""
+
+#: models.py:107
+msgid "Category name"
+msgstr ""
+
+#: models.py:110
+msgid "Parent category"
+msgstr ""
+
+#: models.py:122
+msgid "Parent category cannot be self."
+msgstr ""
+
+#: models.py:124
+msgid "Cannot have circular Parents."
+msgstr ""
+
+#: models.py:133 models.py:138
+msgid "Category"
+msgstr ""
+
+#: models.py:158 models.py:159 models.py:202
+msgid "Entry"
+msgstr ""
+
+#: models.py:203
 msgid "Entries"
 msgstr ""
 
-#: routes.py:21
+#: routes.py:24
 msgid "date"
 msgstr ""
 
-#: routes.py:34
+#: routes.py:37
 msgid "tag"
 msgstr ""
 
-#: routes.py:41
+#: routes.py:44
 msgid "category"
 msgstr ""
 
-#: routes.py:48
+#: routes.py:51
 msgid "author"
 msgstr ""
 
-#: routes.py:60
+#: routes.py:64
 msgid "search"
 msgstr ""
 
-#: templates/endless/show_more.html:5
+#: templates/el_pagination/show_more.html:5
 msgid "more"
 msgstr ""
 
-#: templates/puput/base.html:49
+#: templates/puput/base.html:45
+msgid "Feed RSS"
+msgstr ""
+
+#: templates/puput/base.html:50
 msgid "Search"
 msgstr ""
 
-#: templates/puput/base.html:58
+#: templates/puput/base.html:59
 msgid "Last Entries"
 msgstr ""
 
-#: templates/puput/base.html:64
+#: templates/puput/base.html:65
 msgid "Popular Entries"
 msgstr ""
 
-#: templates/puput/base.html:76
+#: templates/puput/base.html:77
 msgid "Tags"
 msgstr ""
 
-#: templates/puput/base.html:82
+#: templates/puput/base.html:83
 msgid "Archive"
 msgstr ""
 
-#: templates/puput/blog_page.html:6 templates/puput/blog_page.html.py:7
-#: templates/puput/blog_page.html:15
+#: templates/puput/blog_page.html:6 templates/puput/blog_page.html:7
+#: templates/puput/blog_page.html:29
 msgid "Entries for"
 msgstr ""
 
-#: templates/puput/blog_page.html:31
+#: templates/puput/blog_page.html:48
 msgid "Continue reading"
 msgstr ""
 
-#: templates/puput/blog_page.html:35
-msgid "No results founds."
+#: templates/puput/blog_page.html:52
+msgid "No results found."
 msgstr ""
 
-#: templates/puput/tags/archives_list.html:22
+#: templates/puput/tags/archives_list.html:23
 msgid "No entry archives yet"
 msgstr ""
 
