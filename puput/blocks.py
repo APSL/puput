@@ -1,3 +1,5 @@
+from django.utils.translation import ugettext_lazy as _
+
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailcore.blocks import (
     StructBlock,
@@ -12,4 +14,13 @@ class CaptionedImageBlock(StructBlock):
     class Meta:
         icon = 'image'
         template = 'puput/blocks/captioned_image.html'
-        help_text = 'Select an image and add a caption (optional).'
+        help_text = _('Select an image and add a caption (optional).')
+
+
+class QuoteBlock(TextBlock):
+    """
+    Quote simple block that uses a template
+    """
+    class Meta:
+        template = 'puput/blocks/quote.html'
+        icon = 'openquote'
