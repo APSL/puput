@@ -20,93 +20,95 @@ msgstr ""
 
 #: abstracts.py:16
 msgid "body"
-msgstr ""
+msgstr "corpo"
 
 #: abstracts.py:18
 msgid "Post date"
-msgstr ""
+msgstr "Data da publicação"
 
 #: abstracts.py:19 models.py:31
 msgid "Header image"
-msgstr ""
+msgstr "Imagem do cabeçalho"
 
 #: abstracts.py:22
 msgid "excerpt"
-msgstr ""
+msgstr "resumo"
 
 #: abstracts.py:23
 msgid ""
 "Entry excerpt to be displayed on entries list. If this field is not filled, "
 "a truncate version of body text will be used."
 msgstr ""
+"Resumo da publicação que será mostrado na lista de artigos. Se este campo estiver vazio, "
+"uma versão cortada do texto do corpo será usada."
 
 #: abstracts.py:33
 msgid "Content"
-msgstr ""
+msgstr "Conteúdo"
 
 #: abstracts.py:36 models.py:134 templates/puput/base.html:71
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #: abstracts.py:37 templates/puput/related_entries.html:6
 msgid "Related Entries"
-msgstr ""
+msgstr "Publicações Relacionadas"
 
 #: abstracts.py:39
 msgid "Metadata"
-msgstr ""
+msgstr "Metadados"
 
 #: models.py:29 models.py:111
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: models.py:30
 msgid "The blog description that will appear under the title."
-msgstr ""
+msgstr "A descrição do blog que aparecerá abaixo do título"
 
 #: models.py:34
 msgid "Display comments"
-msgstr ""
+msgstr "Mostrar comentários"
 
 #: models.py:35
 msgid "Display categories"
-msgstr ""
+msgstr "Mostrar categorias"
 
 #: models.py:36
 msgid "Display tags"
-msgstr ""
+msgstr "Mostrar tags"
 
 #: models.py:37
 msgid "Display popular entries"
-msgstr ""
+msgstr "Mostrar publicações populares"
 
 #: models.py:38
 msgid "Display last entries"
-msgstr ""
+msgstr "Mostrar últimas publicações"
 
 #: models.py:39
 msgid "Display archive"
-msgstr ""
+msgstr "Mostrar arquivo"
 
 #: models.py:44
 msgid "Entries per page"
-msgstr ""
+msgstr "Publicações por página"
 
 #: models.py:45
 msgid "Last entries limit"
-msgstr ""
+msgstr "Limite de últimas publicações"
 
 #: models.py:46
 msgid "Popular entries limit"
-msgstr ""
+msgstr "Limite de publicações populares"
 
 #: models.py:47
 msgid "Tags limit entry header"
-msgstr ""
+msgstr "Limite de tags do cabeçalho da publicação"
 
 #: models.py:49
 msgid "Use short description in feeds"
-msgstr ""
+msgstr "Usar descrição curta nos feeds"
 
 #: models.py:64
 msgid "Widgets"
@@ -114,11 +116,11 @@ msgstr ""
 
 #: models.py:70
 msgid "Parameters"
-msgstr ""
+msgstr "Parâmetros"
 
 #: models.py:75
 msgid "Comments"
-msgstr ""
+msgstr "Comentários"
 
 #: models.py:78
 msgid "Feeds"
@@ -130,35 +132,35 @@ msgstr ""
 
 #: models.py:107
 msgid "Category name"
-msgstr ""
+msgstr "Nome da categoria"
 
 #: models.py:110
 msgid "Parent category"
-msgstr ""
+msgstr "Categoria pai"
 
 #: models.py:122
 msgid "Parent category cannot be self."
-msgstr ""
+msgstr "Categoria pai não pode ser a mesma."
 
 #: models.py:124
 msgid "Cannot have circular Parents."
-msgstr ""
+msgstr "Não pode haver Pais circulares."
 
 #: models.py:133 models.py:138
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: models.py:158 models.py:159 models.py:202
 msgid "Entry"
-msgstr ""
+msgstr "Publicação"
 
 #: models.py:203
 msgid "Entries"
-msgstr ""
+msgstr "Publicações"
 
 #: routes.py:24
 msgid "date"
-msgstr ""
+msgstr "data"
 
 #: routes.py:37
 msgid "tag"
@@ -166,19 +168,19 @@ msgstr ""
 
 #: routes.py:44
 msgid "category"
-msgstr ""
+msgstr "categoria"
 
 #: routes.py:51
 msgid "author"
-msgstr ""
+msgstr "autor"
 
 #: routes.py:64
 msgid "search"
-msgstr ""
+msgstr "busca"
 
 #: templates/el_pagination/show_more.html:5
 msgid "more"
-msgstr ""
+msgstr "mais"
 
 #: templates/puput/base.html:45
 msgid "Feed RSS"
@@ -186,15 +188,15 @@ msgstr ""
 
 #: templates/puput/base.html:50
 msgid "Search"
-msgstr ""
+msgstr "Busca"
 
 #: templates/puput/base.html:59
 msgid "Last Entries"
-msgstr ""
+msgstr "Últimas Publicações"
 
 #: templates/puput/base.html:65
 msgid "Popular Entries"
-msgstr ""
+msgstr "Publicações Populares"
 
 #: templates/puput/base.html:77
 msgid "Tags"
@@ -202,33 +204,33 @@ msgstr ""
 
 #: templates/puput/base.html:83
 msgid "Archive"
-msgstr ""
+msgstr "Arquivo"
 
 #: templates/puput/blog_page.html:6 templates/puput/blog_page.html:7
 #: templates/puput/blog_page.html:29
 msgid "Entries for"
-msgstr ""
+msgstr "Publicações para"
 
 #: templates/puput/blog_page.html:48
 msgid "Continue reading"
-msgstr ""
+msgstr "Continuar lendo"
 
 #: templates/puput/blog_page.html:52
 msgid "No results found."
-msgstr ""
+msgstr "Nenhum resultado encontrado."
 
 #: templates/puput/tags/archives_list.html:23
 msgid "No entry archives yet"
-msgstr ""
+msgstr "Nenhuma publicação arquivada até agora"
 
 #: templates/puput/tags/categories_list.html:9
 msgid "No categories yet"
-msgstr ""
+msgstr "Nenhuma categoria até agora"
 
 #: templates/puput/tags/entries_list.html:31
 msgid "No entries yet"
-msgstr ""
+msgstr "Nenhuma publicação até agora"
 
 #: templates/puput/tags/tags_list.html:9
 msgid "No tags yet"
-msgstr ""
+msgstr "Nenhuma tag até agora"
