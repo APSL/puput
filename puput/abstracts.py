@@ -52,7 +52,6 @@ class EntryAbstract(models.Model):
         FieldPanel('title', classname="title"),
         ImageChooserPanel('header_image'),
         FieldPanel('body', classname="full"),
-        StreamFieldPanel('stream_body'),
         FieldPanel('excerpt', classname="full"),
     ]
 
