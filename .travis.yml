@@ -9,7 +9,7 @@ matrix:
      python: 3.4
    - env: TOXENV=py35-dj18
      python: 3.5
-   - env: TOXENV=py33-dj18
+   - env: TOXENV=py36-dj18
      python: 3.6
    - env: TOXENV=py27-dj19
      python: 2.7
@@ -17,7 +17,7 @@ matrix:
      python: 3.4
    - env: TOXENV=py35-dj19
      python: 3.5
-   - env: TOXENV=py35-dj19
+   - env: TOXENV=py36-dj19
      python: 3.6
    - env: TOXENV=py27-dj110
      python: 2.7
@@ -25,7 +25,7 @@ matrix:
      python: 3.4
    - env: TOXENV=py35-dj110
      python: 3.5
-   - env: TOXENV=py35-dj110
+   - env: TOXENV=py36-dj110
      python: 3.6
    - env: TOXENV=py27-dj111
      python: 2.7
@@ -33,7 +33,7 @@ matrix:
      python: 3.4
    - env: TOXENV=py35-dj111
      python: 3.5
-   - env: TOXENV=py35-dj111
+   - env: TOXENV=py36-dj111
      python: 3.6
    - env: TOXENV=flake8
      python: 3.5
