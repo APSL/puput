@@ -33,7 +33,7 @@ matrix:
      python: 3.4
    - env: TOXENV=py35-dj111
      python: 3.5
-    - env: TOXENV=py35-dj111
+   - env: TOXENV=py35-dj111
      python: 3.6
    - env: TOXENV=flake8
      python: 3.5
