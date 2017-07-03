@@ -7,15 +7,13 @@ from wagtail.wagtailadmin.edit_handlers import (
     FieldPanel,
     InlinePanel,
     MultiFieldPanel,
-    PageChooserPanel,
-    StreamFieldPanel
+    PageChooserPanel
 )
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.blocks import (
     TextBlock,
-    RichTextBlock,
-    RawHTMLBlock
+    RichTextBlock
 )
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.contrib.table_block.blocks import TableBlock
@@ -37,7 +35,6 @@ class EntryAbstract(models.Model):
         ('image', CaptionedImageBlock()),
         ('table', TableBlock(classname='table')),
         ('embed', EmbedBlock()),
-        ('html', RawHTMLBlock(label=_('Raw HTML'))),
         ('code', CodeBlock(label=_('Code'))),
         ('markdown', MarkdownBlock(label=_('Markdown'))),
     ], null=True, blank=True)
