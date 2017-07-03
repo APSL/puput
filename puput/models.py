@@ -10,7 +10,8 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils import six
 
 from wagtail.wagtailcore.models import Page, PageBase
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.wagtailadmin.edit_handlers import (FieldPanel, MultiFieldPanel, StreamFieldPanel, InlinePanel,
+                                                PageChooserPanel)
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsearch import index
@@ -212,6 +213,19 @@ class StreamEntryPage(EntryPage):
         ImageChooserPanel('header_image'),
         StreamFieldPanel('stream_body'),
         FieldPanel('excerpt', classname="full"),
+    ]
+
+    content_panels = [
+        MultiFieldPanel(
+            main_panels,
+            heading=_("Content")
+        ),
+        MultiFieldPanel([
+            FieldPanel('tags'),
+            InlinePanel('entry_categories', label=_("Categories")),
+            InlinePanel('related_entrypage_from', label=_("Related Entries"),
+                        panels=[PageChooserPanel('entrypage_to')]),
+        ], heading=_("Metadata")),
     ]
 
 
