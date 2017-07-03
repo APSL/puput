@@ -66,3 +66,5 @@ Related repositories
 * `zinnia-to-puput <https://github.com/APSL/zinnia-to-puput/>`_:  Import your Zinnia blog data into Puput.   
 * `docker-puput <https://github.com/APSL/docker-puput/>`_:  Docker image for Puput blog.
 * `puput-demo <https://github.com/APSL/puput-demo/>`_: An example of blog Django app using Puput.
+* `divio-wagtail-puput <https://github.com/divio/divio-wagtail-puput/>`_: A Divio Cloud addon to install the Wagtail Puput weblog.
+

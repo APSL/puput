@@ -25,7 +25,6 @@ from wagtailcodeblock.blocks import CodeBlock
 from wagtailmarkdownblock.blocks import MarkdownBlock
 
 from .blocks import CaptionedImageBlock, QuoteBlock
-from .settings import get_use_body, get_use_stream_body
 from .utils import get_image_model_path
 
 
@@ -55,18 +54,7 @@ class EntryAbstract(models.Model):
     main_panels = [
         FieldPanel('title', classname="title"),
         ImageChooserPanel('header_image'),
-    ]
-
-    if get_use_body():
-        main_panels += [
-            FieldPanel('body', classname="full"),
-        ]
-    if get_use_stream_body():
-        main_panels += [
-            StreamFieldPanel('stream_body'),
-        ]
-
-    main_panels += [
+        FieldPanel('body', classname="full"),
         FieldPanel('excerpt', classname="full"),
     ]
 
