@@ -50,6 +50,8 @@ setup(
         'wagtailmarkdownblock>=0.2.1',
         'django-el-pagination>=2.1.1',
         'Pygments>=2.1,<2.2',
+        'wagtailcodeblock>=0.2.4',
+        'wagtailmarkdownblock>=0.3.0',
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),
