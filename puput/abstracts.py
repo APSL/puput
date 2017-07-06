@@ -7,14 +7,13 @@ from wagtail.wagtailadmin.edit_handlers import (
     FieldPanel,
     InlinePanel,
     MultiFieldPanel,
-    PageChooserPanel,
-    StreamFieldPanel
+    PageChooserPanel
 )
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.blocks import (
     TextBlock,
-    RichTextBlock,
+    RichTextBlock
 )
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.contrib.table_block.blocks import TableBlock
@@ -23,7 +22,7 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtailcodeblock.blocks import CodeBlock
 from wagtailmarkdownblock.blocks import MarkdownBlock
 
-from .blocks import CaptionedImageBlock
+from .blocks import CaptionedImageBlock, QuoteBlock
 from .utils import get_image_model_path
 
 
@@ -32,11 +31,12 @@ class EntryAbstract(models.Model):
     stream_body = StreamField([
         ('paragraph', RichTextBlock()),
         ('heading', TextBlock()),
+        ('quote', QuoteBlock(label=_('Quote'))),
         ('image', CaptionedImageBlock()),
         ('table', TableBlock(classname='table')),
         ('embed', EmbedBlock()),
-        ('code', CodeBlock(label='Code')),
-        ('markdown', MarkdownBlock(label='Markdown')),
+        ('code', CodeBlock(label=_('Code'))),
+        ('markdown', MarkdownBlock(label=_('Markdown'))),
     ], null=True, blank=True)
     tags = ClusterTaggableManager(through='puput.TagEntryPage', blank=True)
     date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)

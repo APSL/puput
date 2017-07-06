@@ -1,0 +1,22 @@
+.fields li {
+    margin-bottom:15px;
+}
+.block_field > .field-content > .input > .sequence-container > .sequence-container-inner > .sequence > .sequence-member > .sequence-member-inner > .widget-rich_text_area .richtext {
+    padding-top:55px;
+}
+
+@media (min-width:1200px) {
+    .hallotoolbar {
+        white-space:nowrap;
+    }
+}
+@media (min-width: 992px) {
+    .hallotoolbar {
+        width:auto !important;
+    }
+}
+@media (max-width: 991px) {
+    .hallotoolbar {
+        width:auto !important;
+    }
+}

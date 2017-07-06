@@ -22,7 +22,7 @@ PUPUT_APPS = (
     'wagtail.contrib.table_block',
 
     # Third-party apps
-    # 'compressor',
+    'compressor',
     'taggit',
     'modelcluster',
     'wagtailcodeblock',
