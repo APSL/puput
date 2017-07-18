@@ -12,4 +12,6 @@ $(document).ready(function () {
             $(this).closest('.parent').addClass('active');
         }
     });
+    // Add default styling to markdown generated tables with bootstrap classes
+    $("article section table").addClass("table table-bordered");
 });

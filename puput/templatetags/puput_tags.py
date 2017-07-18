@@ -95,6 +95,7 @@ def show_comments(context):
             return template.render(context)
     return ""
 
+
 # Avoid to import endless_pagination in installed_apps and in the templates
 register.tag('show_paginator', show_pages)
 register.tag('paginate', paginate)
