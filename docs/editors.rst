@@ -10,3 +10,7 @@ This is how adding entry page looks:
 
 Please visit `Wagtail: an Editor’s guide <http://docs.wagtail.io/en/v1.0/editor_manual/index.html>`_ for further details
 of how to use Wagtail editor's dashboard.
+
+.. note::
+
+    If you want to edit the owner of an entry you need to install Wagtail >= 1.11.
