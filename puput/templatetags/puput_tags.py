@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.template import Library
 from django.core.urlresolvers import resolve
+from django.template.loader import render_to_string
 
 from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
-from django.template.loader import render_to_string
 
 from ..urls import get_entry_url, get_feeds_url
 from ..models import Category, Tag
