@@ -89,11 +89,11 @@ def show_comments(context):
     blog_page = context['blog_page']
     entry = context['self']
     if blog_page.display_comments and blog_page.disqus_shortname:
-        context = {
+        ctx = {
             'disqus_shortname': blog_page.disqus_shortname,
             'disqus_identifier': entry.id
         }
-        return render_to_string('puput/comments/disqus.html', context=context)
+        return render_to_string('puput/comments/disqus.html', context=ctx)
     return ""
 
 # Avoid to import endless_pagination in installed_apps and in the templates
