@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.9 (2017-08-03)
+----------------
+* Fix issue that creates undesired migrations.
+* Add Django 1.11 & Python 3.6 support. Drop Python 3.3 support
+* Improve RSS feeds generation.
+* Fix issue with templatetags.
+* Add Italian, Russian, Brazilian and French translations.
+* Fix url resolution issues.
+
 0.8 (2016-11-17)
 ----------------
 * Add Travis CI integration and functional tests.

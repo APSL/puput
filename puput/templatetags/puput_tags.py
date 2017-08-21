@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from django.template import Library, loader
+from django.template import Library
 from django.core.urlresolvers import resolve
+from django.template.loader import render_to_string
 
 from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
 
@@ -87,12 +88,12 @@ def feeds_url(context, blog_page):
 def show_comments(context):
     blog_page = context['blog_page']
     entry = context['self']
-    if blog_page.display_comments:
-        if blog_page.disqus_shortname:
-            template = loader.get_template('puput/comments/disqus.html')
-            context['disqus_shortname'] = blog_page.disqus_shortname
-            context['disqus_identifier'] = entry.id
-            return template.render(context)
+    if blog_page.display_comments and blog_page.disqus_shortname:
+        ctx = {
+            'disqus_shortname': blog_page.disqus_shortname,
+            'disqus_identifier': entry.id
+        }
+        return render_to_string('puput/comments/disqus.html', context=ctx)
     return ""
 
 # Avoid to import endless_pagination in installed_apps and in the templates
