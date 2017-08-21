@@ -12,8 +12,7 @@ from wagtail.wagtailadmin.edit_handlers import (
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.blocks import (
-    TextBlock,
-    RichTextBlock
+    TextBlock
 )
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.contrib.table_block.blocks import TableBlock
@@ -22,14 +21,14 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtailcodeblock.blocks import CodeBlock
 from wagtailmarkdownblock.blocks import MarkdownBlock
 
-from .blocks import CaptionedImageBlock, QuoteBlock
+from .blocks import CaptionedImageBlock, QuoteBlock, RichTextStructBlock
 from .utils import get_image_model_path
 
 
 class EntryAbstract(models.Model):
     body = RichTextField(verbose_name=_('body'), blank=True)
     stream_body = StreamField([
-        ('paragraph', RichTextBlock()),
+        ('paragraph', RichTextStructBlock()),
         ('heading', TextBlock()),
         ('quote', QuoteBlock(label=_('Quote'))),
         ('image', CaptionedImageBlock()),
