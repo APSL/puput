@@ -45,7 +45,7 @@ setup(
         'Django>=1.8.1,<1.12',
 
         'django-compressor>=1.6',
-        'wagtail>=1.0,<2.0',
+        'wagtail>=1.12,<2.0',
         'wagtailcodeblock>=0.2.4',
         'wagtailmarkdownblock>=0.2.1',
         'django-el-pagination>=2.1.1',

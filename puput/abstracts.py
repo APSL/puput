@@ -11,9 +11,7 @@ from wagtail.wagtailadmin.edit_handlers import (
 )
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailcore.fields import RichTextField, StreamField
-from wagtail.wagtailcore.blocks import (
-    TextBlock
-)
+from wagtail.wagtailcore.blocks import TextBlock, RichTextBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.contrib.table_block.blocks import TableBlock
 
@@ -21,14 +19,19 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtailcodeblock.blocks import CodeBlock
 from wagtailmarkdownblock.blocks import MarkdownBlock
 
-from .blocks import CaptionedImageBlock, QuoteBlock, RichTextStructBlock
+from .blocks import CaptionedImageBlock, QuoteBlock
 from .utils import get_image_model_path
 
 
 class EntryAbstract(models.Model):
     body = RichTextField(verbose_name=_('body'), blank=True)
     stream_body = StreamField([
-        ('paragraph', RichTextStructBlock()),
+        (
+            'paragraph',
+            RichTextBlock(
+                features=['bold', 'italic', 'link', 'ol', 'ul'],
+            )
+        ),
         ('heading', TextBlock()),
         ('quote', QuoteBlock(label=_('Quote'))),
         ('image', CaptionedImageBlock()),
@@ -42,9 +45,15 @@ class EntryAbstract(models.Model):
     header_image = models.ForeignKey(get_image_model_path(), verbose_name=_('Header image'), null=True, blank=True,
                                      on_delete=models.SET_NULL, related_name='+', )
     categories = models.ManyToManyField('puput.Category', through='puput.CategoryEntryPage', blank=True)
-    excerpt = RichTextField(verbose_name=_('excerpt'), blank=True,
-                            help_text=_("Entry excerpt to be displayed on entries list. "
-                                        "If this field is not filled, a truncate version of body text will be used."))
+    excerpt = RichTextField(
+        verbose_name=_('excerpt'),
+        blank=True,
+        features=['bold', 'italic', 'link', 'ol', 'ul'],
+        help_text=_(
+            "Entry excerpt to be displayed on entries list. "
+            "If this field is not filled, a truncate version of body text will be used."
+        ),
+    )
     num_comments = models.IntegerField(default=0, editable=False)
 
     main_panels = [
