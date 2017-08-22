@@ -10,7 +10,8 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils import six
 
 from wagtail.wagtailcore.models import Page, PageBase
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel
+from wagtail.wagtailadmin.edit_handlers import (FieldPanel, MultiFieldPanel, StreamFieldPanel, InlinePanel,
+                                                PageChooserPanel)
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsearch import index
@@ -78,7 +79,10 @@ class BlogPage(BlogRoutes, Page):
             FieldPanel('short_feed_description'),
         ], heading=_("Feeds")),
     ]
-    subpage_types = ['puput.EntryPage']
+    subpage_types = [
+        'puput.EntryPage',
+        'puput.StreamEntryPage',
+    ]
 
     def get_entries(self):
         return EntryPage.objects.descendant_of(self).live().order_by('-date').select_related('owner')
@@ -214,3 +218,28 @@ class EntryPage(six.with_metaclass(PageBase, Entry, Page)):
     class Meta:
         verbose_name = _('Entry')
         verbose_name_plural = _('Entries')
+
+
+class StreamEntryPage(EntryPage):
+    main_panels = [
+        FieldPanel('title', classname="title"),
+        ImageChooserPanel('header_image'),
+        StreamFieldPanel('stream_body'),
+        FieldPanel('excerpt', classname="full"),
+    ]
+
+    content_panels = [
+        MultiFieldPanel(
+            main_panels,
+            heading=_("Content")
+        ),
+        MultiFieldPanel([
+            FieldPanel('tags'),
+            InlinePanel('entry_categories', label=_("Categories")),
+            InlinePanel('related_entrypage_from', label=_("Related Entries"),
+                        panels=[PageChooserPanel('entrypage_to')]),
+        ], heading=_("Metadata")),
+    ]
+
+
+EntryPage._meta.get_field('owner').editable = True

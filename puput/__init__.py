@@ -2,7 +2,7 @@
 
 __author__ = 'Marc Tudurí'
 __email__ = 'marctc@gmail.com'
-__version__ = '0.9'
+__version__ = '0.10'
 
 PUPUT_APPS = (
     # Wagtail apps
@@ -19,11 +19,14 @@ PUPUT_APPS = (
     'wagtail.wagtailforms',
     'wagtail.contrib.wagtailsitemaps',
     'wagtail.contrib.wagtailroutablepage',
+    'wagtail.contrib.table_block',
 
     # Third-party apps
     'compressor',
     'taggit',
     'modelcluster',
+    'wagtailcodeblock',
+    'wagtailmarkdownblock',
 
     # Puput apps
     'puput',

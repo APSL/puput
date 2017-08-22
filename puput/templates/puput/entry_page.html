@@ -1,5 +1,5 @@
 {% extends "puput/base.html" %}
-{% load wagtailcore_tags wagtailimages_tags puput_tags %}
+{% load static wagtailcore_tags wagtailimages_tags puput_tags %}
 
 {% block title %}{{ self.title }} | {{ blog_page.title }}{% endblock title %}
 {% block meta_title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock meta_title %}
@@ -20,6 +20,10 @@
     <meta name="twitter:title" content="{{ self.title }}" />
     <meta name="twitter:description" content="{% if self.excerpt %}{{ self.excerpt|striptags }}{% else %}{{ self.body|striptags|truncatewords:20 }}{% endif %}" />
 {% endblock social_share %}
+{% block pygments_css %}
+    <link rel="stylesheet" href="{% static 'puput/css/pygments.css' %}"/>
+{% endblock pygments_css %}
+
 
 {% block content %}
     <article class="box page-content"
@@ -34,7 +38,10 @@
             </section>
         {% endif %}
         <section>
-            {{ self.body|richtext}}
+            {% if self.body|length %}
+                {{ self.body|richtext}}
+            {% endif %}
+            {% include_block self.stream_body %}
         </section>
         {% show_comments %}
     </article>

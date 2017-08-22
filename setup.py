@@ -31,6 +31,7 @@ def get_email(package):
     init_py = codecs.open(os.path.join(package, '__init__.py'), encoding='utf-8').read()
     return re.search("^__email__ = ['\"]([^'\"]+)['\"]", init_py, re.MULTILINE).group(1)
 
+
 setup(
     name='puput',
     version=get_version('puput'),
@@ -44,8 +45,13 @@ setup(
         'Django>=1.8.1,<1.12',
 
         'django-compressor>=1.6',
-        'wagtail>=1.0,<2.0',
+        'wagtail>=1.12,<2.0',
+        'wagtailcodeblock>=0.2.4',
+        'wagtailmarkdownblock>=0.2.1',
         'django-el-pagination>=2.1.1',
+        'Pygments>=2.1,<2.2',
+        'wagtailcodeblock>=0.2.4',
+        'wagtailmarkdownblock>=0.3.0',
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),
