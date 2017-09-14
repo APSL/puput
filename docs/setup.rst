@@ -38,7 +38,6 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         'wagtail.wagtailforms',
         'wagtail.contrib.wagtailsitemaps',
         'wagtail.contrib.wagtailroutablepage',
-        'compressor',
         'taggit',
         'modelcluster',
         'puput',
@@ -115,7 +114,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 Installation on top of Wagtail
 ------------------------------
 1. Install Puput and its dependencies via :code:`pip install puput`.
-2. Add :code:`puput`, :code:`compressor`, :code:`wagtail.contrib.wagtailsitemaps` and :code:`wagtail.contrib.wagtailroutablepage` to :code:`INSTALLED_APPS` in your Django settings.
+2. Add :code:`puput`, :code:`wagtail.contrib.wagtailsitemaps` and :code:`wagtail.contrib.wagtailroutablepage` to :code:`INSTALLED_APPS` in your Django settings.
 3. If you have previously defined Wagtail URLs in your patterns, set the :code:`PUPUT_AS_PLUGIN` setting to :code:`True`. This will avoid duplicate inclusion of Wagtail's URLs when you include Puput's URLs.
 4. Include Puput's URLs in your patterns **before** Wagtail's URLs.
 
