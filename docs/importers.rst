@@ -3,6 +3,19 @@ Import your blog data
 
 If you need to migrate a blog system to Puput we provide you a various tools to import your data.
 
+Prerequisites
+-------------
+
+All importers need the lxml Python package, which has the prerequisites libxml2 and libxslt.
+
+To install on Ubuntu::
+
+    sudo apt-get install libxml2-dev libxslt-dev
+
+To install on CentOS or Red Hat::
+
+    sudo yum install libxml2-devel libxml++-devel libxslt-devel
+
 Zinnia
 ------
 1. Install zinnia-to-puput package and its dependencies :code:`pip install zinnia-to-puput`
@@ -10,6 +23,7 @@ Zinnia
 3. Run the management command::
 
     python manage.py zinnia2puput
+
 You can optionally pass the slug and the title of the blog to the importer::
 
     python manage.py zinnia2puput --slug=blog --title="Puput blog"
