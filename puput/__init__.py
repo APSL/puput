@@ -21,7 +21,6 @@ PUPUT_APPS = (
     'wagtail.contrib.wagtailroutablepage',
 
     # Third-party apps
-    'compressor',
     'taggit',
     'modelcluster',
 

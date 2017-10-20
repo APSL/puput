@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailroutablepage_tags wagtailuserbar compress puput_tags %}
+{% load static i18n wagtailcore_tags wagtailroutablepage_tags wagtailuserbar puput_tags %}
 {% wagtailuserbar %}
 <!DOCTYPE HTML>
 <html>
@@ -14,11 +14,11 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300,300italic,100italic,100,400italic,500,500italic,700,900,700italic,900italic' rel='stylesheet' type='text/css'>
-    {% compress css %}
+    {% block css %}
         <link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/>
         <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'puput/css/puput.css' %}"/>
-    {% endcompress %}
+    {% endblock %}
 </head>
 <body>
 <div class="about">
@@ -101,11 +101,11 @@
         </div>
     </div>
 </div>
-{% compress js %}
+{% block js %}
     {% block extra_js %}
       <script src="{% static 'puput/js/jquery.min.js' %}"></script>
       <script src="{% static 'puput/js/puput.js' %}"></script>
     {% endblock extra_js %}
-{% endcompress js %}
+{% endblock js %}
 </body>
 </html>

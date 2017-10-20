@@ -42,8 +42,6 @@ setup(
     install_requires=[
         # By default, pick the latest stable version of Django that's officially supported by Wagtail.
         'Django>=1.8.1,<1.12',
-
-        'django-compressor>=1.6',
         'wagtail>=1.0,<2.0',
         'django-el-pagination>=2.1.1',
     ],
