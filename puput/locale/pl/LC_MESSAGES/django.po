@@ -40,7 +40,7 @@ msgid ""
 "Entry excerpt to be displayed on entries list. If this field is not filled, "
 "a truncate version of body text will be used."
 msgstr ""
-"Dodaj streszczenie do wyświetlenia w liście artykułów. Jeżeli to pole nie "
+"Dodaj streszczenie do wyświetlenia w liście wpisów. Jeżeli to pole nie "
 "zostanie wypełnione, zostanie użyta skrócona wersja tekstu."
 
 #: abstracts.py:33
@@ -53,7 +53,7 @@ msgstr "Kategorie"
 
 #: abstracts.py:37 templates/puput/related_entries.html:6
 msgid "Related Entries"
-msgstr "Podobne artykuły"
+msgstr "Podobne wpisy"
 
 #: abstracts.py:39
 msgid "Metadata"
@@ -81,11 +81,11 @@ msgstr "Pokaż tagi"
 
 #: models.py:37
 msgid "Display popular entries"
-msgstr "Pokaż popularne artykuły"
+msgstr "Pokaż popularne wpisy"
 
 #: models.py:38
 msgid "Display last entries"
-msgstr "Pokaż najnowsze artykuły"
+msgstr "Pokaż najnowsze wpisy"
 
 #: models.py:39
 msgid "Display archive"
@@ -93,19 +93,19 @@ msgstr "Pokaż archiwum"
 
 #: models.py:44
 msgid "Entries per page"
-msgstr "Liczba artykułów na stronie"
+msgstr "Liczba wpisów na stronie"
 
 #: models.py:45
 msgid "Last entries limit"
-msgstr "Limit nowych artykułów"
+msgstr "Limit nowych wpisów"
 
 #: models.py:46
 msgid "Popular entries limit"
-msgstr "Limit popularnych artykułów"
+msgstr "Limit popularnych wpisów"
 
 #: models.py:47
 msgid "Tags limit entry header"
-msgstr "Limit tagów na artykuł"
+msgstr "Limit tagów na wpis"
 
 #: models.py:49
 msgid "Use short description in feeds"
@@ -153,11 +153,11 @@ msgstr "Kategoria"
 
 #: models.py:158 models.py:159 models.py:202
 msgid "Entry"
-msgstr "Artykuł"
+msgstr "Wpis"
 
 #: models.py:203
 msgid "Entries"
-msgstr "Artykuły"
+msgstr "Wpisy"
 
 #: routes.py:24
 msgid "date"
@@ -193,11 +193,11 @@ msgstr "Wyszukiwanie"
 
 #: templates/puput/base.html:59
 msgid "Last Entries"
-msgstr "Ostatnie artykuły"
+msgstr "Ostatnie wpisy"
 
 #: templates/puput/base.html:65
 msgid "Popular Entries"
-msgstr "Popularne artykuły"
+msgstr "Popularne wpisy"
 
 #: templates/puput/base.html:77
 msgid "Tags"
@@ -210,7 +210,7 @@ msgstr "Archiwum"
 #: templates/puput/blog_page.html:6 templates/puput/blog_page.html:7
 #: templates/puput/blog_page.html:29
 msgid "Entries for"
-msgstr "Artykuły dla"
+msgstr "Wpisy dla"
 
 #: templates/puput/blog_page.html:48
 msgid "Continue reading"
@@ -222,7 +222,7 @@ msgstr "Nie znaleziono wyników."
 
 #: templates/puput/tags/archives_list.html:23
 msgid "No entry archives yet"
-msgstr "Brak artykułów w archiwum"
+msgstr "Brak wpisów w archiwum"
 
 #: templates/puput/tags/categories_list.html:9
 msgid "No categories yet"
@@ -230,7 +230,7 @@ msgstr "Brak kategorii"
 
 #: templates/puput/tags/entries_list.html:31
 msgid "No entries yet"
-msgstr "Brak artykułów"
+msgstr "Brak wpisów"
 
 #: templates/puput/tags/tags_list.html:9
 msgid "No tags yet"
