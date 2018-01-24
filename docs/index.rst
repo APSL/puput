@@ -37,7 +37,8 @@ Contents:
    editors
    comments
    feeds
-   extending
+   extending_entry
+   extending_blog
    importers
    sites
    settings
