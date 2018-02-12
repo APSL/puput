@@ -31,6 +31,7 @@ def get_email(package):
     init_py = codecs.open(os.path.join(package, '__init__.py'), encoding='utf-8').read()
     return re.search("^__email__ = ['\"]([^'\"]+)['\"]", init_py, re.MULTILINE).group(1)
 
+
 setup(
     name='puput',
     version=get_version('puput'),
@@ -41,8 +42,8 @@ setup(
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
         # By default, pick the latest stable version of Django that's officially supported by Wagtail.
-        'Django>=1.8.1,<1.12',
-        'wagtail>=1.0,<2.0',
+        'Django>=1.10,<2.1',
+        'wagtail>=1.0,<2.1',
         'django-el-pagination>=2.1.1',
     ],
     url='http://github.com/APSL/puput',
@@ -56,8 +57,9 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Operating System :: OS Independent',
         'Topic :: Software Development'
     ]
