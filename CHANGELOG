@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.9.2 (2018-02-13)
+------------------
+* Remove django-compressor dependency.
+* Add German and Polish translations.
+
 0.9.1 (2017-09-12)
 ----------------
 * Add missing migration.
