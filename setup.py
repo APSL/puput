@@ -43,7 +43,7 @@ setup(
         # By default, pick the latest stable version of Django that's officially supported by Wagtail.
         'Django>=1.8.1,<1.12',
         'wagtail>=1.0,<2.0',
-        'django-el-pagination>=2.1.1',
+        'django-el-pagination>=3.2.1',
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),
