@@ -38,7 +38,7 @@ msgstr "Auszug"
 msgid ""
 "Entry excerpt to be displayed on entries list. If this field is not filled, "
 "a truncate version of body text will be used."
-msgstr
+msgstr ""
 "Beitrags Auszug für die Beitrags Listenansicht. Eine gekürzte Version des Beitrags wird verwendet, "
 "wenn dieses Feld nicht ausgefüllt wird"
 
