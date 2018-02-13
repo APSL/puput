@@ -3,22 +3,6 @@ dist: trusty
 language: python
 matrix:
   include:
-   - env: TOXENV=py27-dj18
-     python: 2.7
-   - env: TOXENV=py34-dj18
-     python: 3.4
-   - env: TOXENV=py35-dj18
-     python: 3.5
-   - env: TOXENV=py36-dj18
-     python: 3.6
-   - env: TOXENV=py27-dj19
-     python: 2.7
-   - env: TOXENV=py34-dj19
-     python: 3.4
-   - env: TOXENV=py35-dj19
-     python: 3.5
-   - env: TOXENV=py36-dj19
-     python: 3.6
    - env: TOXENV=py27-dj110
      python: 2.7
    - env: TOXENV=py34-dj110
@@ -34,6 +18,12 @@ matrix:
    - env: TOXENV=py35-dj111
      python: 3.5
    - env: TOXENV=py36-dj111
+     python: 3.6
+   - env: TOXENV=py34-dj20
+     python: 3.4
+   - env: TOXENV=py35-dj20
+     python: 3.5
+   - env: TOXENV=py36-dj20
      python: 3.6
    - env: TOXENV=flake8
      python: 3.5
