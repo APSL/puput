@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
 from django import VERSION as DJANGO_VERSION
 from django.contrib.contenttypes.models import ContentType
 from django.core.management import BaseCommand
 
-from wagtail.wagtailcore.models import Page, Site
+from wagtail.core.models import Page, Site
 
 
 class Command(BaseCommand):

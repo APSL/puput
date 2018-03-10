@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls import url, include
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from .feeds import BlogPageFeed
 from .views import EntryPageServe, EntryPageUpdateCommentsView
@@ -36,11 +36,11 @@ urlpatterns = [
 ]
 
 if not getattr(settings, 'PUPUT_AS_PLUGIN', False):
-    from wagtail.wagtailcore import urls as wagtail_urls
-    from wagtail.wagtailadmin import urls as wagtailadmin_urls
-    from wagtail.wagtaildocs import urls as wagtaildocs_urls
-    from wagtail.wagtailsearch import urls as wagtailsearch_urls
-    from wagtail.contrib.wagtailsitemaps.views import sitemap
+    from wagtail.core import urls as wagtail_urls
+    from wagtail.admin import urls as wagtailadmin_urls
+    from wagtail.documents import urls as wagtaildocs_urls
+    from wagtail.search import urls as wagtailsearch_urls
+    from wagtail.contrib.sitemaps.views import sitemap
 
     urlpatterns.extend([
         url(

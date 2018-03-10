@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-
 from six import string_types
 from importlib import import_module
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 
 def import_model(path_or_callable):

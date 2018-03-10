@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 from django.template import Library
-from django.core.urlresolvers import resolve
+from django.urls import resolve
 from django.template.loader import render_to_string
 
 from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
@@ -95,6 +94,7 @@ def show_comments(context):
         }
         return render_to_string('puput/comments/disqus.html', context=ctx)
     return ""
+
 
 # Avoid to import endless_pagination in installed_apps and in the templates
 register.tag('show_paginator', show_pages)

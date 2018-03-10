@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from django.db import models
 from django.db.models import Count
-from wagtail.wagtailcore.models import PageManager
+from wagtail.core.models import PageManager
+
 from .utils import strip_prefix_and_ending_slash
 
 

@@ -2,19 +2,40 @@
 
 {% load static i18n wagtailcore_tags wagtailimages_tags puput_tags %}
 
-{% block title %}{% if search_term %}{{ search_term }} | {{ blog_page.title }}{% else %}{{ block.super }}{% endif %}{% endblock title %}
-{% block meta_title %}{% if search_term %}{% trans 'Entries for' %} {{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_title %}
-{% block meta_description %}{% if search_term %}{% trans 'Entries for' %} {{ search_type }} {{ search_term }}{% else %}{{ block.super }}{% endif %}{% endblock meta_description %}
+{% block title %}
+    {% if search_term %}
+        {{ search_term }} | {{ blog_page.title }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock title %}
+
+{% block meta_title %}
+    {% if search_term %}
+        {% trans 'Entries for' %} {{ search_type }} {{ search_term }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock meta_title %}
+
+{% block meta_description %}
+    {% if search_term %}
+        {% trans 'Entries for' %} {{ search_type }} {{ search_term }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock meta_description %}
+
 {% block social_share %}
     {% image blog_page.header_image fill-800x450 as share_image %}
     <meta property="og:title" content="{{ blog_page.title }}" />
     <meta property="og:description" content="{{ blog_page.description }}" />
     <meta property="og:url" content="{% canonical_url %}" />
     {% if blog_page.header_image %}
-    <meta property="og:image" content="{% image_url share_image.url %}" />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="450" />
-    <meta name="twitter:image" content="{% image_url share_image.url %}" />
+        <meta property="og:image" content="{% image_url share_image.url %}" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="450" />
+        <meta name="twitter:image" content="{% image_url share_image.url %}" />
     {% endif %}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{ blog_page.title }}" />
