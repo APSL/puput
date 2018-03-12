@@ -25,19 +25,19 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     INSTALLED_APPS = (
         ...
-        'wagtail.wagtailcore',
-        'wagtail.wagtailadmin',
-        'wagtail.wagtaildocs',
-        'wagtail.wagtailsnippets',
-        'wagtail.wagtailusers',
-        'wagtail.wagtailimages',
-        'wagtail.wagtailembeds',
-        'wagtail.wagtailsearch',
-        'wagtail.wagtailsites',
-        'wagtail.wagtailredirects',
-        'wagtail.wagtailforms',
-        'wagtail.contrib.wagtailsitemaps',
-        'wagtail.contrib.wagtailroutablepage',
+        'wagtail.core',
+        'wagtail.admin',
+        'wagtail.documents',
+        'wagtail.snippets',
+        'wagtail.users',
+        'wagtail.images',
+        'wagtail.embeds',
+        'wagtail.search',
+        'wagtail.sites',
+        'wagtail.contrib.redirects',
+        'wagtail.contrib.forms',
+        'wagtail.contrib.sitemaps',
+        'wagtail.contrib.routable_page',
         'taggit',
         'modelcluster',
         'puput',
@@ -50,8 +50,8 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     MIDDLEWARE_CLASSES = (
         ...
-        'wagtail.wagtailcore.middleware.SiteMiddleware',
-        'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+        'wagtail.core.middleware.SiteMiddleware',
+        'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     )
 
 4. Add the :code:`request` context processor to the :code:`TEMPLATE_CONTEXT_PROCESSORS` structure in your Django settings.
