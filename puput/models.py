@@ -93,7 +93,7 @@ class BlogPage(BlogRoutes, Page):
         ),
         MultiFieldPanel(
             [
-            FieldPanel('short_feed_description'),
+                FieldPanel('short_feed_description'),
             ],
             heading=_("Feeds")
         ),

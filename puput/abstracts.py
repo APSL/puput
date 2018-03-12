@@ -50,7 +50,8 @@ class EntryAbstract(models.Model):
                 InlinePanel(
                     'related_entrypage_from',
                     label=_("Related Entries"),
-                        panels=[PageChooserPanel('entrypage_to')]),
+                    panels=[PageChooserPanel('entrypage_to')]
+                ),
             ],
             heading=_("Metadata")),
     ]
