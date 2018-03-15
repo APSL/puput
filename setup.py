@@ -44,6 +44,8 @@ setup(
         'Django>=1.11,<2.1',
         'wagtail>=1.0,<2.1',
         'django-el-pagination>=3.2.1',
+        'django-social-share>=1.1.2',
+        'django-colorful>=1.2'
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),

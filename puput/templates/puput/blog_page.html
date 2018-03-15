@@ -1,6 +1,6 @@
 {% extends "puput/base.html" %}
 
-{% load static i18n wagtailcore_tags wagtailimages_tags puput_tags %}
+{% load static i18n wagtailcore_tags wagtailimages_tags puput_tags social_share %}
 
 {% block title %}
     {% if search_term %}
@@ -52,26 +52,44 @@
         {% for entry in entries %}
             <article class="box page-content blog_grid">
                 {% include 'puput/entry_page_header.html' %}
-                {% if entry.header_image %}
-                    <section>
-                        <span class="img-responsive">
-                            {% image entry.header_image fill-800x240 as header_image %}
-                            <img alt="{{ entry.header_image.title }}" src="{{ header_image.url }}">
-                        </span>
-                    </section>
-                {% endif %}
+                <section>
+                    <span class="img-responsive">
+                        {% image entry.header_image fill-800x240 as header_image %}
+                        <img alt="{{ entry.header_image.title }}" src="{{ header_image.url }}">
+                    </span>
+                    {% include 'puput/entry_links.html' %}
+                </section>
                 <section class="article">
                     {% if entry.excerpt %}
                         {{ entry.excerpt|richtext }}
                     {% else %}
                         {{ entry.body|richtext|truncatewords_html:70 }}
                     {% endif %}
-                    <a class="blog_btn continue" href="{% entry_url entry blog_page %}">{% trans 'Continue reading' %} &raquo;</a>
+                    <div class="row">
+                        <ul class="social-share col-md-9">
+                            <li class="social-item">
+                               {% post_to_facebook entry.url '<span><i class="fa fa-facebook"></i></span>' %}
+                            </li>
+                            <li class="social-item">
+                                {% post_to_twitter entry.title entry.url '<span><i class="fa fa-twitter"></i></span>' %}
+                            </li>
+                            <li class="social-item">
+                                {% post_to_linkendin entry.url '<span><i class="fa fa-linkedin"></i></span>' %}
+                            </li>
+                            <li class="social-item">
+                                {% post_to_gplus entry.url '<span><i class="fa fa-google-plus"></i></span>' %}
+                            </li>
+                        </ul>
+                        <div class="col-md-3">
+                            <a class="blog_btn continue" href="{% entry_url entry blog_page %}">{% trans 'Continue reading' %} &raquo;</a>
+                        </div>
+                    </div>
                 </section>
             </article>
         {% empty %}
             <span>{% trans 'No results found.' %}</span>
         {% endfor %}
+
         <div class="pagination">
             {% show_paginator %}
         </div>

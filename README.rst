@@ -35,8 +35,11 @@ Features
 * RSS feeds
 * Related entries
 * Extensible entry model
+* Configurable default template color
+* Social share of blog entries (facebook, twitter, linkedin and google plus)
 
-.. image:: http://i.imgur.com/ndZLeWb.png
+
+.. image:: http://i.imgur.com/d13sGI3.png
 
 Examples of blog sites made with Puput
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,7 +52,7 @@ Examples of blog sites made with Puput
 * `Houm Hotels <http://www.houmhotels.com/blog/>`_
 * `Body Therapy <http://bodytherapy.ru/blog/>`_
 * `Loblolly <http://www.loblolly.io/blog/>`_
-
+* `Astro <http://www.mallorcasoft.es/blog/>`_
 Setup
 ~~~~~
 

@@ -24,8 +24,10 @@ Features
 * RSS feeds
 * Related entries
 * Extensible entry model
+* Configurable default template color
+* Social share of blog entries (facebook, twitter, linkedin and google plus)
 
-.. image:: http://i.imgur.com/ndZLeWb.png
+.. image:: http://i.imgur.com/d13sGI3.png
 
 
 Contents:

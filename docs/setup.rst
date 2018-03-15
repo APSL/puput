@@ -40,6 +40,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         'wagtail.contrib.routable_page',
         'taggit',
         'modelcluster',
+        'django_social_share',
         'puput',
     )
 
@@ -60,7 +61,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     TEMPLATE_CONTEXT_PROCESSORS = (
         ...
-        'django.core.context_processors.request',
+        'django.template.context_processors.request',
     )
 
 5. Set the :code:`WAGTAIL_SITE_NAME` variable to the name of your site in your Django settings.
@@ -83,7 +84,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     urlpatterns = [
         ...
-        url(r'', include('puput.urls')),
+        path(r'', include('puput.urls')),
     ]
 
 8. To make your Django project serve your media files (e.g. things you upload via the admin) during development, don't forget to add this to your urlpatterns:
@@ -122,8 +123,8 @@ Installation on top of Wagtail
 
     urlpatterns = [
         ...
-        url(r'', include('puput.urls')),
-        url(r'', include(wagtail_urls)),
+        path(r'', include('puput.urls')),
+        path(r'', include(wagtail_urls)),
     ]
 
 5. Run :code:`python manage.py migrate`.

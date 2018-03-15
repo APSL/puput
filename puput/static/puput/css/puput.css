@@ -26,7 +26,6 @@ span {
 ul.links {
     margin: 0px 0 25px 0;
     border-bottom: 0;
-    border-top: 1px dotted #43b1b0;
     padding: 5px 0;
 }
 
@@ -39,7 +38,7 @@ ul.links li {
 }
 
 ul.links li i {
-    color: #43b1b0;
+    color: var(--main-color);
 }
 
 ul.links li a {
@@ -53,7 +52,7 @@ ul.links li ul {
 }
 
 ul.sidebar {
-    border-top: 2px solid #43b1b0;
+    border-top: 2px solid var(--main-color);
     background-color: #ededed;
     padding: 20px;
     margin-bottom: 50px;
@@ -74,7 +73,7 @@ ul.sidebar li {
 
 ul.sidebar li.tag {
     display: inline-block;
-    background-color: #43b1b0;
+    background-color: var(--main-color);
     padding: 3px 10px;
 }
 
@@ -90,7 +89,7 @@ ul.sidebar li a {
 }
 
 ul.sidebar ul li i {
-    color: #43b1b0;
+    color: var(--main-color);
 }
 
 ul.sidebar li > ul{
@@ -110,7 +109,7 @@ a {
 }
 
 a:hover {
-    color: #43b1b0;
+    color: var(--main-color);
 }
 
 .blog_btn {
@@ -118,21 +117,28 @@ a:hover {
     font-weight: 300;
 }
 
-.blog_btn.continue {
+.blog_btn.continue,
+.blog_btn.back {
     display: block;
-    margin-bottom: 50px;
     text-align: right;
     background-color: transparent;
-    color: #43b1b0;
+    color: var(--main-color);
     padding: 10px 0;
 }
 
+.blog_btn.back {
+    text-align: left;
+}
+
 .blog_btn.continue:hover,
-.blog_btn.continue:focus {
+.blog_btn.continue:focus,
+.blog_btn.back:hover,
+.blog_btn.back:focus {
     text-decoration: none;
 }
 
-.blog_btn.continue:active {
+.blog_btn.continue:active,
+.blog_btn.back:active {
     outline: inherit;
 }
 
@@ -141,10 +147,55 @@ span img {
     margin-bottom: 15px;
 }
 
-h2.post_title {
-    margin-bottom: 8px;
-    font-weight: 400;
-    font-size: 22px;
+.page-content h2.post_title {
+  text-transform: uppercase;
+  font-size: 22px;
+}
+.page-content h2.post_title a:before {
+  font-family: FontAwesome;
+  content: '\f02e';
+  color: var(--main-color);
+  font-size: 17px;
+  margin-right: 9px;
+}
+.page-content h2.post_title a:hover {
+  text-decoration: none;
+  color: #666666;
+}
+
+.page-content .social-share-all {
+  margin-bottom: 25px;
+}
+.page-content .social-share-all li.social-item {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: #ededed;
+  margin-right: 3px;
+  margin-top: 5px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.page-content .social-share-all li.social-item i {
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin-top: 6px;
+}
+.page-content .social-share-all li.social-item:hover {
+  background-color: #333;
+}
+.page-content .social-share-all:before {
+  background: #ededed;
+  display: block;
+  height: 1px;
+  width: 78%;
+  position: absolute;
+  top: 19px;
+  left: 7px;
+  content: "";
+  text-indent: -9999em;
 }
 
 h2 a {
@@ -152,7 +203,7 @@ h2 a {
 }
 
 h2 a:hover {
-    color: #43b1b0;
+    color: var(--main-color);
     text-decoration: none;
 }
 
@@ -169,7 +220,7 @@ p {
 }
 
 .about {
-    background: #43b1b0 none repeat scroll 0 0;
+    background: var(--main-color) none repeat scroll 0 0;
     margin-bottom: 4em;
 }
 
@@ -214,7 +265,7 @@ p {
 }
 
 .blog_sidebar .input-group-btn {
-    background: #43b1b0;
+    background: var(--main-color);
     -webkit-border-radius: 0 5px 5px 0;
     -moz-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
@@ -241,7 +292,7 @@ p {
 }
 
 .blog_sidebar .rss-sitemap i {
-    color: #43b1b0;
+    color: var(--main-color);
 }
 
 .blog_sidebar .rss-sitemap span {
@@ -288,7 +339,7 @@ p {
 .lateralPosts li {
     font-size: 0.7em;
     display: inline-block;
-    color: #43b1b0;
+    color: var(--main-color);
 }
 
 .searchTerm {
@@ -298,9 +349,13 @@ p {
     color: #666;
 }
 
+.page-content,
 .blog_grid {
     position: relative;
     border-bottom: 0;
+    padding: 10px 20px 20px 20px;
+    background: #f8f8f8;
+    margin-bottom: 20px;
 }
 
 .blog_grid p {
@@ -308,6 +363,56 @@ p {
     font-size: 1em;
     line-height: 1.5em;
     margin-top: 1em;
+}
+
+.blog_grid h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.blog_grid h2 a:after {
+    content: '';
+    width: 25px;
+    height: 4px;
+    display: block;
+    margin: 0 auto;
+    background-color: var(--main-color);
+    margin-top: 7px;
+}
+
+.blog_grid .article .social-share li {
+  float: left;
+}
+.blog_grid .article .social-share li.social-item {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: #ededed;
+  margin-top: 5px;
+  margin-right: 3px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.blog_grid .article .social-share li.social-item i {
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin-top: 6px;
+}
+.blog_grid .article .social-share li.social-item:hover {
+  background-color: #333;
+}
+.blog_grid .article .social-share:after {
+  background: #ededed;
+  display: block;
+  height: 1px;
+  width: 78%;
+  position: absolute;
+  top: 19px;
+  right: 0;
+  content: "";
+  text-indent: -9999em;
 }
 
 .rich-text {
@@ -322,7 +427,7 @@ p {
 .itemPosts {
     margin-top: 10px;
     padding-top: 15px;
-    border-top: 1px dotted #43b1b0;
+    border-top: 1px dotted var(--main-color);
 }
 
 .itemPosts h3 {
@@ -335,7 +440,7 @@ p {
 }
 
 .itemPosts .box.feature a {
-    color: #43b1b0;
+    color: var(--main-color);
 }
 
 .pagination {
@@ -346,23 +451,23 @@ p {
 
 .pagination .endless_separator {
     background: transparent;
-    color: #358c8b;
+    color: var(--main-color);
     font-size: 18px;
 }
 
 .pagination span.endless_page_current,
 .pagination .endless_page_link {
     padding: 7px 11px;
-    color: #43b1b0;
+    color: var(--main-color);
 }
 
 .pagination .endless_page_current:active,
 .pagination .endless_page_link:active {
-    background: #43b1b0;
+    background: var(--main-color);
 }
 
 .pagination span {
-    background: #43b1b0;
+    background: var(--main-color);
 }
 
 .pagination span strong {
@@ -370,7 +475,7 @@ p {
 }
 
 .footer_bottom {
-    background-color: #358c8b;
+    background-color: var(--main-color);
     padding: 20px 40px;
 }
 
@@ -424,7 +529,7 @@ p {
 }
 
 .menu li.active > a {
-    background-color: #358c8b;
+    background-color: var(--main-color);
     color: #fff;
     -webkit-transition: all .2s linear;
     transition: all .2s linear;
@@ -446,7 +551,7 @@ p {
 
 .menu li.parent > a .open-sub:before,
 .menu li.parent > a .open-sub:after {
-    background: #358c8b;
+    background: var(--main-color);
     content: "";
     display: block;
     height: 2px;

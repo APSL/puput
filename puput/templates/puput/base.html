@@ -1,5 +1,4 @@
 {% load static i18n wagtailcore_tags wagtailroutablepage_tags wagtailuserbar puput_tags %}
-{% wagtailuserbar %}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -31,35 +30,43 @@
     {% block css %}
         <link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/>
         <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
+        <style>
+            body {
+                --main-color: {{blog_page.main_color}};
+            }
+        </style>
         <link rel="stylesheet" href="{% static 'puput/css/puput.css' %}"/>
     {% endblock %}
 </head>
 <body>
-<div class="about">
-    <div class="container">
-        <section class="title-section">
-            <h1 class="title-header">
-                <a href="{% pageurl blog_page %}">{{ blog_page.title }}</a>
-            </h1>
-            <h2>{{ blog_page.description }}</h2>
-        </section>
+{% block blog_header %}
+    <div class="about">
+        <div class="container">
+            <section class="title-section">
+                <h1 class="title-header">
+                    <a href="{% pageurl blog_page %}">{{ blog_page.title }}</a>
+                </h1>
+                <h2>{{ blog_page.description }}</h2>
+            </section>
+        </div>
     </div>
-</div>
-<div class="container">
+{% endblock blog_header %}
+{% wagtailuserbar %}
+<div class="container container-blog">
     <div class="row">
-        <div class="col-sm-8 col-md-8">
+        <div class="col-sm-8 col-md-9">
             {% block content %}{% endblock content %}
             {% block extra_content %}{% endblock extra_content %}
         </div>
 
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-4 col-md-3">
             <div class="blog_sidebar">
                 <div class="rss-sitemap">
                     <a href="{% feeds_url blog_page %}" target="_blank" title="RSS">
                          <i class="fa fa-rss-square"></i> <span>{% trans 'Feed RSS' %}</span>
                     </a>
                 </div>
-                <form name="search_form" class="search_form" method="get" action="{% routablepageurl blog_page "entries_search" %}">
+                <form name="search_form" class="search_form" method="get" action="{% routablepageurl blog_page 'entries_search' %}">
                     <div class="input-group">
                          <input type="search" name="q" placeholder="{% trans 'Search' %}">
                          <span class="input-group-btn">
@@ -109,17 +116,14 @@
             <p>
                 Powered by <a href="http://www.djangoproject.com" rel="nofollow">Django</a>,
                 <a href="http://www.wagtail.io" rel="nofollow">Wagtail</a> and
-                <a href="http://github.com/APSL/puput" rel="nofollow">Puput</a> |
-                Design by <a href="http://www.templategarden.com" rel="nofollow">TemplateGarden</a>
+                <a href="http://github.com/APSL/puput" rel="nofollow">Puput</a>
             </p>
         </div>
     </div>
 </div>
 {% block js %}
-    {% block extra_js %}
-      <script src="{% static 'puput/js/jquery.min.js' %}"></script>
-      <script src="{% static 'puput/js/puput.js' %}"></script>
-    {% endblock extra_js %}
+    <script src="{% static 'puput/js/jquery.min.js' %}"></script>
+    <script src="{% static 'puput/js/puput.js' %}"></script>
 {% endblock js %}
 </body>
 </html>
