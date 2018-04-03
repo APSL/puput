@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from pkg_resources import parse_version
 
 from django.conf import settings
@@ -6,15 +5,14 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils import six
 
-from wagtail.wagtailcore.models import Page, PageBase
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailsnippets.models import register_snippet
-from wagtail.wagtailsearch import index
-from wagtail.wagtailcore import __version__ as WAGTAIL_VERSION
+from wagtail.core.models import Page, PageBase
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.models import register_snippet
+from wagtail.search import index
+from wagtail.core import __version__ as WAGTAIL_VERSION
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
@@ -27,10 +25,20 @@ Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
 
 
 class BlogPage(BlogRoutes, Page):
-    description = models.CharField(verbose_name=_('Description'), max_length=255, blank=True,
-                                   help_text=_("The blog description that will appear under the title."))
-    header_image = models.ForeignKey(get_image_model_path(), verbose_name=_('Header image'), null=True, blank=True,
-                                     on_delete=models.SET_NULL, related_name='+')
+    description = models.CharField(
+        verbose_name=_('Description'),
+        max_length=255,
+        blank=True,
+        help_text=_("The blog description that will appear under the title.")
+    )
+    header_image = models.ForeignKey(
+        get_image_model_path(),
+        verbose_name=_('Header image'),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     display_comments = models.BooleanField(default=False, verbose_name=_('Display comments'))
     display_categories = models.BooleanField(default=True, verbose_name=_('Display categories'))
@@ -56,27 +64,39 @@ class BlogPage(BlogRoutes, Page):
         ImageChooserPanel('header_image'),
     ]
     settings_panels = Page.settings_panels + [
-        MultiFieldPanel([
-            FieldPanel('display_categories'),
-            FieldPanel('display_tags'),
-            FieldPanel('display_popular_entries'),
-            FieldPanel('display_last_entries'),
-            FieldPanel('display_archive'),
-        ], heading=_("Widgets")),
-        MultiFieldPanel([
-            FieldPanel('num_entries_page'),
-            FieldPanel('num_last_entries'),
-            FieldPanel('num_popular_entries'),
-            FieldPanel('num_tags_entry_header'),
-        ], heading=_("Parameters")),
-        MultiFieldPanel([
-            FieldPanel('display_comments'),
-            FieldPanel('disqus_api_secret'),
-            FieldPanel('disqus_shortname'),
-        ], heading=_("Comments")),
-        MultiFieldPanel([
-            FieldPanel('short_feed_description'),
-        ], heading=_("Feeds")),
+        MultiFieldPanel(
+            [
+                FieldPanel('display_categories'),
+                FieldPanel('display_tags'),
+                FieldPanel('display_popular_entries'),
+                FieldPanel('display_last_entries'),
+                FieldPanel('display_archive'),
+            ],
+            heading=_("Widgets")
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('num_entries_page'),
+                FieldPanel('num_last_entries'),
+                FieldPanel('num_popular_entries'),
+                FieldPanel('num_tags_entry_header'),
+            ],
+            heading=_("Parameters")
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('display_comments'),
+                FieldPanel('disqus_api_secret'),
+                FieldPanel('disqus_shortname'),
+            ],
+            heading=_("Comments")
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('short_feed_description'),
+            ],
+            heading=_("Feeds")
+        ),
     ]
     subpage_types = ['puput.EntryPage']
 
@@ -103,12 +123,17 @@ class BlogPage(BlogRoutes, Page):
 
 
 @register_snippet
-@python_2_unicode_compatible
 class Category(models.Model):
     name = models.CharField(max_length=80, unique=True, verbose_name=_('Category name'))
     slug = models.SlugField(unique=True, max_length=80)
-    parent = models.ForeignKey('self', blank=True, null=True, related_name="children",
-                               verbose_name=_('Parent category'))
+    parent = models.ForeignKey(
+        'self',
+        blank=True,
+        null=True,
+        related_name="children",
+        verbose_name=_('Parent category'),
+        on_delete=models.SET_NULL
+    )
     description = models.CharField(max_length=500, blank=True, verbose_name=_('Description'))
 
     objects = CategoryManager()
@@ -136,7 +161,7 @@ class Category(models.Model):
 
 
 class CategoryEntryPage(models.Model):
-    category = models.ForeignKey(Category, related_name="+", verbose_name=_('Category'))
+    category = models.ForeignKey(Category, related_name="+", verbose_name=_('Category'), on_delete=models.CASCADE)
     page = ParentalKey('EntryPage', related_name='entry_categories')
     panels = [
         FieldPanel('category')

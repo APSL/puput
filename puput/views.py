@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
-from wagtail.wagtailcore import hooks
+from wagtail.core import hooks
 
 from .comments import get_num_comments_with_disqus
 from .models import EntryPage
