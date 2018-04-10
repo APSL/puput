@@ -21,6 +21,7 @@ PUPUT_APPS = (
     # Third-party apps
     'taggit',
     'modelcluster',
+    'django_social_share',
 
     # Puput apps
     'puput',

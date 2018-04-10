@@ -16,6 +16,8 @@ from wagtail.core import __version__ as WAGTAIL_VERSION
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
+from colorful.fields import RGBColorField
+
 from .abstracts import EntryAbstract
 from .utils import import_model, get_image_model_path
 from .routes import BlogRoutes
@@ -40,6 +42,8 @@ class BlogPage(BlogRoutes, Page):
         related_name='+'
     )
 
+    main_color = RGBColorField(_('Blog Main Color'), default="#4D6AE0")
+
     display_comments = models.BooleanField(default=False, verbose_name=_('Display comments'))
     display_categories = models.BooleanField(default=True, verbose_name=_('Display categories'))
     display_tags = models.BooleanField(default=True, verbose_name=_('Display tags'))
@@ -62,6 +66,7 @@ class BlogPage(BlogRoutes, Page):
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full"),
         ImageChooserPanel('header_image'),
+        FieldPanel('main_color')
     ]
     settings_panels = Page.settings_panels + [
         MultiFieldPanel(
