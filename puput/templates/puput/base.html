@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailroutablepage_tags wagtailuserbar puput_tags %}
+{% load static i18n wagtailcore_tags wagtailimages_tags wagtailroutablepage_tags wagtailuserbar puput_tags %}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -41,12 +41,20 @@
 <body>
 {% block blog_header %}
     <div class="about">
+        {% if blog_page.header_image %}
+            <span class="image featured">
+                {% image blog_page.header_image fill-1500x120 as header_image %}
+                <img alt="{{ blog_page.header_image.title }}" src="{{ header_image.url }}">
+            </span>
+        {% endif %}
         <div class="container">
-            <section class="title-section">
+            <section class="{% if blog_page.header_image %}title-section-image{% else %}title-section{% endif %}">
                 <h1 class="title-header">
                     <a href="{% pageurl blog_page %}">{{ blog_page.title }}</a>
                 </h1>
-                <h2>{{ blog_page.description }}</h2>
+                {% if not blog_page.header_image %}
+                    <h2>{{ blog_page.description }}</h2>
+                {% endif %}
             </section>
         </div>
     </div>

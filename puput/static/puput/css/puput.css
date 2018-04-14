@@ -228,8 +228,19 @@ p {
     padding: 30px 0 20px;
 }
 
+.about .title-section-image {
+    padding: 0;
+}
+
 .about .title-section h1 {
     font-weight: 400;
+}
+
+
+.about .title-section-image h1 {
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 30px;
 }
 
 .about .title-section h2 {
