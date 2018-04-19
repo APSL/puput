@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.1 (2018-04-19)
+------------------
+* Fix header image.
+
 1.0 (2018-04-10)
 ------------------
 * Add support for Django 2.0 and Wagtail 2.0. Drop Python 2.7 support.
