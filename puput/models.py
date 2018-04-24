@@ -172,6 +172,9 @@ class CategoryEntryPage(models.Model):
         FieldPanel('category')
     ]
 
+    def __str__(self):
+        return str(self.category)
+
 
 class TagEntryPage(TaggedItemBase):
     content_object = ParentalKey('EntryPage', related_name='entry_tags')
@@ -188,6 +191,9 @@ class Tag(TaggitTag):
 class EntryPageRelated(models.Model):
     entrypage_from = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_from')
     entrypage_to = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_to')
+
+    def __str__(self):
+        return str(self.entrypage_to)
 
 
 def _add_owner_panel():
