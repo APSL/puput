@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.2 (2018-05-17)
+------------------
+* Add missing image.
+* Add missing `str` methods.
+
 1.0.1 (2018-04-19)
 ------------------
 * Fix header image.
