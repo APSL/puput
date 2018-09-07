@@ -50,6 +50,7 @@
             <div class="searchTerm">{% trans 'Entries for' %} {{ search_type }} "{{ search_term }}"</div>
         {% endif %}
         {% for entry in entries %}
+            {% entry_url entry blog_page as post_url %}
             <article class="box page-content blog_grid">
                 {% include 'puput/entry_page_header.html' %}
                 <section>
@@ -68,20 +69,20 @@
                     <div class="row">
                         <ul class="social-share col-md-9">
                             <li class="social-item">
-                               {% post_to_facebook entry.url '<span><i class="fa fa-facebook"></i></span>' %}
+                               {% post_to_facebook post_url '<span><i class="fa fa-facebook"></i></span>' %}
                             </li>
                             <li class="social-item">
-                                {% post_to_twitter entry.title entry.url '<span><i class="fa fa-twitter"></i></span>' %}
+                                {% post_to_twitter entry.title post_url '<span><i class="fa fa-twitter"></i></span>' %}
                             </li>
                             <li class="social-item">
-                                {% post_to_linkendin entry.url '<span><i class="fa fa-linkedin"></i></span>' %}
+                                {% post_to_linkendin post_url '<span><i class="fa fa-linkedin"></i></span>' %}
                             </li>
                             <li class="social-item">
-                                {% post_to_gplus entry.url '<span><i class="fa fa-google-plus"></i></span>' %}
+                                {% post_to_gplus post_url '<span><i class="fa fa-google-plus"></i></span>' %}
                             </li>
                         </ul>
                         <div class="col-md-3">
-                            <a class="blog_btn continue" href="{% entry_url entry blog_page %}">{% trans 'Continue reading' %} &raquo;</a>
+                            <a class="blog_btn continue" href="{{ post_url }}">{% trans 'Continue reading' %} &raquo;</a>
                         </div>
                     </div>
                 </section>
