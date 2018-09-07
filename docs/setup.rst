@@ -82,6 +82,8 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
 .. code-block:: python
 
+    from django.urls import path, include, re_path
+    
     urlpatterns = [
         ...
         path(r'', include('puput.urls')),
@@ -103,7 +105,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
         urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
         urlpatterns += [
-            (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
+            re_path(r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
         ]
 
 
