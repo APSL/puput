@@ -62,18 +62,19 @@
                         <i class="fa fa-angle-left"></i> {% trans 'Return' %}
                     </a>
                 </div>
+                {% entry_url self blog_page as post_url %}
                 <ul class="social-share-all text-right col-md-10">
                     <li class="social-item">
-                       {% post_to_facebook self.url '<span><i class="fa fa-facebook"></i></span>' %}
+                       {% post_to_facebook post_url '<span><i class="fa fa-facebook"></i></span>' %}
                     </li>
                     <li class="social-item">
-                        {% post_to_twitter self.title self.url '<span><i class="fa fa-twitter"></i></span>' %}
+                        {% post_to_twitter self.title post_url '<span><i class="fa fa-twitter"></i></span>' %}
                     </li>
                     <li class="social-item">
-                        {% post_to_linkendin self.url '<span><i class="fa fa-linkedin"></i></span>' %}
+                        {% post_to_linkendin post_url '<span><i class="fa fa-linkedin"></i></span>' %}
                     </li>
                     <li class="social-item">
-                        {% post_to_gplus self.url '<span><i class="fa fa-google-plus"></i></span>' %}
+                        {% post_to_gplus post_url '<span><i class="fa fa-google-plus"></i></span>' %}
                     </li>
                 </ul>
             </div>
