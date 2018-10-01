@@ -93,6 +93,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
 
     from django.conf import settings
+    from django.conf.urls import url
 
     if settings.DEBUG:
         import os
@@ -103,7 +104,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
         urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
         urlpatterns += [
-            (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
+            url(r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
         ]
 
 
