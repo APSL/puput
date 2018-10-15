@@ -129,7 +129,7 @@ Installation on top of Wagtail
     python manage.py createsuperuser
 
 1. If you haven't already, install Puput and its dependencies via :code:`pip install puput`.
-2. In your Django settings (most commonly settings/base.py inside the wagtail directory), add the following to the `INSTALLED_APPS` following the wagtail section:
+2. In your Django settings (most commonly settings/base.py inside the wagtail directory), add the following to the :code:`INSTALLED_APPS` following the wagtail section:
 
 .. code-block:: python
  
@@ -139,13 +139,13 @@ Installation on top of Wagtail
      'puput',
      'colorful',
 
-3. In the same file, also add the line `PUPUT_AS_PLUGIN = True` to the very bottom
+3. In the same file, also add the line :code:`PUPUT_AS_PLUGIN = True` to the very bottom
 
-4. In the same folder, add to `urls.py` near the top `from puput import urls as puput_urls` and just above `url(r'', include(wagtail_urls)),` add `url(r'',include(puput_urls)),`
+4. In the same folder, add to :code:`urls.py` near the top :code:`from puput import urls as puput_urls` and just above :code:`url(r'', include(wagtail_urls)),` add :code:`url(r'',include(puput_urls)),`
 
-5. Run :code:`python manage.py migrate` followed by `python manage.py runserver 0:8000` to start the server
+5. Run :code:`python manage.py migrate` followed by :code:`python manage.py runserver 0:8000` to start the server
 
-6. To create a Puput blog navigate to the Wagtail admin interface at `127.0.0.1:8000/admin` and create a new child page of type `Blog`. Every blog post is then created as a child of this blog.
+6. To create a Puput blog navigate to the Wagtail admin interface at :code:`127.0.0.1:8000/admin` and create a new child page of type :code:`Blog`. Every blog post is then created as a child of this blog.
 
 Docker
 ------
