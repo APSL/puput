@@ -116,19 +116,21 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 Installation on top of Wagtail
 ------------------------------
 0. This assumes that you have Wagtail >= 2.0 installed and you can access /admin; if this is not the case or you would like to use a newer version of Wagtail than is in the dependencies of puput, follow the steps below in a python venv:
+
 .. code-block:: bash
 
-pip install --upgrade pip
-pip install wheel
-pip install wagtail django-colorful django-el-pagination django-social-share
-pip install --no-deps puput
-wagtail start mysite
-cd mysite
-python manage.py migrate
-python manage.py createsuperuser
+    pip install --upgrade pip
+    pip install wheel
+    pip install wagtail django-colorful django-el-pagination django-social-share
+    pip install --no-deps puput
+    wagtail start mysite
+    cd mysite
+    python manage.py migrate
+    python manage.py createsuperuser
 
 1. If you haven't already, install Puput and its dependencies via :code:`pip install puput`.
 2. In your Django settings (most commonly settings/base.py inside the wagtail directory), add the following to the `INSTALLED_APPS` following the wagtail section:
+
 .. code-block:: python
  
      'wagtail.contrib.sitemaps',
@@ -136,9 +138,13 @@ python manage.py createsuperuser
      'django_social_share',
      'puput',
      'colorful',
+
 3. In the same file, also add the line `PUPUT_AS_PLUGIN = True` to the very bottom
+
 4. In the same folder, add to `urls.py` near the top `from puput import urls as puput_urls` and just above `url(r'', include(wagtail_urls)),` add `url(r'',include(puput_urls)),`
+
 5. Run :code:`python manage.py migrate` followed by `python manage.py runserver 0:8000` to start the server
+
 6. To create a Puput blog navigate to the Wagtail admin interface at `127.0.0.1:8000/admin` and create a new child page of type `Blog`. Every blog post is then created as a child of this blog.
 
 Docker
