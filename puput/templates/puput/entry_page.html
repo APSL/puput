@@ -1,20 +1,40 @@
 {% extends "puput/base.html" %}
-{% load wagtailcore_tags wagtailimages_tags puput_tags %}
+{% load i18n wagtailcore_tags wagtailimages_tags puput_tags social_share %}
 
-{% block title %}{{ self.title }} | {{ blog_page.title }}{% endblock title %}
-{% block meta_title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock meta_title %}
-{% block meta_description %}{% if self.search_description %}{{ self.search_description }}{% else %}{{ self.body|striptags|truncatewords:20 }}{% endif %}{% endblock meta_description %}
-{% block canonical %}{% canonical_url entry=self %}{% endblock canonical %}
+{% block title %}
+    {{ self.title }} | {{ blog_page.title }}
+{% endblock title %}
+
+{% block meta_title %}
+    {% if self.seo_title %}
+        {{ self.seo_title }}
+    {% else %}
+        {{ self.title }}
+    {% endif %}
+{% endblock meta_title %}
+
+{% block meta_description %}
+    {% if self.search_description %}
+        {{ self.search_description }}
+    {% else %}
+        {{ self.body|striptags|truncatewords:20 }}
+    {% endif %}
+{% endblock meta_description %}
+
+{% block canonical %}
+    {% canonical_url entry=self %}
+{% endblock canonical %}
+
 {% block social_share %}
     {% image self.header_image fill-800x450 as share_image %}
     <meta property="og:title" content="{{ self.title }}" />
     <meta property="og:description" content="{% if self.excerpt %}{{ self.excerpt|striptags }}{% else %}{{ self.body|striptags|truncatewords:20 }}{% endif %}" />
     <meta property="og:url" content="{% canonical_url entry=self %}" />
     {% if self.header_image %}
-    <meta property="og:image" content="{% image_url share_image.url %}" />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="450" />
-    <meta name="twitter:image" content="{% image_url share_image.url %}" />
+        <meta property="og:image" content="{% image_url share_image.url %}" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="450" />
+        <meta name="twitter:image" content="{% image_url share_image.url %}" />
     {% endif %}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{ self.title }}" />
@@ -23,7 +43,7 @@
 
 {% block content %}
     <article class="box page-content"
-             {%if self.id %}data-entry-page-update-comments-url="{% url 'entry_page_update_comments' self.id %}{% endif %}">
+             {% if self.id %}data-entry-page-update-comments-url="{% url 'entry_page_update_comments' self.id %}{% endif %}">
         {% include 'puput/entry_page_header.html' with entry=self %}
         {% if self.header_image %}
             <section>
@@ -31,10 +51,34 @@
                     {% image self.header_image fill-800x450 as header_image %}
                     <img alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
                 </span>
+                {% include 'puput/entry_links.html' with entry=self %}
             </section>
         {% endif %}
         <section>
             {{ self.body|richtext}}
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="{% pageurl blog_page %}" class="blog_btn back">
+                        <i class="fa fa-angle-left"></i> {% trans 'Return' %}
+                    </a>
+                </div>
+                {% entry_url self blog_page as post_url %}
+                <ul class="social-share-all text-right col-md-10">
+                    <li class="social-item">
+                       {% post_to_facebook post_url '<span><i class="fa fa-facebook"></i></span>' %}
+                    </li>
+                    <li class="social-item">
+                        {% post_to_twitter self.title post_url '<span><i class="fa fa-twitter"></i></span>' %}
+                    </li>
+                    <li class="social-item">
+                        {% post_to_linkendin post_url '<span><i class="fa fa-linkedin"></i></span>' %}
+                    </li>
+                    <li class="social-item">
+                        {% post_to_gplus post_url '<span><i class="fa fa-google-plus"></i></span>' %}
+                    </li>
+                </ul>
+            </div>
+
         </section>
         {% show_comments %}
     </article>

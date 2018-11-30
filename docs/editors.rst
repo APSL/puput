@@ -6,9 +6,9 @@ It provides a powerful, clean and modern interface. Just open your browser at ht
 
 This is how adding entry page looks:
 
-.. image:: http://i.imgur.com/NntrN3i.png
+.. image:: https://i.imgur.com/QlsVfwT.png
 
-Please visit `Wagtail: an Editor’s guide <http://docs.wagtail.io/en/v1.0/editor_manual/index.html>`_ for further details
+Please visit `Wagtail: an Editor’s guide <http://docs.wagtail.io/en/v2.0/editor_manual/index.html>`_ for further details
 of how to use Wagtail editor's dashboard.
 
 .. note::

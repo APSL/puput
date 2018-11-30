@@ -1,0 +1,32 @@
+{% load wagtailroutablepage_tags puput_tags %}
+
+<ul class="links">
+    <li>
+        <i class="fa fa-user"></i>
+        <a href="{% routablepageurl blog_page 'entries_by_author' entry.owner.username %}">
+            {{ entry.owner.username }}
+        </a>
+    </li>
+    <li>
+        <i class="fa fa-calendar"></i>
+        {{ entry.date|date:"DATE_FORMAT" }}
+    </li>
+    {% if entry.categories.count > 0 %}
+        <li>
+            <i class="fa fa-folder-open"></i>
+            {% categories_list entry.categories %}
+        </li>
+    {% endif %}
+    {% if entry.tags.count > 0 %}
+        <li>
+            <i class="fa fa-tag"></i>
+            {% tags_list blog_page.num_tags_entry_header entry.tags %}
+        </li>
+    {% endif %}
+    {% if blog_page.display_comments %}
+        <li>
+            <i class="fa fa-comments"></i>
+            {{ entry.num_comments }}
+        </li>
+    {% endif %}
+</ul>

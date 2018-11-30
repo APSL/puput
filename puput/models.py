@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from pkg_resources import parse_version
 
 from django.conf import settings
@@ -6,19 +5,21 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils import six
 
-from wagtail.wagtailcore.models import Page, PageBase
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailsnippets.models import register_snippet
-from wagtail.wagtailsearch import index
-from wagtail.wagtailcore import __version__ as WAGTAIL_VERSION
+from wagtail.core.models import Page, PageBase
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.models import register_snippet
+from wagtail.search import index
+from wagtail.core import __version__ as WAGTAIL_VERSION
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
+from colorful.fields import RGBColorField
+
 from .abstracts import EntryAbstract, BlogAbstract
-from .utils import import_model
+from .utils import import_model, get_image_model_path
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager, BlogManager
 
@@ -31,6 +32,7 @@ class BlogPage(BlogRoutes, Page, Blog):
 
     content_panels = Page.content_panels + getattr(Blog, 'content_panels', [])
     settings_panels = Page.settings_panels + getattr(Blog, 'settings_panels', [])
+
     subpage_types = ['puput.EntryPage']
 
     def get_entries(self):
@@ -56,12 +58,17 @@ class BlogPage(BlogRoutes, Page, Blog):
 
 
 @register_snippet
-@python_2_unicode_compatible
 class Category(models.Model):
     name = models.CharField(max_length=80, unique=True, verbose_name=_('Category name'))
     slug = models.SlugField(unique=True, max_length=80)
-    parent = models.ForeignKey('self', blank=True, null=True, related_name="children",
-                               verbose_name=_('Parent category'))
+    parent = models.ForeignKey(
+        'self',
+        blank=True,
+        null=True,
+        related_name="children",
+        verbose_name=_('Parent category'),
+        on_delete=models.SET_NULL
+    )
     description = models.CharField(max_length=500, blank=True, verbose_name=_('Description'))
 
     objects = CategoryManager()
@@ -89,11 +96,14 @@ class Category(models.Model):
 
 
 class CategoryEntryPage(models.Model):
-    category = models.ForeignKey(Category, related_name="+", verbose_name=_('Category'))
+    category = models.ForeignKey(Category, related_name="+", verbose_name=_('Category'), on_delete=models.CASCADE)
     page = ParentalKey('EntryPage', related_name='entry_categories')
     panels = [
         FieldPanel('category')
     ]
+
+    def __str__(self):
+        return str(self.category)
 
 
 class TagEntryPage(TaggedItemBase):
@@ -111,6 +121,9 @@ class Tag(TaggitTag):
 class EntryPageRelated(models.Model):
     entrypage_from = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_from')
     entrypage_to = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_to')
+
+    def __str__(self):
+        return str(self.entrypage_to)
 
 
 def _add_owner_panel():

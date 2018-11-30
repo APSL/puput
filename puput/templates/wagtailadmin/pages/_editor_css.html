@@ -1,0 +1,16 @@
+{% load wagtailadmin_tags staticfiles %}
+
+{% comment %}
+    CSS declarations to be included on the 'create page' and 'edit page' views
+{% endcomment %}
+
+<link rel="stylesheet" href="{% static 'wagtailadmin/css/layouts/page-editor.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'wagtailadmin/css/panels/rich-text.css' %}" type="text/css" />
+
+<style>
+    #id_main_color { height: 40px!important; width: 100px!important; padding: 0px!important;}
+</style>
+
+{% hook_output 'insert_editor_css' %}
+
+{{ edit_handler.form.media.css }}

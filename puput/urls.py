@@ -1,6 +1,5 @@
 from django.conf import settings
-from django.conf.urls import url, include
-from django.core.urlresolvers import reverse
+from django.urls import reverse, path, include
 
 from .feeds import BlogPageFeed
 from .views import EntryPageServe, EntryPageUpdateCommentsView
@@ -8,59 +7,54 @@ from .utils import strip_prefix_and_ending_slash
 
 
 urlpatterns = [
-    url(
-        regex=r'^entry_page/(?P<entry_page_id>\d+)/update_comments/$',
+    path(
+        route='entry_page/<entry_page_id>/update_comments/',
         view=EntryPageUpdateCommentsView.as_view(),
         name='entry_page_update_comments'
     ),
-    url(
-        regex=r'^(?P<blog_path>[-\w\/]+)/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+    path(
+        route='<path:blog_path>/<int:year>/<int:month>/<int:day>/<slug:slug>/',
         view=EntryPageServe.as_view(),
         name='entry_page_serve_slug'
     ),
-    url(
-        regex=r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+    path(
+        route='<int:year>/<int:month>/<int:day>/<slug:slug>/',
         view=EntryPageServe.as_view(),
         name='entry_page_serve'
     ),
-    url(
-        regex=r'^(?P<blog_path>[-\w\/]+)/feed/$',
+    path(
+        route='<path:blog_path>/feed/',
         view=BlogPageFeed(),
         name='blog_page_feed_slug'
     ),
-    url(
-        regex=r'^feed/$',
+    path(
+        route='feed/',
         view=BlogPageFeed(),
         name='blog_page_feed'
     )
 ]
 
 if not getattr(settings, 'PUPUT_AS_PLUGIN', False):
-    from wagtail.wagtailcore import urls as wagtail_urls
-    from wagtail.wagtailadmin import urls as wagtailadmin_urls
-    from wagtail.wagtaildocs import urls as wagtaildocs_urls
-    from wagtail.wagtailsearch import urls as wagtailsearch_urls
-    from wagtail.contrib.wagtailsitemaps.views import sitemap
+    from wagtail.core import urls as wagtail_urls
+    from wagtail.admin import urls as wagtailadmin_urls
+    from wagtail.documents import urls as wagtaildocs_urls
+    from wagtail.contrib.sitemaps.views import sitemap
 
     urlpatterns.extend([
-        url(
-            regex=r'^blog_admin/',
+        path(
+            route='blog_admin/',
             view=include(wagtailadmin_urls)
         ),
-        url(
-            regex=r'',
+        path(
+            route='',
             view=include(wagtail_urls)
         ),
-        url(
-            regex=r'^search/',
-            view=include(wagtailsearch_urls)
-        ),
-        url(
-            regex=r'^documents/',
+        path(
+            route='documents/',
             view=include(wagtaildocs_urls)
         ),
-        url(
-            regex='^sitemap\.xml$',
+        path(
+            route='sitemap.xml',
             view=sitemap
         )
     ])

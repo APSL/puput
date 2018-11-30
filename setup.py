@@ -41,9 +41,11 @@ setup(
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
         # By default, pick the latest stable version of Django that's officially supported by Wagtail.
-        'Django>=1.8.1,<1.12',
-        'wagtail>=1.0,<2.0',
-        'django-el-pagination>=2.1.1',
+        'Django>=2.0,<2.1.3',
+        'wagtail>=2.0,<=2.3',
+        'django-el-pagination>=3.2.4',
+        'django-social-share>=1.3.0',
+        'django-colorful>=1.3'
     ],
     url='http://github.com/APSL/puput',
     author=get_author('puput'),
@@ -53,11 +55,10 @@ setup(
         'Framework :: Django',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Operating System :: OS Independent',
         'Topic :: Software Development'
     ]

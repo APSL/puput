@@ -7,26 +7,27 @@ from django import http
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 from django.template.defaultfilters import truncatewords_html
+from wagtail.core.models import Site
 
-from wagtail.wagtailcore.models import Site
 from .models import BlogPage
 
 
 class BlogPageFeedGenerator(Rss201rev2Feed):
-
     def add_root_elements(self, handler):
         super(BlogPageFeedGenerator, self).add_root_elements(handler)
         if self.feed['image_link']:
-            handler.addQuickElement(u"image", '',
-                                    {
-                                        'url': self.feed['image_link'],
-                                        'title': self.feed['title'],
-                                        'link': self.feed['link'],
-                                    })
+            handler.addQuickElement(
+                u'image',
+                '',
+                {
+                    'url': self.feed['image_link'],
+                    'title': self.feed['title'],
+                    'link': self.feed['link'],
+                }
+            )
 
 
 class BlogPageFeed(Feed):
-
     feed_type = BlogPageFeedGenerator
 
     def __call__(self, request, *args, **kwargs):

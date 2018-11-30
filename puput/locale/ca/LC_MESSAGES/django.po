@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wagtail 0.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 17:44+0100\n"
+"POT-Creation-Date: 2018-04-10 09:49+0200\n"
 "PO-Revision-Date: 2015-09-23 16:33+0100\n"
 "Last-Translator: aaloy <aaloy@apsl.net>\n"
 "Language-Team: ca <LL@li.org>\n"
@@ -26,15 +26,15 @@ msgstr "cos"
 msgid "Post date"
 msgstr "Data del post"
 
-#: abstracts.py:19 models.py:31
+#: abstracts.py:21 models.py:38
 msgid "Header image"
 msgstr "Imatge de capçalera"
 
-#: abstracts.py:22
+#: abstracts.py:29
 msgid "excerpt"
 msgstr "resum"
 
-#: abstracts.py:23
+#: abstracts.py:31
 msgid ""
 "Entry excerpt to be displayed on entries list. If this field is not filled, "
 "a truncate version of body text will be used."
@@ -42,139 +42,143 @@ msgstr ""
 "El resum de l'apunt es presentarà a la llista d'entrades. Si no omples "
 "aquest camp, s'utilitzarà una versió espaçada del text."
 
-#: abstracts.py:33
+#: abstracts.py:44
 msgid "Content"
 msgstr "Contingut"
 
-#: abstracts.py:36 models.py:134 templates/puput/base.html:71
+#: abstracts.py:49 models.py:165 templates/puput/base.html:92
 msgid "Categories"
 msgstr "Categories"
 
-#: abstracts.py:37 templates/puput/related_entries.html:6
+#: abstracts.py:52 templates/puput/related_entries.html:6
 msgid "Related Entries"
 msgstr "Entrades relacionades"
 
-#: abstracts.py:39
+#: abstracts.py:56
 msgid "Metadata"
 msgstr "Metadades"
 
-#: models.py:29 models.py:111
+#: models.py:31 models.py:142
 msgid "Description"
 msgstr "Descripció"
 
-#: models.py:30
+#: models.py:34
 msgid "The blog description that will appear under the title."
 msgstr "La descripció del blog que apareixerà sota el títol"
 
-#: models.py:34
+#: models.py:45
+msgid "Blog Main Color"
+msgstr ""
+
+#: models.py:47
 msgid "Display comments"
 msgstr "Mostrar comentaris"
 
-#: models.py:35
+#: models.py:48
 msgid "Display categories"
 msgstr "Mostrar categories"
 
-#: models.py:36
+#: models.py:49
 msgid "Display tags"
 msgstr "Mostrar tags"
 
-#: models.py:37
+#: models.py:50
 msgid "Display popular entries"
 msgstr "Mostrar entrades populars"
 
-#: models.py:38
+#: models.py:51
 msgid "Display last entries"
 msgstr "Mostrar les darreres entrades"
 
-#: models.py:39
+#: models.py:52
 msgid "Display archive"
 msgstr "Mostrar arxiu"
 
-#: models.py:44
+#: models.py:57
 msgid "Entries per page"
 msgstr "Entrades per plana"
 
-#: models.py:45
+#: models.py:58
 msgid "Last entries limit"
 msgstr "Límit per les darreres entrades"
 
-#: models.py:46
+#: models.py:59
 msgid "Popular entries limit"
 msgstr "Límit per les entrades populars"
 
-#: models.py:47
+#: models.py:60
 msgid "Tags limit entry header"
 msgstr "Límit pel nombre de tags de la capçalera"
 
-#: models.py:49
+#: models.py:62
 msgid "Use short description in feeds"
 msgstr ""
 
-#: models.py:64
+#: models.py:80
 msgid "Widgets"
 msgstr "Andròmines"
 
-#: models.py:70
+#: models.py:89
 msgid "Parameters"
 msgstr "Paràmetres"
 
-#: models.py:75
+#: models.py:97
 msgid "Comments"
 msgstr "Comentaris"
 
-#: models.py:78
+#: models.py:103
 msgid "Feeds"
 msgstr ""
 
-#: models.py:101
+#: models.py:127
 msgid "Blog"
 msgstr "Blog"
 
-#: models.py:107
+#: models.py:132
 msgid "Category name"
 msgstr "Nom de la categoria"
 
-#: models.py:110
+#: models.py:139
 msgid "Parent category"
 msgstr "Categoria pare"
 
-#: models.py:122
+#: models.py:153
 msgid "Parent category cannot be self."
 msgstr "La categoria pare no pot ser self"
 
-#: models.py:124
+#: models.py:155
 msgid "Cannot have circular Parents."
 msgstr "No pots posar pares circulars"
 
-#: models.py:133 models.py:138
+#: models.py:164 models.py:169
 msgid "Category"
 msgstr "Categoria"
 
-#: models.py:158 models.py:159 models.py:202
+#: models.py:189 models.py:190 models.py:245
 msgid "Entry"
 msgstr "Entrada"
 
-#: models.py:203
+#: models.py:246
 msgid "Entries"
 msgstr "Entrades"
 
-#: routes.py:24
+#: routes.py:22
 msgid "date"
 msgstr "data"
 
-#: routes.py:37
+#: routes.py:35
 msgid "tag"
 msgstr "tag"
 
-#: routes.py:44
+#: routes.py:42
 msgid "category"
 msgstr "categoria"
 
-#: routes.py:51
+#: routes.py:49
 msgid "author"
 msgstr "autor"
 
-#: routes.py:64
+#: routes.py:62
 msgid "search"
 msgstr "cercar"
 
@@ -182,42 +186,46 @@ msgstr "cercar"
 msgid "more"
 msgstr "més"
 
-#: templates/puput/base.html:45
+#: templates/puput/base.html:66
 msgid "Feed RSS"
 msgstr ""
 
-#: templates/puput/base.html:50
+#: templates/puput/base.html:71
 msgid "Search"
 msgstr "Cercar"
 
-#: templates/puput/base.html:59
+#: templates/puput/base.html:80
 msgid "Last Entries"
 msgstr "Darreres entrades"
 
-#: templates/puput/base.html:65
+#: templates/puput/base.html:86
 msgid "Popular Entries"
 msgstr "Entrades populars"
 
-#: templates/puput/base.html:77
+#: templates/puput/base.html:98
 msgid "Tags"
 msgstr "Tags"
 
-#: templates/puput/base.html:83
+#: templates/puput/base.html:104
 msgid "Archive"
 msgstr "Arxiu"
 
-#: templates/puput/blog_page.html:6 templates/puput/blog_page.html:7
-#: templates/puput/blog_page.html:29
+#: templates/puput/blog_page.html:15 templates/puput/blog_page.html.py:23
+#: templates/puput/blog_page.html:50
 msgid "Entries for"
 msgstr "Entrades per"
 
-#: templates/puput/blog_page.html:48
+#: templates/puput/blog_page.html:84
 msgid "Continue reading"
 msgstr "Continuar llegint"
 
-#: templates/puput/blog_page.html:52
+#: templates/puput/blog_page.html:90
 msgid "No results found."
 msgstr "No s'han trobat resultats"
+
+#: templates/puput/entry_page.html:62
+msgid "Return"
+msgstr ""
 
 #: templates/puput/tags/archives_list.html:23
 msgid "No entry archives yet"

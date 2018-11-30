@@ -25,21 +25,22 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     INSTALLED_APPS = (
         ...
-        'wagtail.wagtailcore',
-        'wagtail.wagtailadmin',
-        'wagtail.wagtaildocs',
-        'wagtail.wagtailsnippets',
-        'wagtail.wagtailusers',
-        'wagtail.wagtailimages',
-        'wagtail.wagtailembeds',
-        'wagtail.wagtailsearch',
-        'wagtail.wagtailsites',
-        'wagtail.wagtailredirects',
-        'wagtail.wagtailforms',
-        'wagtail.contrib.wagtailsitemaps',
-        'wagtail.contrib.wagtailroutablepage',
+        'wagtail.core',
+        'wagtail.admin',
+        'wagtail.documents',
+        'wagtail.snippets',
+        'wagtail.users',
+        'wagtail.images',
+        'wagtail.embeds',
+        'wagtail.search',
+        'wagtail.sites',
+        'wagtail.contrib.redirects',
+        'wagtail.contrib.forms',
+        'wagtail.contrib.sitemaps',
+        'wagtail.contrib.routable_page',
         'taggit',
         'modelcluster',
+        'django_social_share',
         'puput',
     )
 
@@ -50,8 +51,8 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     MIDDLEWARE_CLASSES = (
         ...
-        'wagtail.wagtailcore.middleware.SiteMiddleware',
-        'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+        'wagtail.core.middleware.SiteMiddleware',
+        'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     )
 
 4. Add the :code:`request` context processor to the :code:`TEMPLATE_CONTEXT_PROCESSORS` structure in your Django settings.
@@ -60,7 +61,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     TEMPLATE_CONTEXT_PROCESSORS = (
         ...
-        'django.core.context_processors.request',
+        'django.template.context_processors.request',
     )
 
 5. Set the :code:`WAGTAIL_SITE_NAME` variable to the name of your site in your Django settings.
@@ -83,7 +84,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     urlpatterns = [
         ...
-        url(r'', include('puput.urls')),
+        path(r'', include('puput.urls')),
     ]
 
 8. To make your Django project serve your media files (e.g. things you upload via the admin) during development, don't forget to add this to your urlpatterns:
@@ -92,6 +93,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
 
     from django.conf import settings
+    from django.conf.urls import url
 
     if settings.DEBUG:
         import os
@@ -102,7 +104,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
         urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
         urlpatterns += [
-            (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
+            url(r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
         ]
 
 
@@ -113,21 +115,37 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
 Installation on top of Wagtail
 ------------------------------
-1. Install Puput and its dependencies via :code:`pip install puput`.
-2. Add :code:`puput`, :code:`wagtail.contrib.wagtailsitemaps` and :code:`wagtail.contrib.wagtailroutablepage` to :code:`INSTALLED_APPS` in your Django settings.
-3. If you have previously defined Wagtail URLs in your patterns, set the :code:`PUPUT_AS_PLUGIN` setting to :code:`True`. This will avoid duplicate inclusion of Wagtail's URLs when you include Puput's URLs.
-4. Include Puput's URLs in your patterns **before** Wagtail's URLs.
+0. This assumes that you have Wagtail >= 2.0 installed and you can access /admin; if this is not the case or you would like to use a newer version of Wagtail than is in the dependencies of puput, follow the steps below in a python venv:
+
+.. code-block:: bash
+
+    pip install --upgrade pip
+    pip install wheel
+    pip install wagtail django-colorful django-el-pagination django-social-share
+    pip install --no-deps puput
+    wagtail start mysite
+    cd mysite
+    python manage.py migrate
+    python manage.py createsuperuser
+
+1. If you haven't already, install Puput and its dependencies via :code:`pip install puput`.
+2. In your Django settings (most commonly settings/base.py inside the wagtail directory), add the following to the :code:`INSTALLED_APPS` following the wagtail section:
 
 .. code-block:: python
+ 
+     'wagtail.contrib.sitemaps',
+     'wagtail.contrib.routable_page',
+     'django_social_share',
+     'puput',
+     'colorful',
 
-    urlpatterns = [
-        ...
-        url(r'', include('puput.urls')),
-        url(r'', include(wagtail_urls)),
-    ]
+3. In the same file, also add the line :code:`PUPUT_AS_PLUGIN = True` to the very bottom
 
-5. Run :code:`python manage.py migrate`.
+4. In the same folder, add to :code:`urls.py` near the top :code:`from puput import urls as puput_urls` and just above :code:`url(r'', include(wagtail_urls)),` add :code:`url(r'',include(puput_urls)),`
 
+5. Run :code:`python manage.py migrate` followed by :code:`python manage.py runserver 0:8000` to start the server
+
+6. To create a Puput blog navigate to the Wagtail admin interface at :code:`127.0.0.1:8000/admin` and create a new child page of type :code:`Blog`. Every blog post is then created as a child of this blog.
 
 Docker
 ------

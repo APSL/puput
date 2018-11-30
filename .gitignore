@@ -8,6 +8,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+venv/
 build/
 develop-eggs/
 dist/
@@ -58,3 +59,6 @@ target/
 
 # PyCharm
 .idea
+
+# Mac stuff
+.DS_Store
