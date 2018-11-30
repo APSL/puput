@@ -7,19 +7,16 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 from django.utils import six
 
-from wagtail.core.models import Page, PageBase
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.snippets.models import register_snippet
-from wagtail.search import index
-from wagtail.core import __version__ as WAGTAIL_VERSION
+from wagtail.wagtailcore.models import Page, PageBase
+from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailsnippets.models import register_snippet
+from wagtail.wagtailsearch import index
+from wagtail.wagtailcore import __version__ as WAGTAIL_VERSION
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
-from colorful.fields import RGBColorField
-
 from .abstracts import EntryAbstract, BlogAbstract
-from .utils import import_model, get_image_model_path
+from .utils import import_model
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager, BlogManager
 

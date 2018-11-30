@@ -3,20 +3,33 @@ import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.core.fields import RichTextField
-
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailcore.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
+
+from colorful.fields import RGBColorField
 
 from .utils import get_image_model_path
 
 
 class BlogAbstract(models.Model):
-    description = models.CharField(verbose_name=_('Description'), max_length=255, blank=True,
-                                   help_text=_("The blog description that will appear under the title."))
-    header_image = models.ForeignKey(get_image_model_path(), verbose_name=_('Header image'), null=True, blank=True,
-                                     on_delete=models.SET_NULL, related_name='+')
+    description = models.CharField(
+        verbose_name=_('Description'),
+        max_length=255,
+        blank=True,
+        help_text=_("The blog description that will appear under the title.")
+    )
+    header_image = models.ForeignKey(
+        get_image_model_path(),
+        verbose_name=_('Header image'),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    main_color = RGBColorField(_('Blog Main Color'), default="#4D6AE0")
 
     display_comments = models.BooleanField(default=False, verbose_name=_('Display comments'))
     display_categories = models.BooleanField(default=True, verbose_name=_('Display categories'))
@@ -38,6 +51,7 @@ class BlogAbstract(models.Model):
     content_panels = [
         FieldPanel('description', classname="full"),
         ImageChooserPanel('header_image'),
+        FieldPanel('main_color')
     ]
     settings_panels = [
         MultiFieldPanel([
