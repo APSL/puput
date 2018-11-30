@@ -7,11 +7,11 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 from django.utils import six
 
-from wagtail.wagtailcore.models import Page, PageBase
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailsnippets.models import register_snippet
-from wagtail.wagtailsearch import index
-from wagtail.wagtailcore import __version__ as WAGTAIL_VERSION
+from wagtail.core.models import Page, PageBase
+from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.snippets.models import register_snippet
+from wagtail.search import index
+from wagtail.core import __version__ as WAGTAIL_VERSION
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
