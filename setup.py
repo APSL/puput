@@ -41,8 +41,8 @@ setup(
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
         # By default, pick the latest stable version of Django that's officially supported by Wagtail.
-        'Django>=2.0,<2.1.3',
-        'wagtail>=2.0,<=2.3',
+        'Django>=2.0,<2.2,!=2.1.2',
+        'wagtail>=2.0,<2.4',
         'django-el-pagination>=3.2.4',
         'django-social-share>=1.3.0',
         'django-colorful>=1.3'
