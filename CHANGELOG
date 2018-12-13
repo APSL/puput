@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0.3 (2018-12-13)
+------------------
+* Updated some docs.
+* Fixing social share urls to match `entry_url` (Thanks to @misraX).
+* Django URLS upgrading to 2.0 and Wagtail 2.3 support (Thanks to @MiltonLn)
+* Adding support for Django 2.1 and Wagtail 2.3 patch versions (Thanks to @MiltonLn)
+* Arabic translation (Thanks to @ahwebd)
+
 1.0.2 (2018-05-17)
 ------------------
 * Add missing image.
