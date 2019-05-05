@@ -13,12 +13,12 @@ urlpatterns = [
         name='entry_page_update_comments'
     ),
     path(
-        route='<path:blog_path>/<int:year>/<int:month>/<int:day>/<slug:slug>/',
+        route='<path:blog_path>/<int:year>/<int:month>/<int:day>/<str:slug>/',
         view=EntryPageServe.as_view(),
         name='entry_page_serve_slug'
     ),
     path(
-        route='<int:year>/<int:month>/<int:day>/<slug:slug>/',
+        route='<int:year>/<int:month>/<int:day>/<str:slug>/',
         view=EntryPageServe.as_view(),
         name='entry_page_serve'
     ),
