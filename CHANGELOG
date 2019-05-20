@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0.4 (2019-05-27)
+------------------
+* Add support for Wagtail 2.4.
+* Update Django version to greater than 2.1.6 to fix security issues.
+* Updated some docs.
+* Fix entry header image.
+* Adding EntryAbstract.content_panels.
+
 1.0.3 (2018-12-13)
 ------------------
 * Updated some docs.

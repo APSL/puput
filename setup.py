@@ -40,8 +40,7 @@ setup(
     description='A Django blog app implemented in Wagtail.',
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
-        # By default, pick the latest stable version of Django that's officially supported by Wagtail.
-        'Django>=2.0,<3.0,!=2.1.2',
+        'Django>=2.1.6,<3.0',
         'wagtail>=2.4,<2.6',
         'django-el-pagination>=3.2.4',
         'django-social-share>=1.3.0',
@@ -50,6 +49,7 @@ setup(
     url='http://github.com/APSL/puput',
     author=get_author('puput'),
     author_email=get_email('puput'),
+    long_description_content_type='text/x-rst',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

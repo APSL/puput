@@ -54,6 +54,7 @@ Examples of blog sites made with Puput
 * `Loblolly <http://www.loblolly.io/blog/>`_
 * `Astro <http://www.mallorcasoft.es/blog/>`_
 * `Kontrabando Film Festival <https://www.kontrabandofilmfestival.org/blog/>`_
+
 Setup
 ~~~~~
 
@@ -67,4 +68,3 @@ Related repositories
 * `docker-puput <https://github.com/APSL/docker-puput/>`_:  Docker image for Puput blog.
 * `puput-demo <https://github.com/APSL/puput-demo/>`_: An example of blog Django app using Puput.
 * `divio-wagtail-puput <https://github.com/divio/divio-wagtail-puput/>`_: A Divio Cloud addon to install the Wagtail Puput weblog.
-
