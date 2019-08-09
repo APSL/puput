@@ -3,9 +3,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
-from django.utils import six
 
-from wagtail.core.models import Page, PageBase
+from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
@@ -193,7 +192,7 @@ class EntryPageRelated(models.Model):
         return str(self.entrypage_to)
 
 
-class EntryPage(six.with_metaclass(PageBase, Entry, Page)):
+class EntryPage(Entry, Page):
     # Search
     search_fields = Page.search_fields + [
         index.SearchField('body'),
