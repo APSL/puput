@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
 from mimetypes import guess_type
-
-from six.moves import urllib_parse
+from urllib.parse import urljoin
 
 from django import http
 from django.contrib.syndication.views import Feed
@@ -17,7 +15,7 @@ class BlogPageFeedGenerator(Rss201rev2Feed):
         super(BlogPageFeedGenerator, self).add_root_elements(handler)
         if self.feed['image_link']:
             handler.addQuickElement(
-                u'image',
+                'image',
                 '',
                 {
                     'url': self.feed['image_link'],
@@ -77,7 +75,7 @@ class BlogPageFeed(Feed):
     def item_enclosure_url(self, item):
         if item.header_image:
             site = Site.find_for_request(self.request)
-            return urllib_parse.urljoin(site.root_url, item.header_image.file.url)
+            return urljoin(site.root_url, item.header_image.file.url)
         return None
 
     def item_enclosure_mime_type(self, item):
@@ -94,7 +92,7 @@ class BlogPageFeed(Feed):
     def _channel_image_link(self):
         if self.blog_page.header_image:
             site = Site.find_for_request(self.request)
-            return urllib_parse.urljoin(site.root_url, self.blog_page.header_image.file.url)
+            return urljoin(site.root_url, self.blog_page.header_image.file.url)
 
     def feed_extra_kwargs(self, obj):
         return {
