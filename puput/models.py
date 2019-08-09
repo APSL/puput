@@ -1,5 +1,3 @@
-from pkg_resources import parse_version
-
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -12,7 +10,6 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.search import index
-from wagtail.core import __version__ as WAGTAIL_VERSION
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
@@ -196,19 +193,6 @@ class EntryPageRelated(models.Model):
         return str(self.entrypage_to)
 
 
-def _add_owner_panel():
-    """
-    Since Wagtail 1.11 EntryPage owner is set as `editable` it can be added to EntryPage
-    `settings_panels` if Puput is using a version greater or equal than 1.11.
-
-    See:
-    https://github.com/wagtail/wagtail/pull/3581
-    """
-    if parse_version(WAGTAIL_VERSION) >= parse_version('1.11'):
-        return [FieldPanel('owner')]
-    return []
-
-
 class EntryPage(six.with_metaclass(PageBase, Entry, Page)):
     # Search
     search_fields = Page.search_fields + [
@@ -223,8 +207,8 @@ class EntryPage(six.with_metaclass(PageBase, Entry, Page)):
     promote_panels = Page.promote_panels + getattr(Entry, 'promote_panels', [])
 
     settings_panels = Page.settings_panels + [
-        FieldPanel('date')
-    ] + _add_owner_panel() + getattr(Entry, 'settings_panels', [])
+        FieldPanel('date'), FieldPanel('owner'),
+    ] + getattr(Entry, 'settings_panels', [])
 
     # Parent and child settings
     parent_page_types = ['puput.BlogPage']
