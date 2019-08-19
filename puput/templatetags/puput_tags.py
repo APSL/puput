@@ -112,7 +112,7 @@ def post_to_linkendin_url(context, obj_or_url=None):
 
 
 @register.inclusion_tag('puput/tags/post_to_linkedin.html', takes_context=True)
-def post_to_linkendin(context, obj_or_url=None, link_text='Post to Linkedin'):
+def post_to_linkendin(context, obj_or_url=None, link_text='Post to LinkedIn'):
     context = post_to_linkendin_url(context, obj_or_url)
     context['link_text'] = link_text
     return context

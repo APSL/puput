@@ -25,7 +25,7 @@ Features
 * Related entries
 * Extensible entry model
 * Configurable default template color
-* Social share of blog entries (facebook, twitter, linkedin and google plus)
+* Social share of blog entries (Facebook, Twitter and LinkedIn)
 
 .. image:: http://i.imgur.com/d13sGI3.png
 
