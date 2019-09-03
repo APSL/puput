@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0.5 (2019-09-03)
+------------------
+* Add support for Wagtail 2.6.
+* Remove Python 2 compatibility code.
+* Fix header image in related entries.
+* Remove Google Plus share buttons.
+
 1.0.4 (2019-05-27)
 ------------------
 * Add support for Wagtail 2.4.
