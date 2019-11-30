@@ -7,14 +7,26 @@ matrix:
      python: 3.5
    - env: TOXENV=py36-dj20
      python: 3.6
+   - env: TOXENV=py37-dj20
+     python: 3.7
+   - env: TOXENV=py38-dj20
+     python: 3.8
    - env: TOXENV=py35-dj21
      python: 3.5
    - env: TOXENV=py36-dj21
      python: 3.6
    - env: TOXENV=py36-dj22
      python: 3.6
+   - env: TOXENV=py37-dj21
+     python: 3.7
+   - env: TOXENV=py37-dj22
+     python: 3.7
+   - env: TOXENV=py38-dj21
+     python: 3.8
+   - env: TOXENV=py38-dj22
+     python: 3.8
    - env: TOXENV=flake8
-     python: 3.5
+     python: 3.7
 before_install:
   - curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
