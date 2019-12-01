@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.6 (2019-12-01)
+------------------
+* Add support for Wagtail >2.7.
+* Add Python 3.7 and 3.8 to travis test matrix.
+
 1.0.5 (2019-09-03)
 ------------------
 * Add support for Wagtail 2.6.
