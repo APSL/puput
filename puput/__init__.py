@@ -26,3 +26,5 @@ PUPUT_APPS = (
     # Puput apps
     'puput',
 )
+
+default_app_config = 'puput.apps.PuputAppConfig'

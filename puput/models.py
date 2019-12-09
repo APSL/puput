@@ -225,6 +225,9 @@ class EntryPage(Entry, Page):
     def has_related(self):
         return self.related_entrypage_from.count() > 0
 
+    def get_absolute_url(self):
+        return self.full_url
+
     def get_context(self, request, *args, **kwargs):
         context = super(EntryPage, self).get_context(request, *args, **kwargs)
         context['blog_page'] = self.blog_page
