@@ -2,6 +2,7 @@ from django import VERSION as DJANGO_VERSION
 from django.contrib.contenttypes.models import ContentType
 from django.core.management import BaseCommand
 
+from puput.models import BlogPage
 from wagtail.core.models import Page, Site
 
 
@@ -25,7 +26,7 @@ class Command(BaseCommand):
         site.save()
 
         # Create example blog page
-        blogpage = Page(
+        blogpage = BlogPage(
             title="Blog",
             content_type=blogpage_content_type,
             slug='blog',
