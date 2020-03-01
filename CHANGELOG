@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.7 (2020-03-01)
+------------------
+* Fix `puput_initial_data` command.
+
 1.0.6 (2019-12-01)
 ------------------
 * Add support for Wagtail >2.7.
