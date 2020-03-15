@@ -1,0 +1,251 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-09 10:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: abstracts.py:16
+msgid "body"
+msgstr "المتن"
+
+#: abstracts.py:18
+msgid "Post date"
+msgstr "تاريخ المقالة"
+
+#: abstracts.py:21
+#: models.py:38
+msgid "Header image"
+msgstr "صورة الترويسة"
+
+#: abstracts.py:29
+msgid "excerpt"
+msgstr "المقتطف"
+
+#: abstracts.py:31
+msgid ""
+"Entry excerpt to be displayed on entries list. If this field is not filled, "
+"a truncate version of body text will be used."
+msgstr "مقتطف من المقالة، يُعرض هذا المقتطف في قوائم المقالات. إن لم يُملأ هذا الحقل، فسيُعوَّض بجزء من بداية متن المقالة."
+
+#: abstracts.py:44
+msgid "Content"
+msgstr "المحتوى"
+
+#: abstracts.py:49
+#: models.py:165
+#: templates/puput/base.html:100
+msgid "Categories"
+msgstr "فئات"
+
+#: abstracts.py:52
+#: templates/puput/related_entries.html:6
+msgid "Related Entries"
+msgstr "مقالات ذات صلة"
+
+#: abstracts.py:56
+msgid "Metadata"
+msgstr "البيانات الوصفية"
+
+#: models.py:31
+#: models.py:142
+msgid "Description"
+msgstr "الوصف"
+
+#: models.py:34
+msgid "The blog description that will appear under the title."
+msgstr "وصف للمدونة يُعرض أسفل العنوان."
+
+#: models.py:45
+msgid "Blog Main Color"
+msgstr "اللون الأساسي للمدونة"
+
+#: models.py:47
+msgid "Display comments"
+msgstr "عرض التعليقات"
+
+#: models.py:48
+msgid "Display categories"
+msgstr "عرض الفئات"
+
+#: models.py:49
+msgid "Display tags"
+msgstr "عرض الوسوم"
+
+#: models.py:50
+msgid "Display popular entries"
+msgstr "عرض المقالات الأكثر زيارة"
+
+#: models.py:51
+msgid "Display last entries"
+msgstr "عرض المقالات الحديثة"
+
+#: models.py:52
+msgid "Display archive"
+msgstr "عرض الأرشيف"
+
+#: models.py:57
+msgid "Entries per page"
+msgstr "عدد المقالات المعروضة في كل صفحة"
+
+#: models.py:58
+msgid "Last entries limit"
+msgstr "عدد المقالات الأقصى في قائمة المقالات الحديثة"
+
+#: models.py:59
+msgid "Popular entries limit"
+msgstr "عدد المقالات الأقصى في قائمة المقالات الأكثر زيارة"
+
+#: models.py:60
+msgid "Tags limit entry header"
+msgstr "أقصى عدد للوسوم المعروضة في ترويسة المقالة"
+
+#: models.py:62
+msgid "Use short description in feeds"
+msgstr "استخدام مقتطف من المقالة أو جزء من متنها في وصلات التغذية"
+
+#: models.py:80
+msgid "Widgets"
+msgstr "الوَدجَات"
+
+#: models.py:89
+msgid "Parameters"
+msgstr "إعدادات أخرى"
+
+#: models.py:97
+msgid "Comments"
+msgstr "التعليقات"
+
+#: models.py:103
+msgid "Feeds"
+msgstr "وصلات التغذية"
+
+#: models.py:127
+msgid "Blog"
+msgstr "مدونة"
+
+#: models.py:132
+msgid "Category name"
+msgstr "اسم الفئة"
+
+#: models.py:139
+msgid "Parent category"
+msgstr "الفئة الأمّ"
+
+#: models.py:153
+msgid "Parent category cannot be self."
+msgstr "لا يمكن تعيين فئة أُمّا لنفسها"
+
+#: models.py:155
+msgid "Cannot have circular Parents."
+msgstr "لا يمكن تعيين فئة أُمّا لفئة أخرى وهي مشتقة منها"
+
+#: models.py:164
+#: models.py:169
+msgid "Category"
+msgstr "فئة"
+
+#: models.py:192
+#: models.py:193
+#: models.py:251
+msgid "Entry"
+msgstr "مقالة"
+
+#: models.py:252
+msgid "Entries"
+msgstr "مقالات"
+
+#: routes.py:22
+msgid "date"
+msgstr "تاريخ"
+
+#: routes.py:35
+msgid "tag"
+msgstr "وسم"
+
+#: routes.py:42
+msgid "category"
+msgstr "فئة"
+
+#: routes.py:49
+msgid "author"
+msgstr "الكاتب"
+
+#: routes.py:62
+msgid "search"
+msgstr "بحث"
+
+#: templates/el_pagination/show_more.html:5
+msgid "more"
+msgstr "أكثر"
+
+#: templates/puput/base.html:74
+msgid "Feed RSS"
+msgstr "وصلات التغذية"
+
+#: templates/puput/base.html:79
+msgid "Search"
+msgstr "البحث"
+
+#: templates/puput/base.html:88
+msgid "Last Entries"
+msgstr "المقالات الحديثة"
+
+#: templates/puput/base.html:94
+msgid "Popular Entries"
+msgstr "المقالات الأكثر زيارة"
+
+#: templates/puput/base.html:106
+msgid "Tags"
+msgstr "الوسوم"
+
+#: templates/puput/base.html:112
+msgid "Archive"
+msgstr "الأرشيف"
+
+#: templates/puput/blog_page.html:15
+#: templates/puput/blog_page.html:23
+#: templates/puput/blog_page.html:50
+msgid "Entries for"
+msgstr "مقالات"
+
+#: templates/puput/blog_page.html:84
+msgid "Continue reading"
+msgstr "تابع القراءة"
+
+#: templates/puput/blog_page.html:90
+msgid "No results found."
+msgstr "لا توجد نتائج."
+
+#: templates/puput/entry_page.html:62
+msgid "Return"
+msgstr "عودة"
+
+#: templates/puput/tags/archives_list.html:23
+msgid "No entry archives yet"
+msgstr "لا يوجد أرشيف للمقالات حتى الآن"
+
+#: templates/puput/tags/categories_list.html:9
+msgid "No categories yet"
+msgstr "لا توجد فئات حتى الآن"
+
+#: templates/puput/tags/entries_list.html:31
+msgid "No entries yet"
+msgstr "لا توجد مقالات حتى الآن"
+
+#: templates/puput/tags/tags_list.html:9
+msgid "No tags yet"
+msgstr "لا توجد وسوم حتى الآن"

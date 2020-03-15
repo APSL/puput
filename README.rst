@@ -36,7 +36,7 @@ Features
 * Related entries
 * Extensible entry model
 * Configurable default template color
-* Social share of blog entries (facebook, twitter, linkedin and google plus)
+* Social share of blog entries (Facebook, Twitter and LinkedIn)
 
 
 .. image:: http://i.imgur.com/d13sGI3.png
@@ -44,16 +44,16 @@ Features
 Examples of blog sites made with Puput
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* `Open Study Room <https://openstudyroom.org/blog/>`_
 * `Ncora Blog <https://www.ncora.com/blog/>`_
 * `Ncora TV <https://www.ncora.com/tv/>`_
 * `APSL <https://www.apsl.net/blog/>`_
 * `Nautic Advisor <https://www.nauticadvisor.com/blog/>`_
 * `Trespams <http://trespams.com/blog/>`_
-* `Houm Hotels <http://www.houmhotels.com/blog/>`_
 * `Body Therapy <http://bodytherapy.ru/blog/>`_
-* `Loblolly <http://www.loblolly.io/blog/>`_
 * `Astro <http://www.mallorcasoft.es/blog/>`_
 * `Kontrabando Film Festival <https://www.kontrabandofilmfestival.org/blog/>`_
+
 Setup
 ~~~~~
 
@@ -67,4 +67,3 @@ Related repositories
 * `docker-puput <https://github.com/APSL/docker-puput/>`_:  Docker image for Puput blog.
 * `puput-demo <https://github.com/APSL/puput-demo/>`_: An example of blog Django app using Puput.
 * `divio-wagtail-puput <https://github.com/divio/divio-wagtail-puput/>`_: A Divio Cloud addon to install the Wagtail Puput weblog.
-

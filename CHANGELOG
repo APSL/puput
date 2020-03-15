@@ -1,6 +1,38 @@
 Changelog
 =========
 
+1.0.7 (2020-03-01)
+------------------
+* Fix `puput_initial_data` command.
+
+1.0.6 (2019-12-01)
+------------------
+* Add support for Wagtail >2.7.
+* Add Python 3.7 and 3.8 to travis test matrix.
+
+1.0.5 (2019-09-03)
+------------------
+* Add support for Wagtail 2.6.
+* Remove Python 2 compatibility code.
+* Fix header image in related entries.
+* Remove Google Plus share buttons.
+
+1.0.4 (2019-05-27)
+------------------
+* Add support for Wagtail 2.4.
+* Update Django version to greater than 2.1.6 to fix security issues.
+* Updated some docs.
+* Fix entry header image.
+* Adding EntryAbstract.content_panels.
+
+1.0.3 (2018-12-13)
+------------------
+* Updated some docs.
+* Fixing social share urls to match `entry_url` (Thanks to @misraX).
+* Django URLS upgrading to 2.0 and Wagtail 2.3 support (Thanks to @MiltonLn)
+* Adding support for Django 2.1 and Wagtail 2.3 patch versions (Thanks to @MiltonLn)
+* Arabic translation (Thanks to @ahwebd)
+
 1.0.2 (2018-05-17)
 ------------------
 * Add missing image.

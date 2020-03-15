@@ -58,8 +58,8 @@ If you only want to have :class:`VideoEntryPage` on your blog and create a simpl
 
     class VideoEntryAbstract(EntryAbstract):
         video_url = models.URLField()
-
-        content_panels = [
+        
+        content_panels = EntryAbstract.content_panels + [
             FieldPanel('video_url')
         ]
 
