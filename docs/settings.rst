@@ -9,7 +9,15 @@ PUPUT_ENTRY_MODEL
 -----------------
 **Default value:** ``'puput.abstracts.EntryAbstract'`` (Empty string)
 
-String setting to define the base model path for Entry model. See :doc:`extending` for more details.
+String setting to define the base model path for Entry model. See :doc:`extending_entry` for more details.
+
+.. setting:: PUPUT_BLOG_MODEL
+
+PUPUT_BLOG_MODEL
+-----------------
+**Default value:** ``'puput.abstracts.BlogAbstract'`` (Empty string)
+
+String setting to define the base model path for Blog model. See :doc:`extending_blog` for more details.
 
 .. setting:: PUPUT_AS_PLUGIN
 

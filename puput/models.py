@@ -5,100 +5,27 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 
 from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.search import index
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
-from colorful.fields import RGBColorField
-
-from .abstracts import EntryAbstract
-from .utils import import_model, get_image_model_path
+from .abstracts import EntryAbstract, BlogAbstract
+from .utils import import_model
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager, BlogManager
 
 Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
+Blog = import_model(getattr(settings, 'PUPUT_BLOG_MODEL', BlogAbstract))
 
 
-class BlogPage(BlogRoutes, Page):
-    description = models.CharField(
-        verbose_name=_('Description'),
-        max_length=255,
-        blank=True,
-        help_text=_("The blog description that will appear under the title.")
-    )
-    header_image = models.ForeignKey(
-        get_image_model_path(),
-        verbose_name=_('Header image'),
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-
-    main_color = RGBColorField(_('Blog Main Color'), default="#4D6AE0")
-
-    display_comments = models.BooleanField(default=False, verbose_name=_('Display comments'))
-    display_categories = models.BooleanField(default=True, verbose_name=_('Display categories'))
-    display_tags = models.BooleanField(default=True, verbose_name=_('Display tags'))
-    display_popular_entries = models.BooleanField(default=True, verbose_name=_('Display popular entries'))
-    display_last_entries = models.BooleanField(default=True, verbose_name=_('Display last entries'))
-    display_archive = models.BooleanField(default=True, verbose_name=_('Display archive'))
-
-    disqus_api_secret = models.TextField(blank=True)
-    disqus_shortname = models.CharField(max_length=128, blank=True)
-
-    num_entries_page = models.IntegerField(default=5, verbose_name=_('Entries per page'))
-    num_last_entries = models.IntegerField(default=3, verbose_name=_('Last entries limit'))
-    num_popular_entries = models.IntegerField(default=3, verbose_name=_('Popular entries limit'))
-    num_tags_entry_header = models.IntegerField(default=5, verbose_name=_('Tags limit entry header'))
-
-    short_feed_description = models.BooleanField(default=True, verbose_name=_('Use short description in feeds'))
-
+class BlogPage(BlogRoutes, Page, Blog):
     extra = BlogManager()
 
-    content_panels = Page.content_panels + [
-        FieldPanel('description', classname="full"),
-        ImageChooserPanel('header_image'),
-        FieldPanel('main_color')
-    ]
-    settings_panels = Page.settings_panels + [
-        MultiFieldPanel(
-            [
-                FieldPanel('display_categories'),
-                FieldPanel('display_tags'),
-                FieldPanel('display_popular_entries'),
-                FieldPanel('display_last_entries'),
-                FieldPanel('display_archive'),
-            ],
-            heading=_("Widgets")
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('num_entries_page'),
-                FieldPanel('num_last_entries'),
-                FieldPanel('num_popular_entries'),
-                FieldPanel('num_tags_entry_header'),
-            ],
-            heading=_("Parameters")
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('display_comments'),
-                FieldPanel('disqus_api_secret'),
-                FieldPanel('disqus_shortname'),
-            ],
-            heading=_("Comments")
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('short_feed_description'),
-            ],
-            heading=_("Feeds")
-        ),
-    ]
+    content_panels = Page.content_panels + getattr(Blog, 'content_panels', [])
+    settings_panels = Page.settings_panels + getattr(Blog, 'settings_panels', [])
+
     subpage_types = ['puput.EntryPage']
 
     def get_entries(self):
