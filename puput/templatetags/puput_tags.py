@@ -1,10 +1,12 @@
 from django.template import Library
 from django.urls import resolve
-from django.template.loader import render_to_string
 from django.template.defaultfilters import urlencode
+from django.template.loader import render_to_string
 from django_social_share.templatetags.social_share import _build_url
 from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
 
+from ..conf import settings
+from ..utils import import_model
 from ..urls import get_entry_url, get_feeds_url
 from ..models import Category, Tag
 
@@ -88,12 +90,15 @@ def feeds_url(context, blog_page):
 def show_comments(context):
     blog_page = context['blog_page']
     entry = context['self']
-    if blog_page.display_comments and blog_page.disqus_shortname:
-        ctx = {
-            'disqus_shortname': blog_page.disqus_shortname,
-            'disqus_identifier': entry.id
-        }
-        return render_to_string('puput/comments/disqus.html', context=ctx)
+    if blog_page.display_comments:
+        try:
+            comment_class = import_model(settings.PUPUT_COMMENTS_PROVIDER)(blog_page, entry)
+            comment_context = comment_class.get_context()
+            comment_context.update(context.flatten())
+            return render_to_string(comment_class.template, context=comment_context)
+        except AttributeError:
+            raise Exception('To use comments you need to specify '
+                            'PUPUT_COMMENTS_PROVIDER in settings.')
     return ""
 
 

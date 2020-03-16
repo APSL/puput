@@ -42,3 +42,10 @@ PUPUT_USERNAME_REGEX
 
 String setting to define the default author username regex used in routes. Useful for people that are using a custom
 User model.
+
+PUPUT_COMMENTS_PROVIDER
+-----------------------
+
+**Default value:** ``'puput.comments.DisqusCommentsProvider'``
+
+String setting to define the class path for CommentProvider implementation. See :doc:`comments` for more details.

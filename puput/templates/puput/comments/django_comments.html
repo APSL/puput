@@ -1,0 +1,7 @@
+{% load comments %}
+
+<div>
+    <h3>Comments:</h3>
+    {% render_comment_list for entry %}
+    {% render_comment_form for entry %}
+</div>
