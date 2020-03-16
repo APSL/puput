@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.0 (2020-03-16)
+------------------
+* Updated blog model to be extensible
+* Add possibility of introducing new comment providers
+
 1.0.7 (2020-03-01)
 ------------------
 * Fix `puput_initial_data` command.
