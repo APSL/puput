@@ -140,6 +140,19 @@ class EntryPage(Entry, Page):
     parent_page_types = ['puput.BlogPage']
     subpage_types = []
 
+    def get_sitemap_urls(self, request=None):
+        from .urls import get_entry_url
+        root_url = self.get_url_parts()[1]
+        entry_url = get_entry_url(self, self.blog_page.page_ptr, root_url)
+        return [
+            {
+                'location': root_url + entry_url,
+                # fall back on latest_revision_created_at if last_published_at is null
+                # (for backwards compatibility from before last_published_at was added)
+                'lastmod': (self.last_published_at or self.latest_revision_created_at),
+            }
+        ]
+
     @property
     def blog_page(self):
         return self.get_parent().specific
