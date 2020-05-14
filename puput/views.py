@@ -5,6 +5,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
 from wagtail.core import hooks
+from wagtail.core.models import Site
 
 from .models import EntryPage
 from .utils import strip_prefix_and_ending_slash, import_model
@@ -24,7 +25,8 @@ class EntryPageServe(View):
 
     @method_decorator(ensure_csrf_cookie)
     def get(self, request, *args, **kwargs):
-        if not request.site:
+        site = Site.find_for_request(request)
+        if not site:
             raise Http404
         if request.resolver_match.url_name == 'entry_page_serve_slug':
             # Splitting the request path and obtaining the path_components
@@ -40,7 +42,7 @@ class EntryPageServe(View):
             path_components = splited_path[:-4] + splited_path[-1:]
         else:
             path_components = [strip_prefix_and_ending_slash(request.path).split('/')[-1]]
-        page, args, kwargs = request.site.root_page.specific.route(request, path_components)
+        page, args, kwargs = site.root_page.specific.route(request, path_components)
 
         for fn in hooks.get_hooks('before_serve_page'):
             result = fn(page, request, args, kwargs)

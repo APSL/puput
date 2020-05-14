@@ -69,7 +69,7 @@ class BlogPageFeed(Feed):
 
     def item_link(self, item):
         from .urls import get_entry_url
-        entry_url = get_entry_url(item, self.blog_page.page_ptr, self.request.site.root_page)
+        entry_url = get_entry_url(item, self.blog_page.page_ptr, Site.find_for_request(self.request).root_page)
         return self.request.build_absolute_uri(entry_url)
 
     def item_enclosure_url(self, item):
