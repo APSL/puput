@@ -85,7 +85,7 @@ def image_url(context, url):
 
 @register.simple_tag(takes_context=True)
 def feeds_url(context, blog_page):
-    return get_feeds_url(blog_page.page_ptr, Site.find_for_request(context['request']).site.root_page)
+    return get_feeds_url(blog_page.page_ptr, Site.find_for_request(context['request']).root_page)
 
 
 @register.simple_tag(takes_context=True)
