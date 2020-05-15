@@ -3,7 +3,7 @@ Changelog
 
 1.1.1 (2020-04-17)
 ------------------
-* Add support for Wagtail >3.0.
+* Add support for Django >3.0.
 * Dropped support for Python 3.5
 
 1.1.0 (2020-03-16)
