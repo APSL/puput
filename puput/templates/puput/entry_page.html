@@ -45,15 +45,15 @@
     <article class="box page-content"
              {% if self.id %}data-entry-page-update-comments-url="{% url 'entry_page_update_comments' self.id %}{% endif %}">
         {% include 'puput/entry_page_header.html' with entry=self %}
-        {% if self.header_image %}
-            <section>
+        <section>
+            {% if self.header_image %}
                 <span class="image featured">
                     {% image self.header_image fill-800x450 as header_image %}
                     <img alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
                 </span>
-                {% include 'puput/entry_links.html' with entry=self %}
-            </section>
-        {% endif %}
+            {% endif %}
+            {% include 'puput/entry_links.html' with entry=self %}
+        </section>
         <section>
             {{ self.body|richtext}}
             <div class="row">
