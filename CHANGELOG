@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.1.1 (2020-06-13)
+------------------
+* Add Django 3.0 support. Drop Python 3.5 support.
+* Add Wagtail 2.9 support.
+* Show authorship on entry page without image.
+* Fix duplicate pages on sitemap.
+
 1.1.0 (2020-03-16)
 ------------------
 * Updated blog model to be extensible
