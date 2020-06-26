@@ -12,6 +12,12 @@ Puput
     
 .. image:: https://api.codacy.com/project/badge/grade/f96e31ee1b8c4aa2b1402f12308afe96    
    :target: https://www.codacy.com/app/marctc/puput
+
+.. image:: https://img.shields.io/pypi/pyversions/puput.svg
+    :target: https://pypi.org/project/puput/
+
+.. image:: https://img.shields.io/pypi/djversions/puput.svg
+    :target: https://pypi.org/project/puput/
    
 Puput is a powerful and simple Django app to manage a blog. It uses the awesome `Wagtail CMS <https://github.com/torchbox/wagtail>`_ as content management system.
 
