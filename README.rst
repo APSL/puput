@@ -59,6 +59,7 @@ Examples of blog sites made with Puput
 * `Body Therapy <http://bodytherapy.ru/blog/>`_
 * `Astro <http://www.mallorcasoft.es/blog/>`_
 * `Kontrabando Film Festival <https://www.kontrabandofilmfestival.org/blog/>`_
+* `IP/DE <https://ipde.com/>`_
 
 Setup
 ~~~~~
