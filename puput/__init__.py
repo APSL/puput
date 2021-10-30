@@ -4,6 +4,7 @@ __version__ = "1.1.1"
 
 PUPUT_APPS = (
     # Wagtail apps
+    "wagtail.contrib.legacy.richtext",
     "wagtail.core",
     "wagtail.admin",
     "wagtail.documents",
