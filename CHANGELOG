@@ -6,6 +6,7 @@ Changelog
 * Add Django 3.2 support. Drop Django <2.2 support.
 * Add Wagtail 2.10-2.14 support.
 * Add Python 3.9 to travis test matrix.
+* Updated some docs.
 * Fix circular imports.
 
 1.1.1 (2020-06-13)

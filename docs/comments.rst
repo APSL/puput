@@ -4,7 +4,7 @@ Comments
 Puput allows customize the comment system for your blog entries. Simply go to settings tab while editing blog properties
 and add the required parameters depending on which system you want to use.
 
-There is a :code:`PUPUT_COMMENTS_PROVIDER` setting that should point to the specific provider class. It defaults to :class:`DisqusProvider`.
+There is a :code:`PUPUT_COMMENTS_PROVIDER` setting that should point to the specific provider class. It defaults to :class:`DisqusCommentsProvider`.
 
 Disqus
 ------
@@ -35,7 +35,7 @@ In your :file:`settings.py` file:
 
 .. code-block:: python
 
-    PUPUT_COMMENTS_PROVIDER = 'puput.comments.DjangoCommentsCommentsProvider'
+    PUPUT_COMMENTS_PROVIDER = 'puput.comments.DjangoCommentsProvider'
 
 
 .. note::
@@ -57,7 +57,7 @@ method to return the path to your custom template.
 Implement your own provider
 ---------------------------
 
-To add your own comment provider you will need to subclass :class:`CommentProvider` and implement its methods:
+To add your own comment provider you will need to subclass :class:`CommentsProvider` and implement its methods:
 
   :code:`template`
 
