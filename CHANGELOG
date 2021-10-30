@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.2 (unreleased)
+------------------
+
+* Fix circular imports.
+
 1.1.1 (2020-06-13)
 ------------------
 * Add Django 3.0 support. Drop Python 3.5 support.
