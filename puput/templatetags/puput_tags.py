@@ -7,7 +7,6 @@ from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
 
 from ..conf import settings
 from ..utils import import_model
-from ..urls import get_entry_url, get_feeds_url
 from ..models import Category, Tag
 
 from wagtail.core.models import Site
@@ -68,6 +67,8 @@ def archives_list(context):
 
 @register.simple_tag(takes_context=True)
 def entry_url(context, entry, blog_page):
+    from ..urls import get_entry_url
+
     return get_entry_url(entry, blog_page.page_ptr, Site.find_for_request(context['request']).root_page)
 
 
@@ -85,6 +86,8 @@ def image_url(context, url):
 
 @register.simple_tag(takes_context=True)
 def feeds_url(context, blog_page):
+    from ..urls import get_feeds_url
+
     return get_feeds_url(blog_page.page_ptr, Site.find_for_request(context['request']).root_page)
 
 

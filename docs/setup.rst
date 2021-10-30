@@ -51,7 +51,6 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     MIDDLEWARE_CLASSES = (
         ...
-        'wagtail.core.middleware.SiteMiddleware',
         'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     )
 
