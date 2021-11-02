@@ -1,5 +1,6 @@
 from datetime import date
 
+from django.contrib.auth import get_user_model
 from django.utils.dateformat import DateFormat
 from django.utils.formats import date_format
 from django.utils.translation import ugettext_lazy as _
@@ -9,7 +10,10 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core.models import Page
 from wagtail.search.models import Query
 
+from .utils import get_object_or_None
+
 USERNAME_REGEX = getattr(settings, 'PUPUT_USERNAME_REGEX', '\w+')
+USERNAME_FIELD = getattr(settings, 'PUPUT_USERNAME_FIELD', 'username')
 
 
 class BlogRoutes(RoutablePageMixin):
@@ -32,24 +36,30 @@ class BlogRoutes(RoutablePageMixin):
 
     @route(r'^tag/(?P<tag>[-\w]+)/$')
     def entries_by_tag(self, request, tag, *args, **kwargs):
+        from puput.models import Tag
+
         self.search_type = _('tag')
-        self.search_term = tag
+        object_or_slug = get_object_or_None(Tag, slug=tag) or tag
+        self.search_term = str(object_or_slug)
         self.entries = self.get_entries().filter(tags__slug=tag)
         return Page.serve(self, request, *args, **kwargs)
 
     @route(r'^category/(?P<category>[-\w]+)/$')
     def entries_by_category(self, request, category, *args, **kwargs):
+        from puput.models import Category
+
         self.search_type = _('category')
-        self.search_term = category
+        object_or_slug = get_object_or_None(Category, slug=category) or category
+        self.search_term = str(object_or_slug)
         self.entries = self.get_entries().filter(entry_categories__category__slug=category)
         return Page.serve(self, request, *args, **kwargs)
 
     @route(r'^author/(?P<author>%s)/$' % USERNAME_REGEX)
     def entries_by_author(self, request, author, *args, **kwargs):
         self.search_type = _('author')
-        self.search_term = author
-        field_name = 'owner__%s' % getattr(settings, 'PUPUT_USERNAME_FIELD', 'username')
-        self.entries = self.get_entries().filter(**{field_name: author})
+        object_or_slug = get_object_or_None(get_user_model(), **{USERNAME_FIELD: author}) or author
+        self.search_term = str(object_or_slug)
+        self.entries = self.get_entries().filter(**{'owner__%s' % USERNAME_FIELD: author})
         return Page.serve(self, request, *args, **kwargs)
 
     @route(r'^search/$')
