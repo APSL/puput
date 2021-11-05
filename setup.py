@@ -19,7 +19,7 @@ def get_metadata(package, field):
 setup(
     name='puput',
     version=get_metadata('puput', 'version'),
-    packages=find_packages(),
+    packages=find_packages(exclude=("example*", "tests*")),
     include_package_data=True,
     keywords="django wagtail puput blog cms app",
     description='A Django blog app implemented in Wagtail.',

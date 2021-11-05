@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.2 (unreleased)
+1.1.2 (2021-11-05)
 ------------------
 * Add Django 3.2 support. Drop Django <2.2 support.
 * Add Wagtail 2.10-2.14 support.
