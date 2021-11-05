@@ -1,4 +1,4 @@
-class CommentProvider:
+class CommentsProvider:
     def __init__(self, blog_page, entry_page):
         self.blog_page = blog_page
         self.entry_page = entry_page
@@ -14,7 +14,7 @@ class CommentProvider:
         raise NotImplementedError()
 
 
-class DisqusCommentProvider(CommentProvider):
+class DisqusCommentsProvider(CommentsProvider):
 
     @property
     def template(self):
@@ -46,7 +46,7 @@ class DisqusCommentProvider(CommentProvider):
             raise Exception('You need to install tapioca-disqus before using Disqus as comment system.')
 
 
-class DjangoCommentsProvider(CommentProvider):
+class DjangoCommentsProvider(CommentsProvider):
 
     @property
     def template(self):

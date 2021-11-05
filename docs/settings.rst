@@ -48,4 +48,4 @@ PUPUT_COMMENTS_PROVIDER
 
 **Default value:** ``'puput.comments.DisqusCommentsProvider'``
 
-String setting to define the class path for CommentProvider implementation. See :doc:`comments` for more details.
+String setting to define the class path for ``CommentsProvider`` implementation. See :doc:`comments` for more details.

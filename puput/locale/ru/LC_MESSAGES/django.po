@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: puput\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-10 09:49+0200\n"
-"PO-Revision-Date: 2017-01-24 15:08+0700\n"
-"Last-Translator: Basil Shubin <basil.shubin@gmail.com>\n"
+"PO-Revision-Date: 2021-11-01 17:59+0700\n"
+"Last-Translator: Basil S. <basil.shubin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: abstracts.py:16
 msgid "body"
@@ -29,7 +30,7 @@ msgstr "Дата публикации"
 
 #: abstracts.py:21 models.py:38
 msgid "Header image"
-msgstr "Изображение заголовка"
+msgstr "Заглавное изображение"
 
 #: abstracts.py:29
 msgid "excerpt"
@@ -51,7 +52,7 @@ msgstr "Рубрики"
 
 #: abstracts.py:52 templates/puput/related_entries.html:6
 msgid "Related Entries"
-msgstr "Связанные записи"
+msgstr "Похожие публикации"
 
 #: abstracts.py:56
 msgid "Metadata"
@@ -67,7 +68,7 @@ msgstr ""
 
 #: models.py:45
 msgid "Blog Main Color"
-msgstr ""
+msgstr "Основной цвет"
 
 #: models.py:47
 msgid "Display comments"
@@ -83,11 +84,11 @@ msgstr "Метки"
 
 #: models.py:50
 msgid "Display popular entries"
-msgstr "Популярные записи"
+msgstr "Популярные публикации"
 
 #: models.py:51
 msgid "Display last entries"
-msgstr "Последнии записи"
+msgstr "Последнии публикации"
 
 #: models.py:52
 msgid "Display archive"
@@ -95,7 +96,7 @@ msgstr "Архив"
 
 #: models.py:57
 msgid "Entries per page"
-msgstr "Количество записей на странице"
+msgstr "Количество публикаций на странице"
 
 #: models.py:58
 msgid "Last entries limit"
@@ -127,7 +128,7 @@ msgstr "Комментарии"
 
 #: models.py:103
 msgid "Feeds"
-msgstr ""
+msgstr "Ленты"
 
 #: models.py:127
 msgid "Blog"
@@ -155,11 +156,11 @@ msgstr "Рубрика"
 
 #: models.py:189 models.py:190 models.py:245
 msgid "Entry"
-msgstr "Запись"
+msgstr "Публикация"
 
 #: models.py:246
 msgid "Entries"
-msgstr "Записи"
+msgstr "Публикации"
 
 #: routes.py:22
 msgid "date"
@@ -195,11 +196,11 @@ msgstr "Поиск"
 
 #: templates/puput/base.html:80
 msgid "Last Entries"
-msgstr "Последние записи"
+msgstr "Последние публикации"
 
 #: templates/puput/base.html:86
 msgid "Popular Entries"
-msgstr "Популярные записи"
+msgstr "Популярные публикации"
 
 #: templates/puput/base.html:98
 msgid "Tags"
@@ -212,7 +213,7 @@ msgstr "Архив"
 #: templates/puput/blog_page.html:15 templates/puput/blog_page.html.py:23
 #: templates/puput/blog_page.html:50
 msgid "Entries for"
-msgstr "Записи:"
+msgstr "Публикации:"
 
 #: templates/puput/blog_page.html:84
 msgid "Continue reading"
@@ -224,7 +225,7 @@ msgstr "Ничего не найдено."
 
 #: templates/puput/entry_page.html:62
 msgid "Return"
-msgstr ""
+msgstr "Вернуться"
 
 #: templates/puput/tags/archives_list.html:23
 msgid "No entry archives yet"
@@ -236,7 +237,7 @@ msgstr "Рубрики отсутствуют"
 
 #: templates/puput/tags/entries_list.html:31
 msgid "No entries yet"
-msgstr "Записей еще нет"
+msgstr "Пока нет публикаций"
 
 #: templates/puput/tags/tags_list.html:9
 msgid "No tags yet"

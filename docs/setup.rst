@@ -25,6 +25,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     INSTALLED_APPS = (
         ...
+        'wagtail.contrib.legacy.richtext',
         'wagtail.core',
         'wagtail.admin',
         'wagtail.documents',

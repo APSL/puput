@@ -2,4 +2,7 @@ include AUTHORS
 include LICENSE
 include CHANGELOG
 include README.rst
-recursive-include puput *
+recursive-exclude example *
+recursive-include puput/static *.css *.js *.gif *.otf *.eot *.svg *.ttf *.woff
+recursive-include puput/templates *.html *.xml
+recursive-include puput/locale *.po *.mo
