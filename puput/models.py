@@ -4,7 +4,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Site
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.search import index
@@ -143,7 +143,8 @@ class EntryPage(Entry, Page):
     def get_sitemap_urls(self, request=None):
         from .urls import get_entry_url
         root_url = self.get_url_parts()[1]
-        entry_url = get_entry_url(self, self.blog_page.page_ptr, root_url)
+        # use root_page instance, not root_url
+        entry_url = get_entry_url(self, self.blog_page.page_ptr, Site.find_for_request(request).root_page)
         return [
             {
                 'location': root_url + entry_url,
