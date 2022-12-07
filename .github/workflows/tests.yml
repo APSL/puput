@@ -4,10 +4,10 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: ["3.6.15", "3.7.15", "3.8.15", "3.9.15"]
+        python-version: ["3.7", "3.8", "3.9"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
