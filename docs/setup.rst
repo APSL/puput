@@ -70,7 +70,13 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     WAGTAIL_SITE_NAME = 'Puput blog'
 
-6. Configure the :code:`MEDIA_ROOT` and :code:`MEDIA_URL` settings as described in the `Wagtail Docs <http://docs.wagtail.io/en/v1.1/advanced_topics/settings.html#ready-to-use-example-configuration-files>`_.
+6. Set the :code:`WAGTAILADMIN_BASE_URL` variable to the base url of your site in your Django settings.
+
+.. code-block:: python
+
+    WAGTAILADMIN_BASE_URL = 'http://localhost:8000/'
+
+7. Configure the :code:`MEDIA_ROOT` and :code:`MEDIA_URL` settings as described in the `Wagtail Docs <http://docs.wagtail.io/en/v1.1/advanced_topics/settings.html#ready-to-use-example-configuration-files>`_.
 
 .. code-block:: python
 
@@ -78,7 +84,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
     MEDIA_URL = '/media/'
 
 
-7. Place Puput's URLs at the **bottom** of the urlpatterns. It also includes Wagtail's URLs.
+8. Place Puput's URLs at the **bottom** of the urlpatterns. It also includes Wagtail's URLs.
 
 .. code-block:: python
 
@@ -87,7 +93,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         path(r'', include('puput.urls')),
     ]
 
-8. To make your Django project serve your media files (e.g. things you upload via the admin) during development, don't forget to add this to your urlpatterns:
+9. To make your Django project serve your media files (e.g. things you upload via the admin) during development, don't forget to add this to your urlpatterns:
 
 .. code-block:: python
 
@@ -98,18 +104,18 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
     if settings.DEBUG:
         import os
         from django.conf.urls.static import static
-        from django.views.generic.base import RedirectView
         from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+        from django.views.generic.base import RedirectView
 
         urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
         urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
         urlpatterns += [
-            url(r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
+            path(r'favicon\.ico', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
         ]
 
 
-9. Run :code:`python manage.py migrate` and :code:`python manage.py puput_initial_data` to load initial data to start a blog site.
-10. Open your browser at http://127.0.0.1:8000/blog/ to view your blog home page. Go to http://127.0.0.1:8000/blog_admin/ to view the admin site and edit your content.
+10. Run :code:`python manage.py migrate` and :code:`python manage.py puput_initial_data` to load initial data to start a blog site.
+11. Open your browser at http://127.0.0.1:8000/blog/ to view your blog home page. Go to http://127.0.0.1:8000/blog_admin/ to view the admin site and edit your content.
 
 .. _wagtail_app:
 
