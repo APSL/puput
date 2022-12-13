@@ -12,7 +12,7 @@ from wagtail.search.models import Query
 
 from .utils import get_object_or_None
 
-USERNAME_REGEX = getattr(settings, 'PUPUT_USERNAME_REGEX', '\w+')
+USERNAME_REGEX = getattr(settings, 'PUPUT_USERNAME_REGEX', '\\w+')
 USERNAME_FIELD = getattr(settings, 'PUPUT_USERNAME_FIELD', 'username')
 
 

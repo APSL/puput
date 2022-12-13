@@ -53,6 +53,7 @@ def category():
 def tag():
     yield baker.make(Tag)
 
+
 @pytest.fixture
 def entry_page(blog_page, author, category, tag):
     content_type = ContentType.objects.get_for_model(EntryPage)
