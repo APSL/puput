@@ -6,9 +6,6 @@ Puput
 
 .. image:: https://readthedocs.org/projects/puput/badge/?version=latest
     :target: https://readthedocs.org/projects/puput/?badge=latest
-    
-.. image:: https://api.codacy.com/project/badge/grade/f96e31ee1b8c4aa2b1402f12308afe96    
-   :target: https://www.codacy.com/app/marctc/puput
 
 .. image:: https://img.shields.io/pypi/pyversions/puput.svg
     :target: https://pypi.org/project/puput/
