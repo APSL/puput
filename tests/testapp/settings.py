@@ -5,7 +5,7 @@ WAGTAIL_SITE_NAME = 'Puput blog'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'changemepliz'
 DEBUG = True
-ALLOWED_HOSTS = "*"
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = (
     'django.contrib.auth',

@@ -4,14 +4,8 @@ Puput
 .. image:: https://img.shields.io/pypi/v/puput.svg
     :target: https://pypi.python.org/pypi/puput/
 
-.. image:: https://travis-ci.org/APSL/puput.svg?branch=master
-    :target: https://travis-ci.org/APSL/puput
-    
 .. image:: https://readthedocs.org/projects/puput/badge/?version=latest
     :target: https://readthedocs.org/projects/puput/?badge=latest
-    
-.. image:: https://api.codacy.com/project/badge/grade/f96e31ee1b8c4aa2b1402f12308afe96    
-   :target: https://www.codacy.com/app/marctc/puput
 
 .. image:: https://img.shields.io/pypi/pyversions/puput.svg
     :target: https://pypi.org/project/puput/

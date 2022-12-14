@@ -1,23 +1,19 @@
-import time
+import pytest
 
 
-class TestBlogPage(object):
+@pytest.mark.django_db
+class TestBlogPage:
 
-    def test_blog_page_home(self, browser, site_url):
-        browser.visit(site_url + '/blog/')
-        assert browser.status_code == 200
-        assert browser.is_text_present('Blog')
+    expected_status_code = 200
 
-    def test_blog_page_click_search(self, browser, site_url):
-        browser.visit(site_url + '/blog/')
-        browser.fill('q', 'test')
-        button = browser.find_by_css('.btn-default')[0]
-        button.click()
-        time.sleep(2)
-        assert browser.url == site_url + '/blog/search/?q=test'
-        assert browser.status_code == 200
-        assert browser.is_text_present('Entries for search')
+    def test_blog_page(self, client, blog_page):
+        _, domain, path = blog_page.get_url_parts()
+        rq = client.get(f"{domain}{path}")
+        assert rq.status_code == self.expected_status_code
+        assert blog_page.title in str(rq.content)
 
-    def test_blog_feed_rss(self, browser, site_url):
-        browser.visit(site_url + '/blog/feed/')
-        assert browser.status_code == 200
+    def test_blog_feed_rss(self, client, blog_page):
+        _, domain, path = blog_page.get_url_parts()
+        rq = client.get(f"{domain}{path}feed/")
+        assert rq.status_code == self.expected_status_code
+        assert "rss" in str(rq.content)
