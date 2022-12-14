@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.1.4 (2022-12-14)
+------------------
+* Add Wagtail 3 support.
+* Add Python 3.10 support. Drop Python 3.6 support.
+* Remove travis.
+* Fix tests suite and apply flake8.
+* Updated some docs.
+
 1.1.3 (2021-11-05)
 ------------------
 * Add Django 3.2 support. Drop Django <2.2 support.
