@@ -50,7 +50,7 @@ class BlogAbstract(models.Model):
 
     content_panels = [
         FieldPanel('description', classname="full"),
-        ImageChooserPanel('header_image'),
+        FieldPanel('header_image'),
         FieldPanel('main_color')
     ]
     settings_panels = [
@@ -106,7 +106,7 @@ class EntryAbstract(models.Model):
         MultiFieldPanel(
             [
                 FieldPanel('title', classname="title"),
-                ImageChooserPanel('header_image'),
+                FieldPanel('header_image'),
                 FieldPanel('body', classname="full"),
                 FieldPanel('excerpt', classname="full"),
             ],
