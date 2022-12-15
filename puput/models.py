@@ -16,27 +16,27 @@ from .utils import import_model
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager, BlogManager
 
-Entry = import_model(getattr(settings, 'PUPUT_ENTRY_MODEL', EntryAbstract))
-Blog = import_model(getattr(settings, 'PUPUT_BLOG_MODEL', BlogAbstract))
+Entry = import_model(getattr(settings, "PUPUT_ENTRY_MODEL", EntryAbstract))
+Blog = import_model(getattr(settings, "PUPUT_BLOG_MODEL", BlogAbstract))
 
 
 class BlogPage(BlogRoutes, Page, Blog):
     extra = BlogManager()
 
-    content_panels = Page.content_panels + getattr(Blog, 'content_panels', [])
-    settings_panels = Page.settings_panels + getattr(Blog, 'settings_panels', [])
+    content_panels = Page.content_panels + getattr(Blog, "content_panels", [])
+    settings_panels = Page.settings_panels + getattr(Blog, "settings_panels", [])
 
-    subpage_types = ['puput.EntryPage']
+    subpage_types = ["puput.EntryPage"]
 
     def get_entries(self):
-        return EntryPage.objects.descendant_of(self).live().order_by('-date').select_related('owner')
+        return EntryPage.objects.descendant_of(self).live().order_by("-date").select_related("owner")
 
     def get_context(self, request, *args, **kwargs):
         context = super(BlogPage, self).get_context(request, *args, **kwargs)
-        context['entries'] = self.entries
-        context['blog_page'] = self
-        context['search_type'] = getattr(self, 'search_type', "")
-        context['search_term'] = getattr(self, 'search_term', "")
+        context["entries"] = self.entries
+        context["blog_page"] = self
+        context["search_type"] = getattr(self, "search_type", "")
+        context["search_term"] = getattr(self, "search_term", "")
         return context
 
     @property
@@ -47,22 +47,22 @@ class BlogPage(BlogRoutes, Page, Blog):
         return self.get_url_parts()[-1]
 
     class Meta:
-        verbose_name = _('Blog')
+        verbose_name = _("Blog")
 
 
 @register_snippet
 class Category(models.Model):
-    name = models.CharField(max_length=80, unique=True, verbose_name=_('Category name'))
+    name = models.CharField(max_length=80, unique=True, verbose_name=_("Category name"))
     slug = models.SlugField(unique=True, max_length=80)
     parent = models.ForeignKey(
-        'self',
+        "self",
         blank=True,
         null=True,
         related_name="children",
-        verbose_name=_('Parent category'),
-        on_delete=models.SET_NULL
+        verbose_name=_("Parent category"),
+        on_delete=models.SET_NULL,
     )
-    description = models.CharField(max_length=500, blank=True, verbose_name=_('Description'))
+    description = models.CharField(max_length=500, blank=True, verbose_name=_("Description"))
 
     objects = CategoryManager()
 
@@ -73,9 +73,9 @@ class Category(models.Model):
         if self.parent:
             parent = self.parent
             if self.parent == self:
-                raise ValidationError(_('Parent category cannot be self.'))
+                raise ValidationError(_("Parent category cannot be self."))
             if parent.parent and parent.parent == self:
-                raise ValidationError(_('Cannot have circular Parents.'))
+                raise ValidationError(_("Cannot have circular Parents."))
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -83,24 +83,22 @@ class Category(models.Model):
         return super(Category, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
         verbose_name = _("Category")
         verbose_name_plural = _("Categories")
 
 
 class CategoryEntryPage(models.Model):
-    category = models.ForeignKey(Category, related_name="+", verbose_name=_('Category'), on_delete=models.CASCADE)
-    page = ParentalKey('EntryPage', related_name='entry_categories')
-    panels = [
-        FieldPanel('category')
-    ]
+    category = models.ForeignKey(Category, related_name="+", verbose_name=_("Category"), on_delete=models.CASCADE)
+    page = ParentalKey("EntryPage", related_name="entry_categories")
+    panels = [FieldPanel("category")]
 
     def __str__(self):
         return str(self.category)
 
 
 class TagEntryPage(TaggedItemBase):
-    content_object = ParentalKey('EntryPage', related_name='entry_tags')
+    content_object = ParentalKey("EntryPage", related_name="entry_tags")
 
 
 @register_snippet
@@ -112,8 +110,8 @@ class Tag(TaggitTag):
 
 
 class EntryPageRelated(models.Model):
-    entrypage_from = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_from')
-    entrypage_to = ParentalKey('EntryPage', verbose_name=_("Entry"), related_name='related_entrypage_to')
+    entrypage_from = ParentalKey("EntryPage", verbose_name=_("Entry"), related_name="related_entrypage_from")
+    entrypage_to = ParentalKey("EntryPage", verbose_name=_("Entry"), related_name="related_entrypage_to")
 
     def __str__(self):
         return str(self.entrypage_to)
@@ -122,34 +120,40 @@ class EntryPageRelated(models.Model):
 class EntryPage(Entry, Page):
     # Search
     search_fields = Page.search_fields + [
-        index.SearchField('body'),
-        index.SearchField('excerpt'),
-        index.FilterField('page_ptr_id')
+        index.SearchField("body"),
+        index.SearchField("excerpt"),
+        index.FilterField("page_ptr_id"),
     ]
 
     # Panels
-    content_panels = getattr(Entry, 'content_panels', [])
+    content_panels = getattr(Entry, "content_panels", [])
 
-    promote_panels = Page.promote_panels + getattr(Entry, 'promote_panels', [])
+    promote_panels = Page.promote_panels + getattr(Entry, "promote_panels", [])
 
-    settings_panels = Page.settings_panels + [
-        FieldPanel('date'), FieldPanel('owner'),
-    ] + getattr(Entry, 'settings_panels', [])
+    settings_panels = (
+        Page.settings_panels
+        + [
+            FieldPanel("date"),
+            FieldPanel("owner"),
+        ]
+        + getattr(Entry, "settings_panels", [])
+    )
 
     # Parent and child settings
-    parent_page_types = ['puput.BlogPage']
+    parent_page_types = ["puput.BlogPage"]
     subpage_types = []
 
     def get_sitemap_urls(self, request=None):
         from .urls import get_entry_url
+
         root_url = self.get_url_parts()[1]
         entry_url = get_entry_url(self, self.blog_page.page_ptr, root_url)
         return [
             {
-                'location': root_url + entry_url,
+                "location": root_url + entry_url,
                 # fall back on latest_revision_created_at if last_published_at is null
                 # (for backwards compatibility from before last_published_at was added)
-                'lastmod': (self.last_published_at or self.latest_revision_created_at),
+                "lastmod": (self.last_published_at or self.latest_revision_created_at),
             }
         ]
 
@@ -170,9 +174,9 @@ class EntryPage(Entry, Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super(EntryPage, self).get_context(request, *args, **kwargs)
-        context['blog_page'] = self.blog_page
+        context["blog_page"] = self.blog_page
         return context
 
     class Meta:
-        verbose_name = _('Entry')
-        verbose_name_plural = _('Entries')
+        verbose_name = _("Entry")
+        verbose_name_plural = _("Entries")

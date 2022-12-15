@@ -12,68 +12,67 @@ from wagtail.search.models import Query
 
 from .utils import get_object_or_None
 
-USERNAME_REGEX = getattr(settings, 'PUPUT_USERNAME_REGEX', '\\w+')
-USERNAME_FIELD = getattr(settings, 'PUPUT_USERNAME_FIELD', 'username')
+USERNAME_REGEX = getattr(settings, "PUPUT_USERNAME_REGEX", "\\w+")
+USERNAME_FIELD = getattr(settings, "PUPUT_USERNAME_FIELD", "username")
 
 
 class BlogRoutes(RoutablePageMixin):
-
-    @route(r'^(\d{4})/$')
-    @route(r'^(\d{4})/(\d{2})/$')
-    @route(r'^(\d{4})/(\d{2})/(\d{2})/$')
+    @route(r"^(\d{4})/$")
+    @route(r"^(\d{4})/(\d{2})/$")
+    @route(r"^(\d{4})/(\d{2})/(\d{2})/$")
     def entries_by_date(self, request, year, month=None, day=None, *args, **kwargs):
         self.entries = self.get_entries().filter(date__year=year)
-        self.search_type = _('date')
+        self.search_type = _("date")
         self.search_term = year
         if month:
             self.entries = self.entries.filter(date__month=month)
             df = DateFormat(date(int(year), int(month), 1))
-            self.search_term = df.format('F Y')
+            self.search_term = df.format("F Y")
         if day:
             self.entries = self.entries.filter(date__day=day)
             self.search_term = date_format(date(int(year), int(month), int(day)))
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^tag/(?P<tag>[-\w]+)/$')
+    @route(r"^tag/(?P<tag>[-\w]+)/$")
     def entries_by_tag(self, request, tag, *args, **kwargs):
         from puput.models import Tag
 
-        self.search_type = _('tag')
+        self.search_type = _("tag")
         object_or_slug = get_object_or_None(Tag, slug=tag) or tag
         self.search_term = str(object_or_slug)
         self.entries = self.get_entries().filter(tags__slug=tag)
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^category/(?P<category>[-\w]+)/$')
+    @route(r"^category/(?P<category>[-\w]+)/$")
     def entries_by_category(self, request, category, *args, **kwargs):
         from puput.models import Category
 
-        self.search_type = _('category')
+        self.search_type = _("category")
         object_or_slug = get_object_or_None(Category, slug=category) or category
         self.search_term = str(object_or_slug)
         self.entries = self.get_entries().filter(entry_categories__category__slug=category)
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^author/(?P<author>%s)/$' % USERNAME_REGEX)
+    @route(r"^author/(?P<author>%s)/$" % USERNAME_REGEX)
     def entries_by_author(self, request, author, *args, **kwargs):
-        self.search_type = _('author')
+        self.search_type = _("author")
         object_or_slug = get_object_or_None(get_user_model(), **{USERNAME_FIELD: author}) or author
         self.search_term = str(object_or_slug)
-        self.entries = self.get_entries().filter(**{'owner__%s' % USERNAME_FIELD: author})
+        self.entries = self.get_entries().filter(**{"owner__%s" % USERNAME_FIELD: author})
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^search/$')
+    @route(r"^search/$")
     def entries_search(self, request, *args, **kwargs):
-        search_query = request.GET.get('q', None)
+        search_query = request.GET.get("q", None)
         self.entries = self.get_entries()
         if search_query:
             self.entries = self.entries.search(search_query)
             self.search_term = search_query
-            self.search_type = _('search')
+            self.search_type = _("search")
             Query.get(search_query).add_hit()
         return Page.serve(self, request, *args, **kwargs)
 
-    @route(r'^$')
+    @route(r"^$")
     def entries_list(self, request, *args, **kwargs):
         self.entries = self.get_entries()
         return Page.serve(self, request, *args, **kwargs)

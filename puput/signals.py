@@ -4,12 +4,12 @@ from .utils import import_model
 
 
 def update_comment_count(sender, **kwargs):
-    comment = kwargs['comment']
+    comment = kwargs["comment"]
     entry_page = comment.content_object
     comment_class = import_model(settings.PUPUT_COMMENTS_PROVIDER)(entry_page.blog_page, entry_page)
     num_comments = comment_class.get_num_comments()
     entry_page.num_comments = num_comments
-    entry_page.save(update_fields=('num_comments',))
+    entry_page.save(update_fields=("num_comments",))
 
 
 try:

@@ -12,9 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Get blogpage content type
         blogpage_content_type, created = ContentType.objects.get_or_create(
-            model='blogpage',
-            app_label='puput',
-            defaults={'name': 'page'} if DJANGO_VERSION < (1, 8) else {}
+            model="blogpage", app_label="puput", defaults={"name": "page"} if DJANGO_VERSION < (1, 8) else {}
         )
 
         # Get root page
@@ -29,7 +27,7 @@ class Command(BaseCommand):
         blogpage = BlogPage(
             title="Blog",
             content_type=blogpage_content_type,
-            slug='blog',
+            slug="blog",
         )
 
         # Add blog page as a child for homepage
