@@ -3,6 +3,7 @@ from django.urls import resolve
 from django.template.defaultfilters import urlencode
 from django.template.loader import render_to_string
 from django_social_share.templatetags.social_share import _build_url
+# TODO: problem to upgrade to wagtail 4 due to django-el-pagination last version (3.3.0) does not support Django4 yet
 from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
 
 from ..conf import settings
