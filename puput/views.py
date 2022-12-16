@@ -28,7 +28,7 @@ class EntryPageServe(View):
         site = Site.find_for_request(request)
         if not site:
             raise Http404
-        if request.resolver_match.url_name == 'entry_page_serve_slug':
+        if request.resolver_match.url_name == "entry_page_serve_slug":
             # Splitting the request path and obtaining the path_components
             # this way allows you to place the blog at the level you want on
             # your sitemap.
@@ -41,10 +41,10 @@ class EntryPageServe(View):
             splited_path = strip_prefix_and_ending_slash(request.path).split("/")
             path_components = splited_path[:-4] + splited_path[-1:]
         else:
-            path_components = [strip_prefix_and_ending_slash(request.path).split('/')[-1]]
+            path_components = [strip_prefix_and_ending_slash(request.path).split("/")[-1]]
         page, args, kwargs = site.root_page.specific.route(request, path_components)
 
-        for fn in hooks.get_hooks('before_serve_page'):
+        for fn in hooks.get_hooks("before_serve_page"):
             result = fn(page, request, args, kwargs)
             if isinstance(result, HttpResponse):
                 return result
@@ -52,7 +52,6 @@ class EntryPageServe(View):
 
 
 class EntryPageUpdateCommentsView(View):
-
     def post(self, request, entry_page_id, *args, **kwargs):
         try:
             entry_page = EntryPage.objects.get(pk=entry_page_id)
@@ -60,7 +59,7 @@ class EntryPageUpdateCommentsView(View):
             comment_class = import_model(settings.PUPUT_COMMENTS_PROVIDER)(blog_page, entry_page)
             num_comments = comment_class.get_num_comments()
             entry_page.num_comments = num_comments
-            entry_page.save(update_fields=('num_comments',))
+            entry_page.save(update_fields=("num_comments",))
             return HttpResponse()
         except EntryPage.DoesNotExist:
             raise Http404

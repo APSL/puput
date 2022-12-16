@@ -13,15 +13,15 @@ from .models import BlogPage
 class BlogPageFeedGenerator(Rss201rev2Feed):
     def add_root_elements(self, handler):
         super(BlogPageFeedGenerator, self).add_root_elements(handler)
-        if self.feed['image_link']:
+        if self.feed["image_link"]:
             handler.addQuickElement(
-                'image',
-                '',
+                "image",
+                "",
                 {
-                    'url': self.feed['image_link'],
-                    'title': self.feed['title'],
-                    'link': self.feed['link'],
-                }
+                    "url": self.feed["image_link"],
+                    "title": self.feed["title"],
+                    "link": self.feed["link"],
+                },
             )
 
 
@@ -29,8 +29,8 @@ class BlogPageFeed(Feed):
     feed_type = BlogPageFeedGenerator
 
     def __call__(self, request, *args, **kwargs):
-        if request.resolver_match.url_name == 'blog_page_feed_slug':
-            self.blog_page = BlogPage.extra.get_by_path(kwargs['blog_path'])
+        if request.resolver_match.url_name == "blog_page_feed_slug":
+            self.blog_page = BlogPage.extra.get_by_path(kwargs["blog_path"])
             if not self.blog_page:
                 raise http.Http404
         else:
@@ -54,7 +54,7 @@ class BlogPageFeed(Feed):
         return item.title
 
     def _item_short_description(self, item):
-        if item.excerpt and item.excerpt.strip() != '':
+        if item.excerpt and item.excerpt.strip() != "":
             return item.excerpt
         else:
             return truncatewords_html(item.body, 70)
@@ -69,6 +69,7 @@ class BlogPageFeed(Feed):
 
     def item_link(self, item):
         from .urls import get_entry_url
+
         entry_url = get_entry_url(item, self.blog_page.page_ptr, Site.find_for_request(self.request).root_page)
         return self.request.build_absolute_uri(entry_url)
 
@@ -95,6 +96,4 @@ class BlogPageFeed(Feed):
             return urljoin(site.root_url, self.blog_page.header_image.file.url)
 
     def feed_extra_kwargs(self, obj):
-        return {
-            'image_link': self._channel_image_link()
-        }
+        return {"image_link": self._channel_image_link()}
