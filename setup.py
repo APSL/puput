@@ -27,7 +27,7 @@ setup(
     install_requires=[
         'Django>=3.0,<4.2',
         'wagtail>=3.0,<4.2',
-        'django-el-pagination>=3.2.4',
+        'django-el-pagination@git+ssh://git@github.com/APSL/django-el-pagination@4.0.0',
         'django-social-share>=1.3.0',
         'django-colorful>=1.3'
     ],
@@ -41,6 +41,8 @@ setup(
         'Framework :: Django :: 3.0',
         'Framework :: Django :: 3.1',
         'Framework :: Django :: 3.2',
+        'Framework :: Django :: 4.0',
+        'Framework :: Django :: 4.1',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
@@ -48,6 +50,7 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Operating System :: OS Independent',
         'Topic :: Software Development'
     ]
