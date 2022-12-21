@@ -3,6 +3,7 @@ Changelog
 
 Unreleased
 ----------
+* Drop Python <=3.7 support.
 * Add Python 3.11 support.
 * Add Django 4 support. Drop Django <2.2 support.
 * Add Wagtail 4 support. Drop Wagtail <3 support.
