@@ -19,7 +19,6 @@ Unreleased
 * Update tox.
 * Fix: include Python 3.10 on setup classifiers.
 
-
 1.1.4 (2022-12-14)
 ------------------
 * Add Wagtail 3 support.
