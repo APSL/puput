@@ -3,6 +3,7 @@ Changelog
 
 Unreleased
 ----------
+* Drop Django <4 support.
 * Add Wagtail 4 support. Drop Wagtail <3 support.
 * Add Django 4 support. Drop Django <3 support.
 * Update requirements-test.
