@@ -27,7 +27,7 @@ setup(
     install_requires=[
         'Django>=4.0,<4.2',
         'wagtail>=3.0,<4.2',
-        'django-el-pagination@git+ssh://git@github.com/APSL/django-el-pagination@4.0.0',
+        'django-el-pagination@git+https://github.com/APSL/django-el-pagination.git@4.0.0',
         'django-social-share>=1.3.0',
         'django-colorful>=1.3'
     ],
