@@ -181,7 +181,7 @@ class EntryPage(Entry, Page):
     def get_preview_context(self, request, mode_name):
         preview_context = super().get_preview_context(request, mode_name)
         if self.code:
-            preview_context['page'].body = markdown.markdown(self.code, extensions=['extra', 'codehilite'])
+            preview_context["page"].body = markdown.markdown(self.code, extensions=["extra", "codehilite"])
         return preview_context
 
     class Meta:

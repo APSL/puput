@@ -38,42 +38,22 @@ class BlogAbstract(models.Model):
 
     main_color = RGBColorField(_("Blog Main Color"), default="#4D6AE0")
 
-    display_comments = models.BooleanField(
-        default=False, verbose_name=_("Display comments")
-    )
-    display_categories = models.BooleanField(
-        default=True, verbose_name=_("Display categories")
-    )
+    display_comments = models.BooleanField(default=False, verbose_name=_("Display comments"))
+    display_categories = models.BooleanField(default=True, verbose_name=_("Display categories"))
     display_tags = models.BooleanField(default=True, verbose_name=_("Display tags"))
-    display_popular_entries = models.BooleanField(
-        default=True, verbose_name=_("Display popular entries")
-    )
-    display_last_entries = models.BooleanField(
-        default=True, verbose_name=_("Display last entries")
-    )
-    display_archive = models.BooleanField(
-        default=True, verbose_name=_("Display archive")
-    )
+    display_popular_entries = models.BooleanField(default=True, verbose_name=_("Display popular entries"))
+    display_last_entries = models.BooleanField(default=True, verbose_name=_("Display last entries"))
+    display_archive = models.BooleanField(default=True, verbose_name=_("Display archive"))
 
     disqus_api_secret = models.TextField(blank=True)
     disqus_shortname = models.CharField(max_length=128, blank=True)
 
-    num_entries_page = models.IntegerField(
-        default=5, verbose_name=_("Entries per page")
-    )
-    num_last_entries = models.IntegerField(
-        default=3, verbose_name=_("Last entries limit")
-    )
-    num_popular_entries = models.IntegerField(
-        default=3, verbose_name=_("Popular entries limit")
-    )
-    num_tags_entry_header = models.IntegerField(
-        default=5, verbose_name=_("Tags limit entry header")
-    )
+    num_entries_page = models.IntegerField(default=5, verbose_name=_("Entries per page"))
+    num_last_entries = models.IntegerField(default=3, verbose_name=_("Last entries limit"))
+    num_popular_entries = models.IntegerField(default=3, verbose_name=_("Popular entries limit"))
+    num_tags_entry_header = models.IntegerField(default=5, verbose_name=_("Tags limit entry header"))
 
-    short_feed_description = models.BooleanField(
-        default=True, verbose_name=_("Use short description in feeds")
-    )
+    short_feed_description = models.BooleanField(default=True, verbose_name=_("Use short description in feeds"))
 
     content_panels = [
         FieldPanel("description", classname="full"),
@@ -124,9 +104,7 @@ class EntryAbstract(models.Model):
     body = RichTextField(verbose_name=_("body"), blank=True, null=True)
     markdown_body = MarkdownField(blank=True, null=True, verbose_name="body (Markdown)")
     tags = ClusterTaggableManager(through="puput.TagEntryPage", blank=True)
-    date = models.DateTimeField(
-        verbose_name=_("Post date"), default=datetime.datetime.today
-    )
+    date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
     header_image = models.ForeignKey(
         get_image_model_path(),
         verbose_name=_("Header image"),
@@ -135,9 +113,7 @@ class EntryAbstract(models.Model):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    categories = models.ManyToManyField(
-        "puput.Category", through="puput.CategoryEntryPage", blank=True
-    )
+    categories = models.ManyToManyField("puput.Category", through="puput.CategoryEntryPage", blank=True)
     excerpt = RichTextField(
         verbose_name=_("excerpt"),
         blank=True,
@@ -182,7 +158,5 @@ class EntryAbstract(models.Model):
 
     def save(self, *args, **kwargs):
         if self.markdown_body:
-            self.body = markdown.markdown(
-                self.markdown_body, extensions=["extra", "codehilite"]
-            )
+            self.body = markdown.markdown(self.markdown_body, extensions=["extra", "codehilite"])
         super().save(*args, **kwargs)
