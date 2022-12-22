@@ -6,11 +6,8 @@ Unreleased
 * Drop Python <=3.7 support.
 * Add Python 3.11 support.
 * Add Django 4 support. Drop Django <2.2 support.
-* Add Wagtail 4 support. Drop Wagtail <3 support.
-* Update requirements-test.
 * Apply black.
 * Update tox.
-* Fix: include Python 3.10 on setup classifiers.
 
 1.2.0 (2022-12-16)
 ------------------
