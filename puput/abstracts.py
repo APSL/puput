@@ -1,15 +1,18 @@
 import datetime
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
 from wagtail.core.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
-
+from wagtailmarkdown.edit_handlers import MarkdownPanel
+from wagtailmarkdown.fields import MarkdownField
 from colorful.fields import RGBColorField
 
 from .utils import get_image_model_path
+import markdown
 
 
 class BlogAbstract(models.Model):
@@ -89,7 +92,8 @@ class BlogAbstract(models.Model):
 
 
 class EntryAbstract(models.Model):
-    body = RichTextField(verbose_name=_("body"))
+    body = RichTextField(verbose_name=_("body"), blank=True, null=True)
+    markdown_body = MarkdownField(blank=True, null=True, verbose_name="body (Markdown)")
     tags = ClusterTaggableManager(through="puput.TagEntryPage", blank=True)
     date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
     header_image = models.ForeignKey(
@@ -117,6 +121,7 @@ class EntryAbstract(models.Model):
                 FieldPanel("title", classname="title"),
                 FieldPanel("header_image"),
                 FieldPanel("body", classname="full"),
+                MarkdownPanel("markdown_body"),
                 FieldPanel("excerpt", classname="full"),
             ],
             heading=_("Content"),
@@ -135,3 +140,12 @@ class EntryAbstract(models.Model):
 
     class Meta:
         abstract = True
+
+    def clean(self):
+        if not (self.markdown_body or self.body):
+            raise ValidationError("You must specify either body or markdown body")
+
+    def save(self, *args, **kwargs):
+        if self.markdown_body:
+            self.body = markdown.markdown(self.markdown_body, extensions=['extra', 'codehilite'])
+        super().save(*args, **kwargs)
