@@ -3,8 +3,7 @@ import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
 from wagtail.core.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 
@@ -50,7 +49,7 @@ class BlogAbstract(models.Model):
 
     content_panels = [
         FieldPanel('description', classname="full"),
-        ImageChooserPanel('header_image'),
+        FieldPanel('header_image'),
         FieldPanel('main_color')
     ]
     settings_panels = [
@@ -106,7 +105,7 @@ class EntryAbstract(models.Model):
         MultiFieldPanel(
             [
                 FieldPanel('title', classname="title"),
-                ImageChooserPanel('header_image'),
+                FieldPanel('header_image'),
                 FieldPanel('body', classname="full"),
                 FieldPanel('excerpt', classname="full"),
             ],
