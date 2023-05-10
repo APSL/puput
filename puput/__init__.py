@@ -24,7 +24,6 @@ PUPUT_APPS = (
     "django_social_share",
     # Puput apps
     "puput",
-    # wagtail-markdown
     "wagtailmarkdown",
 )
 
