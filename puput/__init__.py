@@ -24,6 +24,7 @@ PUPUT_APPS = (
     "django_social_share",
     # Puput apps
     "puput",
+    "wagtailmarkdown",
 )
 
 default_app_config = "puput.apps.PuputAppConfig"

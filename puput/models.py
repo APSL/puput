@@ -1,3 +1,4 @@
+import markdown
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -176,6 +177,14 @@ class EntryPage(Entry, Page):
         context = super(EntryPage, self).get_context(request, *args, **kwargs)
         context["blog_page"] = self.blog_page
         return context
+
+    def get_preview_context(self, request, mode_name):
+        preview_context = super().get_preview_context(request, mode_name)
+
+        if self.markdown_body:
+            preview_context["page"].body = markdown.markdown(self.markdown_body, extensions=["extra", "codehilite"])
+
+        return preview_context
 
     class Meta:
         verbose_name = _("Entry")

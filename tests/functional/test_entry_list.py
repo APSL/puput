@@ -1,4 +1,5 @@
 import pytest
+from datetime import datetime
 
 
 @pytest.mark.django_db
@@ -38,6 +39,8 @@ class TestEntryList:
 
     def test_entry_page_archive_year_month(self, client, blog_page, entry_page):
         _, domain, blog_path = blog_page.get_url_parts()
-        rq = client.get(f"{domain}{blog_path}{entry_page.date.year}/{entry_page.date.month}/")
+        # Format month value adding the leading zero if month < 10
+        entry_page_month = datetime.strftime(entry_page.date, "%m")
+        rq = client.get(f"{domain}{blog_path}{entry_page.date.year}/{entry_page_month}/")
         assert rq.status_code == self.expected_status_code
         assert "Entries for date" in str(rq.content)

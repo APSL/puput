@@ -19,7 +19,14 @@ def locale(settings):
 def root_page(locale):
     # delete pre existent pages to avoid tree problems and page collisions
     Page.objects.all().delete()
-    root_page = Page(title="root_page", slug="root_page", depth=1, path="0001", live=True, locale=locale)
+    root_page = Page(
+        title="root_page",
+        slug="root_page",
+        depth=1,
+        path="0001",
+        live=True,
+        locale=locale,
+    )
     root_page.save()
     baker.make(Site, root_page=root_page, hostname="localhost", is_default_site=True, port=8000)
     yield root_page
