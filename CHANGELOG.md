@@ -9,6 +9,7 @@ Unreleased
 * Apply black.
 * Update tox.
 * Add markdown to EntryPages.
+* Add Django 4.2 support.
 
 1.2.0 (2022-12-16)
 ------------------
