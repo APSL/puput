@@ -5,11 +5,10 @@ Unreleased
 ----------
 * Drop Python <=3.7 support.
 * Add Python 3.11 support.
-* Add Django 4 support.
+* Add Django 4 (up to 4.2) support.
 * Apply black.
 * Update tox.
 * Add markdown to EntryPages.
-* Add Django 4.2 support.
 
 1.2.0 (2022-12-16)
 ------------------
