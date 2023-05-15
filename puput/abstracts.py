@@ -12,7 +12,6 @@ from wagtail.admin.edit_handlers import (
 )
 from wagtail.core.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
-from wagtailmarkdown.edit_handlers import MarkdownPanel
 from wagtailmarkdown.fields import MarkdownField
 from colorful.fields import RGBColorField
 
@@ -130,7 +129,7 @@ class EntryAbstract(models.Model):
                 FieldPanel("title", classname="title"),
                 FieldPanel("header_image"),
                 FieldPanel("body", classname="full"),
-                MarkdownPanel("markdown_body"),
+                FieldPanel("markdown_body"),
                 FieldPanel("excerpt", classname="full"),
             ],
             heading=_("Content"),
