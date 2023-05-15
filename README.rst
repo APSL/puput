@@ -37,6 +37,7 @@ Features
 * Extensible entry model
 * Configurable default template color
 * Social share of blog entries (Facebook, Twitter and LinkedIn)
+* Markdown fields (https://github.com/torchbox/wagtail-markdown)
 
 
 .. image:: http://i.imgur.com/d13sGI3.png
