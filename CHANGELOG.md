@@ -3,9 +3,8 @@ Changelog
 
 Unreleased
 ----------
-* Drop Python <=3.7 support.
-* Add Python 3.11 support.
-* Add Django 4 (up to 4.2) support.
+* Add Python 3.11 support. Drop Python <=3.7 support.
+* Add Django 4 support.
 * Apply black.
 * Update tox.
 * Add markdown to EntryPages.
