@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ----------
+
+* 1.2.1 (2023-05-16)
+------------------
 * Add Python 3.11 support. Drop Python <=3.7 support.
 * Add Django 4 support. Drop Django <3.2 support.
 * Apply black.
