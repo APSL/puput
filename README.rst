@@ -46,14 +46,11 @@ Examples of blog sites made with Puput
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * `Open Study Room <https://openstudyroom.org/blog/>`_
-* `Ncora Blog <https://www.ncora.com/blog/>`_
-* `Ncora TV <https://www.ncora.com/tv/>`_
 * `APSL <https://www.apsl.net/blog/>`_
 * `Nautic Advisor <https://www.nauticadvisor.com/blog/>`_
 * `Trespams <http://trespams.com/blog/>`_
 * `Body Therapy <http://bodytherapy.ru/blog/>`_
 * `Astro <http://www.mallorcasoft.es/blog/>`_
-* `Kontrabando Film Festival <https://www.kontrabandofilmfestival.org/blog/>`_
 * `IP/DE <https://ipde.com/>`_
 
 Setup
