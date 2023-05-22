@@ -4,13 +4,12 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.admin.edit_handlers import (
+from wagtail.admin.panels import (
     FieldPanel,
     MultiFieldPanel,
     InlinePanel,
     PageChooserPanel,
 )
-from wagtail.core.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtailmarkdown.fields import MarkdownField
 from colorful.fields import RGBColorField
@@ -100,7 +99,7 @@ class BlogAbstract(models.Model):
 
 
 class EntryAbstract(models.Model):
-    body = RichTextField(verbose_name=_("body"), blank=True, null=True)
+    body = FieldPanel(verbose_name=_("body"), blank=True, null=True)
     markdown_body = MarkdownField(blank=True, null=True, verbose_name="body (Markdown)")
     tags = ClusterTaggableManager(through="puput.TagEntryPage", blank=True)
     date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
@@ -113,7 +112,7 @@ class EntryAbstract(models.Model):
         related_name="+",
     )
     categories = models.ManyToManyField("puput.Category", through="puput.CategoryEntryPage", blank=True)
-    excerpt = RichTextField(
+    excerpt = FieldPanel(
         verbose_name=_("excerpt"),
         blank=True,
         help_text=_(

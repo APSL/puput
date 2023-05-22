@@ -9,7 +9,7 @@ from ..conf import settings
 from ..utils import import_model
 from ..models import Category, Tag
 
-from wagtail.core.models import Site
+from wagtail.models import Site
 
 register = Library()
 

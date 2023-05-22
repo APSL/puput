@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.management import BaseCommand
 
 from puput.models import BlogPage
-from wagtail.core.models import Page, Site
+from wagtail.models import Page, Site
 
 
 class Command(BaseCommand):

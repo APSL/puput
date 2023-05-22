@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import wagtail.core.fields
+import wagtail.fields
 import puput.routes
 import datetime
 import django.db.models.deletion
@@ -71,9 +71,9 @@ class Migration(migrations.Migration):
             name='EntryPage',
             fields=[
                 ('page_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='wagtailcore.Page', on_delete=models.CASCADE)),
-                ('body', wagtail.core.fields.RichTextField(verbose_name='body')),
+                ('body', wagtail.fields.RichTextField(verbose_name='body')),
                 ('date', models.DateTimeField(default=datetime.datetime.today, verbose_name='Post date')),
-                ('excerpt', wagtail.core.fields.RichTextField(help_text='Used to display on puput pages list. If this field is not filled, a truncate version of body text will be used.', verbose_name='excerpt', blank=True)),
+                ('excerpt', wagtail.fields.RichTextField(help_text='Used to display on puput pages list. If this field is not filled, a truncate version of body text will be used.', verbose_name='excerpt', blank=True)),
                 ('num_comments', models.IntegerField(default=0, editable=False)),
                 ('categories', models.ManyToManyField(to='puput.Category', through='puput.CategoryEntryPage', blank=True)),
                 ('header_image', models.ForeignKey(related_name='+', on_delete=django.db.models.deletion.SET_NULL, verbose_name='Header image', blank=True, to='wagtailimages.Image', null=True)),

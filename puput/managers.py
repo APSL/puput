@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import Count
-from wagtail.core.models import PageManager
+from wagtail.models import PageManager
 
 from .utils import strip_prefix_and_ending_slash
 
