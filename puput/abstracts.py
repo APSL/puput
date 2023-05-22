@@ -8,8 +8,8 @@ from wagtail.admin.panels import (
     FieldPanel,
     MultiFieldPanel,
     InlinePanel,
-    PageChooserPanel,
 )
+from wagtail.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtailmarkdown.fields import MarkdownField
 from colorful.fields import RGBColorField
@@ -99,7 +99,7 @@ class BlogAbstract(models.Model):
 
 
 class EntryAbstract(models.Model):
-    body = FieldPanel(verbose_name=_("body"), blank=True, null=True)
+    body = RichTextField(verbose_name=_("body"), blank=True, null=True)
     markdown_body = MarkdownField(blank=True, null=True, verbose_name="body (Markdown)")
     tags = ClusterTaggableManager(through="puput.TagEntryPage", blank=True)
     date = models.DateTimeField(verbose_name=_("Post date"), default=datetime.datetime.today)
@@ -112,7 +112,7 @@ class EntryAbstract(models.Model):
         related_name="+",
     )
     categories = models.ManyToManyField("puput.Category", through="puput.CategoryEntryPage", blank=True)
-    excerpt = FieldPanel(
+    excerpt = RichTextField(
         verbose_name=_("excerpt"),
         blank=True,
         help_text=_(
@@ -140,7 +140,7 @@ class EntryAbstract(models.Model):
                 InlinePanel(
                     "related_entrypage_from",
                     label=_("Related Entries"),
-                    panels=[PageChooserPanel("entrypage_to")],
+                    panels=[FieldPanel("entrypage_to")],
                 ),
             ],
             heading=_("Metadata"),
