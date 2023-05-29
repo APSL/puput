@@ -5,7 +5,6 @@ __version__ = "1.2.1"
 PUPUT_APPS = (
     # Wagtail apps
     "wagtail.contrib.legacy.richtext",
-    "wagtail.core",
     "wagtail.admin",
     "wagtail.documents",
     "wagtail.snippets",
@@ -18,6 +17,7 @@ PUPUT_APPS = (
     "wagtail.contrib.forms",
     "wagtail.contrib.sitemaps",
     "wagtail.contrib.routable_page",
+    "wagtail",
     # Third-party apps
     "taggit",
     "modelcluster",

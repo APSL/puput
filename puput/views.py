@@ -4,8 +4,8 @@ from django.views.generic import View
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
-from wagtail.core import hooks
-from wagtail.core.models import Site
+from wagtail import hooks
+from wagtail.models import Site
 
 from .models import EntryPage
 from .utils import strip_prefix_and_ending_slash, import_model

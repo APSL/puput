@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -34,6 +34,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='entrypage',
             name='excerpt',
-            field=wagtail.core.fields.RichTextField(help_text='Entry excerpt to be displayed on entries list. If this field is not filled, a truncate version of body text will be used.', verbose_name='excerpt', blank=True),
+            field=wagtail.fields.RichTextField(help_text='Entry excerpt to be displayed on entries list. If this field is not filled, a truncate version of body text will be used.', verbose_name='excerpt', blank=True),
         ),
     ]

@@ -4,13 +4,12 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.admin.edit_handlers import (
+from wagtail.admin.panels import (
     FieldPanel,
     MultiFieldPanel,
     InlinePanel,
-    PageChooserPanel,
 )
-from wagtail.core.fields import RichTextField
+from wagtail.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtailmarkdown.fields import MarkdownField
 from colorful.fields import RGBColorField
@@ -141,7 +140,7 @@ class EntryAbstract(models.Model):
                 InlinePanel(
                     "related_entrypage_from",
                     label=_("Related Entries"),
-                    panels=[PageChooserPanel("entrypage_to")],
+                    panels=[FieldPanel("entrypage_to")],
                 ),
             ],
             heading=_("Metadata"),

@@ -5,7 +5,7 @@ from django import http
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 from django.template.defaultfilters import truncatewords_html
-from wagtail.core.models import Site
+from wagtail.models import Site
 
 from .models import BlogPage
 

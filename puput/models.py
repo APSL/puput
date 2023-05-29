@@ -5,8 +5,8 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.models import Page
+from wagtail.admin.panels import FieldPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.search import index
 from taggit.models import TaggedItemBase, Tag as TaggitTag
