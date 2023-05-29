@@ -30,7 +30,7 @@ setup(
         'django-el-pagination==4.0.0',
         'django-social-share>=1.3.0',
         'django-colorful>=1.3',
-        'django-taggit>=3.1.0',
+        'django-taggit>=3.1.0,<4.1',
         'wagtail-markdown==0.11.0'
     ],
     url='http://github.com/APSL/puput',
