@@ -5,6 +5,7 @@ Unreleased
 ----------
 * Add Wagtail 5.0 support. Drop Wagtail <=4.0 support.
 * Add Django 4.2 support.
+* Upgrade jQuery to 2.2.4
 
 1.2.1 (2023-05-16)
 ------------------
