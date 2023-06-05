@@ -4,6 +4,7 @@ Changelog
 Unreleased
 ----------
 * Add Wagtail 5.0 support. Drop Wagtail <=4.0 support.
+* Add Django 4.2 support.
 
 1.2.1 (2023-05-16)
 ------------------
