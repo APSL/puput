@@ -3,6 +3,8 @@ Import your blog data
 
 If you need to migrate a blog system to Puput we provide you a various tools to import your data.
 
+This packages have been not review for a long time, they're on the roadmap but take it into account.
+
 Prerequisites
 -------------
 

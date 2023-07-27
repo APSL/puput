@@ -11,6 +11,7 @@ as parents and Entry pages as children. Furthermore all Blog pages must have Roo
 This has a powerful advantage so you can create separated sites with multiple blog instances. For instance, you could create
 a simple blog `http://www.example.com/blog/` and another one with videos (a videoblog) `http://www.example.com/tv/`.
 
+More information can be found at `Wagtail Docs <https://docs.wagtail.org/en/latest/advanced_topics/multi_site_multi_instance_multi_tenancy.html#id1>`_
 
 Single blog site
 ----------------

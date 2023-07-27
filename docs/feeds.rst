@@ -9,3 +9,4 @@ Feed description
 Set *Use short description in feeds* to False if you want to use the full blog post content as description for the feed items.
 When set to True (by default), Puput will try to use the blog post's excerpt or truncate the body to 70 words when the excerpt is not available.
 
+.. image:: https://i.imgur.com/2FaYn1p_d.webp?maxwidth=760

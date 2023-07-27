@@ -1,9 +1,6 @@
 Changelog
 =========
 
-Unreleased
-----------
-
 2.0.0 (2023-07-04)
 ------------------
 * Add Wagtail 5.0 support. Drop Wagtail <=4.0 support.
@@ -96,7 +93,7 @@ Unreleased
 * Fix header image.
 
 1.0 (2018-04-10)
-------------------
+----------------
 * Add support for Django 2.0 and Wagtail 2.0. Drop Python 2.7 support.
 * Add code and block quote options to the entries text editor.
 * Improve default template visualisation.
@@ -109,7 +106,7 @@ Unreleased
 * Add German and Polish translations.
 
 0.9.1 (2017-09-12)
-----------------
+------------------
 * Add missing migration.
 
 0.9 (2017-08-03)
@@ -128,7 +125,7 @@ Unreleased
 * Minor template tweaks.
 
 0.7 (2016-08-18)
-------------------
+----------------
 * Add initial travis support.
 * Add canonical url and social share tags in templates for SEO purposes.
 * Allow to place Puput's blog at any sitemap level.
@@ -138,7 +135,7 @@ Unreleased
 * Minor bug fixes.
 
 0.6 (2016-05-18)
-------------------
+----------------
 * Fix issue when displaying entries without images.
 * Fix css issues.
 * Add django-compressor as project dependency.
@@ -154,7 +151,7 @@ Unreleased
 * Fix bug due a missing template tag.
 
 0.5 (2016-02-12)
-------------------
+----------------
 * Altered URL structure in order to have blog as Wagtail root page.
 * Added Docker integration.
 * Archive list is now collapsible.
