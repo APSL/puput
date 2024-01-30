@@ -25,8 +25,7 @@ setup(
     description='A Django blog app implemented in Wagtail.',
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
-        'Django>=3.2,<4.3',
-        'wagtail>=4.1,<5.3',
+        'wagtail>=5.2',
         'django-el-pagination==4.0.0',
         'django-social-share>=1.3.0',
         'django-colorful>=1.3',
@@ -40,12 +39,9 @@ setup(
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 3.2',
-        'Framework :: Django :: 4.0',
-        'Framework :: Django :: 4.1',
         'Framework :: Django :: 4.2',
+        'Framework :: Django :: 5.0',
         'Framework :: Wagtail',
-        'Framework :: Wagtail :: 4',
         'Framework :: Wagtail :: 5',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
