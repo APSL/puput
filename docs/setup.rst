@@ -41,7 +41,6 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         'wagtail.contrib.routable_page',
         'taggit',
         'modelcluster',
-        'django_social_share',
         'puput',
     )
 
@@ -127,7 +126,7 @@ Installation on top of Wagtail
 
     pip install --upgrade pip
     pip install wheel
-    pip install wagtail django-colorful django-el-pagination django-social-share
+    pip install wagtail django-el-pagination
     pip install --no-deps puput
     wagtail start mysite
     cd mysite
@@ -141,9 +140,7 @@ Installation on top of Wagtail
  
      'wagtail.contrib.sitemaps',
      'wagtail.contrib.routable_page',
-     'django_social_share',
      'puput',
-     'colorful',
 
 3. In the same file, also add the line :code:`PUPUT_AS_PLUGIN = True` to the very bottom
 
