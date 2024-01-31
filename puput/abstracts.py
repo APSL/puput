@@ -12,8 +12,8 @@ from wagtail.admin.panels import (
 from wagtail.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtailmarkdown.fields import MarkdownField
-from colorful.fields import RGBColorField
 
+from .fields import ColorField
 from .utils import get_image_model_path
 import markdown
 
@@ -34,7 +34,7 @@ class BlogAbstract(models.Model):
         related_name="+",
     )
 
-    main_color = RGBColorField(_("Blog Main Color"), default="#4D6AE0")
+    main_color = ColorField(_("Blog Main Color"), default="#4D6AE0")
 
     display_comments = models.BooleanField(default=False, verbose_name=_("Display comments"))
     display_categories = models.BooleanField(default=True, verbose_name=_("Display categories"))

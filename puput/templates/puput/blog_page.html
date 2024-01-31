@@ -1,6 +1,6 @@
 {% extends "puput/base.html" %}
 
-{% load static i18n wagtailcore_tags wagtailimages_tags puput_tags social_share %}
+{% load static i18n wagtailcore_tags wagtailimages_tags puput_tags %}
 
 {% block title %}
     {% if search_term %}
@@ -69,16 +69,9 @@
                         {{ entry.body|richtext|truncatewords_html:70 }}
                     {% endif %}
                     <div class="row">
+                        {% canonical_url entry as share_url %}
                         <ul class="social-share col-md-9">
-                            <li class="social-item">
-                               {% post_to_facebook post_url '<span><i class="fa fa-facebook"></i></span>' %}
-                            </li>
-                            <li class="social-item">
-                                {% post_to_twitter entry.title post_url '<span><i class="fa fa-twitter"></i></span>' %}
-                            </li>
-                            <li class="social-item">
-                                {% post_to_linkendin post_url '<span><i class="fa fa-linkedin"></i></span>' %}
-                            </li>
+                            {% include 'puput/share_links.html' with share_url=share_url entry=entry only %}
                         </ul>
                         <div class="col-md-3">
                             <a class="blog_btn continue" href="{{ post_url }}">{% trans 'Continue reading' %} &raquo;</a>
