@@ -9,6 +9,7 @@ from django.conf import settings
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.models import Page
 import wagtail
+
 if wagtail.VERSION[:2] < (6, 0):
     from wagtail.search.models import Query
 else:
