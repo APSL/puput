@@ -25,7 +25,7 @@ setup(
     description='A Django blog app implemented in Wagtail.',
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
-        'wagtail>=5.2',
+        'wagtail>=5.2,<7.0',
         'django-el-pagination==4.0.0',
         'django-taggit>=3.1.0,<4.1',
         'wagtail-markdown==0.11.1'

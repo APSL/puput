@@ -15,6 +15,7 @@ PUPUT_APPS = (
     "wagtail.sites",
     "wagtail.contrib.redirects",
     "wagtail.contrib.forms",
+    "wagtail.contrib.search_promotions",
     "wagtail.contrib.sitemaps",
     "wagtail.contrib.routable_page",
     "wagtail",
