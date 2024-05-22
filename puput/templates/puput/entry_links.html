@@ -1,12 +1,14 @@
 {% load wagtailroutablepage_tags puput_tags %}
 
 <ul class="links">
+    {% if entry.owner %}
     <li>
         <i class="fa fa-user"></i>
         <a href="{% routablepageurl blog_page 'entries_by_author' entry.owner.username %}">
             {{ entry.owner.username }}
         </a>
     </li>
+    {% endif %}
     <li>
         <i class="fa fa-calendar"></i>
         {{ entry.date|date:"DATE_FORMAT" }}
