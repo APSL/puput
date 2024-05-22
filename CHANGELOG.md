@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ----------
+* Add Wagtail 6.1 support. Drop Wagtail <=5.2 support.
+
 
 2.0.0 (2023-07-04)
 ------------------
