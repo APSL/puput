@@ -1,6 +1,6 @@
 pytest==8.0.0
 pytest-django==4.8.0
-requests==2.31.0
+requests==2.32.0
 model-bakery==1.17.0
 ipdb==0.13.13
 tox==4.12.1
