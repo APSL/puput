@@ -3,11 +3,16 @@ Changelog
 
 Unreleased
 ----------
+
+ 
+2.1.1 (2024-06-25)
+------------------
+* Update docs
  
 2.1.0 (2024-06-14)
 ------------------
 * Add Wagtail 6.1 support. Drop Wagtail <=5.2 support.
-
+* Add Django 5.0 support.
 
 2.0.0 (2023-07-04)
 ------------------
@@ -114,7 +119,7 @@ Unreleased
 * Add German and Polish translations.
 
 0.9.1 (2017-09-12)
-----------------
+------------------
 * Add missing migration.
 
 0.9 (2017-08-03)

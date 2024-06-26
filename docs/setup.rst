@@ -49,19 +49,26 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
 .. code-block:: python
 
-    MIDDLEWARE_CLASSES = (
+    MIDDLEWARE = [
         ...
         'wagtail.contrib.redirects.middleware.RedirectMiddleware',
-    )
+    ]
 
 4. Add the :code:`request` context processor to the :code:`TEMPLATE_CONTEXT_PROCESSORS` structure in your Django settings.
 
 .. code-block:: python
 
-    TEMPLATE_CONTEXT_PROCESSORS = (
-        ...
-        'django.template.context_processors.request',
-    )
+    TEMPLATES = [
+        {
+            ...
+            "OPTIONS": {
+                "context_processors": [
+                    ...
+                    "django.template.context_processors.request"
+                ]
+            }
+        }
+    ]
 
 5. Set the :code:`WAGTAIL_SITE_NAME` variable to the name of your site in your Django settings.
 
@@ -75,7 +82,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
     WAGTAILADMIN_BASE_URL = 'http://localhost:8000/'
 
-7. Configure the :code:`MEDIA_ROOT` and :code:`MEDIA_URL` settings as described in the `Wagtail Docs <http://docs.wagtail.io/en/v1.1/advanced_topics/settings.html#ready-to-use-example-configuration-files>`_.
+7. Configure the :code:`MEDIA_ROOT` and :code:`MEDIA_URL` settings as described in the `Wagtail Docs <https://docs.wagtail.org/en/latest/getting_started/integrating_into_django.html>`_.
 
 .. code-block:: python
 
@@ -107,6 +114,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
         from django.views.generic.base import RedirectView
 
         urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
         urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
         urlpatterns += [
             path(r'favicon\.ico', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
@@ -120,7 +128,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
 Installation on top of Wagtail
 ------------------------------
-0. This assumes that you have Wagtail >= 2.0 installed and you can access /admin; if this is not the case or you would like to use a newer version of Wagtail than is in the dependencies of puput, follow the steps below in a python venv:
+0. This assumes that you have Wagtail >= 5.2 installed and you can access /admin; if this is not the case or you would like to use a newer version of Wagtail than is in the dependencies of puput, follow the steps below in a python venv:
 
 .. code-block:: bash
 
