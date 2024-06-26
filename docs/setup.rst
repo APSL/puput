@@ -128,7 +128,7 @@ If you are already referencing one of these apps in your :code:`INSTALLED_APPS` 
 
 Installation on top of Wagtail
 ------------------------------
-0. This assumes that you have Wagtail >= 7.0 installed and you can access /admin; if this is not the case or you would like to use a newer version of Wagtail than is in the dependencies of puput, follow the steps below in a python venv:
+0. This assumes that you have Wagtail >= 5.2 installed and you can access /admin; if this is not the case or you would like to use a newer version of Wagtail than is in the dependencies of puput, follow the steps below in a python venv:
 
 .. code-block:: bash
 

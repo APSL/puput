@@ -3,6 +3,11 @@ Changelog
 
 Unreleased
 ----------
+
+ 
+2.1.1 (2024-06-25)
+------------------
+* Update docs
  
 2.1.0 (2024-06-14)
 ------------------
@@ -114,7 +119,7 @@ Unreleased
 * Add German and Polish translations.
 
 0.9.1 (2017-09-12)
-----------------
+------------------
 * Add missing migration.
 
 0.9 (2017-08-03)
