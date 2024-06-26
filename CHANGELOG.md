@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ----------
+ 
+2.1.0 (2024-06-14)
+------------------
 * Add Wagtail 6.1 support. Drop Wagtail <=5.2 support.
 * Add Django 5.0 support.
 
