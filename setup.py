@@ -27,7 +27,7 @@ setup(
     install_requires=[
         'wagtail>=5.2,<7.0',
         'django-el-pagination==4.0.0',
-        'django-taggit>=3.1.0,<4.1',
+        'django-taggit>=5.0,<5.1',
         'wagtail-markdown==0.11.1'
     ],
     url='http://github.com/APSL/puput',
@@ -41,6 +41,7 @@ setup(
         'Framework :: Django :: 5.0',
         'Framework :: Wagtail',
         'Framework :: Wagtail :: 5',
+        'Framework :: Wagtail :: 6',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
