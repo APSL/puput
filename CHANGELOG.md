@@ -3,7 +3,7 @@ Changelog
 
 Unreleased
 ----------
-
+* EntryPage: auto slug generation from title
  
 2.1.1 (2024-06-25)
 ------------------

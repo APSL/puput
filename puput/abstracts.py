@@ -6,8 +6,9 @@ from django.utils.translation import gettext_lazy as _
 
 from wagtail.admin.panels import (
     FieldPanel,
-    MultiFieldPanel,
     InlinePanel,
+    MultiFieldPanel,
+    TitleFieldPanel,
 )
 from wagtail.fields import RichTextField
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -125,7 +126,7 @@ class EntryAbstract(models.Model):
     content_panels = [
         MultiFieldPanel(
             [
-                FieldPanel("title", classname="title"),
+                TitleFieldPanel("title", classname="title"),
                 FieldPanel("header_image"),
                 FieldPanel("body", classname="full"),
                 FieldPanel("markdown_body"),
