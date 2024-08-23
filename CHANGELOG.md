@@ -3,6 +3,7 @@ Changelog
 
 Unreleased
 ----------
+* Add Wagtail 6.2 support.
 * EntryPage: auto slug generation from title
  
 2.1.1 (2024-06-25)
