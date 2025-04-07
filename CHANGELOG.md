@@ -3,8 +3,9 @@ Changelog
 
 Unreleased
 ----------
-* Add Wagtail 6.2 support.
+* Add Wagtail 6.2 and 6.3 support.
 * EntryPage: auto slug generation from title
+* Upgrade django-taggit >=5.0,<6.2
  
 2.1.1 (2024-06-25)
 ------------------
