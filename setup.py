@@ -27,7 +27,7 @@ setup(
     install_requires=[
         'wagtail>=5.2,<7.0',
         'django-el-pagination==4.0.0',
-        'django-taggit>=5.0,<5.1',
+        'django-taggit>=5.0,<6.2',
         'wagtail-markdown==0.11.1'
     ],
     url='http://github.com/APSL/puput',
