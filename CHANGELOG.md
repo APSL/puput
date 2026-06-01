@@ -4,6 +4,17 @@ Changelog
 Unreleased
 ----------
 
+2.3.0 (2026-04-16)
+------------------
+* Add Wagtail 7.0, 7.1, 7.2, and 7.3 support.
+* Update dependencies:
+  - wagtail>=5.2,<8.0 (was >=5.2,<7.0)
+  - django-el-pagination>=4.0.0,<5.0 (was ==4.0.0)
+  - django-taggit>=5.0,<7.0 (was >=5.0,<6.2)
+  - wagtail-markdown>=0.11.1,<0.14.0 (was ==0.11.1)
+* Remove Draftail rich text hooks (features now built-in to Wagtail)
+* Add Python 3.12 support
+* Add Wagtail 7 framework classifier
 
 2.2.0 (2025-04-07)
 ------------------
