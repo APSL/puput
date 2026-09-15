@@ -25,10 +25,10 @@ setup(
     description='A Django blog app implemented in Wagtail.',
     long_description=codecs.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read(),
     install_requires=[
-        'wagtail>=5.2,<8.0',
+        'wagtail>=5.2,<9.0',
         'django-el-pagination>=4.0.0,<5.0',
         'django-taggit>=5.0,<7.0',
-        'wagtail-markdown>=0.11.1,<0.15.0'
+        'wagtail-markdown>=0.11.1,<0.16.0'
     ],
     url='http://github.com/APSL/puput',
     author=get_metadata('puput', 'author'),
@@ -39,10 +39,13 @@ setup(
         'Framework :: Django',
         'Framework :: Django :: 4.2',
         'Framework :: Django :: 5.0',
+        'Framework :: Django :: 5.2',
+        'Framework :: Django :: 6.0',
         'Framework :: Wagtail',
         'Framework :: Wagtail :: 5',
         'Framework :: Wagtail :: 6',
         'Framework :: Wagtail :: 7',
+        'Framework :: Wagtail :: 8',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
@@ -51,6 +54,8 @@ setup(
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
         'Operating System :: OS Independent',
         'Topic :: Software Development'
     ]

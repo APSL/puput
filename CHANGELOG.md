@@ -4,6 +4,14 @@ Changelog
 Unreleased
 ----------
 
+2.4.0 (2026-09-15)
+------------------
+* Add Wagtail 7.4 and 8.0 support.
+* Update dependencies:
+  - wagtail>=5.2,<9.0 (was >=5.2,<8.0)
+  - wagtail-markdown>=0.11.1,<0.16.0 (was >=0.11.1,<0.15.0)
+* Add Django 5.2/6.0, Wagtail 8 and Python 3.13/3.14 classifiers.
+
 2.3.0 (2026-04-16)
 ------------------
 * Add Wagtail 7.0, 7.1, 7.2, and 7.3 support.
